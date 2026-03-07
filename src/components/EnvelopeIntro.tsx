@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-// @ts-expect-error — run `npm i -D @types/canvas-confetti` to fix
 import confetti from "canvas-confetti";
-import { GiWaxSeal } from "react-icons/gi";
+import WaxSeal from "./WaxSeal";
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
 
 type Phase = "idle" | "opening" | "risen" | "card";
 
-const EW = 340;
-const EH = 480;
+const EW = 400;
+const EH = 520;
 const ENVELOPE_BG =
   "linear-gradient(160deg, #e2c570 0%, #ccaa4a 45%, #ba8f38 100%)";
 const FLAP_CLIP = "polygon(0 0, 50% 40%, 100% 0)";
@@ -86,82 +85,6 @@ const FoldLines = () => (
       strokeWidth="0.8"
     />
   </svg>
-);
-
-// ─── Wax Seal ─────────────────────────────────────────────
-
-const WaxSeal = ({ onClick }: { onClick: () => void }) => (
-  <motion.button
-    onClick={onClick}
-    initial={{ scale: 0.6, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    exit={{ scale: 1.8, opacity: 0, transition: { duration: 0.28 } }}
-    whileHover={{ scale: 1.1, rotate: 5 }}
-    whileTap={{ scale: 0.9 }}
-    transition={{ type: "spring", stiffness: 260, damping: 18 }}
-    className="relative w-20 h-20 rounded-full cursor-pointer flex items-center justify-center border-0 outline-none"
-    style={{
-      background:
-        "radial-gradient(circle at 38% 32%, #e05555 0%, #b02020 45%, #7a0e0e 80%, #550808 100%)",
-      boxShadow:
-        "0 6px 24px rgba(0,0,0,0.5), inset 0 3px 8px rgba(255,160,160,0.3), inset 0 -3px 8px rgba(40,0,0,0.6)",
-    }}
-  >
-    <svg
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      viewBox="0 0 80 80"
-    >
-      <circle
-        cx="40"
-        cy="40"
-        r="36"
-        stroke="rgba(255,180,180,0.2)"
-        strokeWidth="1.5"
-        fill="none"
-      />
-      <circle
-        cx="40"
-        cy="40"
-        r="29"
-        stroke="rgba(255,150,150,0.1)"
-        strokeWidth="1"
-        fill="none"
-      />
-      {[0, 60, 120, 180, 240, 300].map((a) => (
-        <circle
-          key={a}
-          cx={40 + 33 * Math.cos((a * Math.PI) / 180)}
-          cy={40 + 33 * Math.sin((a * Math.PI) / 180)}
-          r="1.5"
-          fill="rgba(255,180,180,0.35)"
-        />
-      ))}
-    </svg>
-    <div
-      className="absolute rounded-full pointer-events-none"
-      style={{
-        width: 26,
-        height: 12,
-        background:
-          "radial-gradient(ellipse, rgba(255,255,255,0.3) 0%, transparent 100%)",
-        top: 14,
-        left: 17,
-        transform: "rotate(-20deg)",
-      }}
-    />
-    <div className="relative z-10 flex items-center justify-center">
-      <GiWaxSeal className="absolute text-5xl text-red-200/10" />
-      <span
-        className="relative text-red-100 font-semibold italic text-sm select-none"
-        style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          textShadow: "0 1px 3px rgba(0,0,0,0.6)",
-        }}
-      >
-        A♥L
-      </span>
-    </div>
-  </motion.button>
 );
 
 // ─── Invitation card content (shared between risen + card states) ──
@@ -305,7 +228,7 @@ export default function EnvelopeIntro() {
     // we just animate the SAME letter to its final center spot.
     setPhase("card");
     await letterAnim.start({
-      y: -160, // Adjust this until the card is perfectly centered on your screen
+      y: -120, // Adjust this until the card is perfectly centered on your screen
       transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
     });
   };
@@ -421,7 +344,7 @@ export default function EnvelopeIntro() {
             zIndex: 30,
             background: ENVELOPE_BG,
             // Changed 52% to 35% to match the new FoldLines meeting point
-            clipPath: "polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%)",
+            clipPath: "polygon(0 0, 52% 35%, 100% 0, 100% 100%, 0 100%)",
           }}
         >
           <FoldLines />
@@ -439,9 +362,7 @@ export default function EnvelopeIntro() {
                     fontFamily: "'Cinzel', serif",
                     color: "rgba(60,35,5,0.65)",
                   }}
-                >
-                  Open Invitation
-                </p>
+                ></p>
                 <p
                   className="italic text-sm"
                   style={{
@@ -449,7 +370,6 @@ export default function EnvelopeIntro() {
                     color: "rgba(60,35,5,0.38)",
                   }}
                 >
-                  press the seal to open
                 </p>
               </motion.div>
             )}
@@ -460,7 +380,7 @@ export default function EnvelopeIntro() {
         <motion.div
           animate={envelopeAnim}
           className="absolute top-0 left-0 w-full"
-          style={{ height: "80%", zIndex: flapZIndex, perspective: "900px" }}
+          style={{ height: "95%", zIndex: flapZIndex, perspective: "900px" }}
         >
           <motion.div
             className="w-full h-full"
