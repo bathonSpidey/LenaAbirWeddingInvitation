@@ -1,0 +1,57 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #faf7f2;
+    font-family: serif;
+}
+
+.envelope {
+    width: 320px;
+    height: 200px;
+    background: #c6a35b;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: #b89445;
+    clip-path: polygon(0 0, 50% 70%, 100% 0);
+}
+
+.letter-text {
+    color: white;
+    font-size: 18px;
+}
+
+.invite-card {
+    width: 420px;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.invite-card h1 {
+    margin-bottom: 10px;
+}
+
+.open-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #1f3a36;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
