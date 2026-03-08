@@ -11,6 +11,7 @@ import PaperTexture from "../assets/Paper.jpg";
 import BridgertonMusic from "../assets/Brigerton.mp3"; // Adjust the path based on your folder structure
 import DiscoverAssam from "./DiscoverAssam";
 import RSVPSection from "./RSVPSection";
+import TravelPortal from "./TravelPortal";
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
@@ -80,6 +81,7 @@ export default function EnvelopeIntro() {
   const storyRef = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
   const rsvpRef = useRef<HTMLDivElement>(null);
+  const travelRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -91,6 +93,10 @@ export default function EnvelopeIntro() {
 
   const scrollToDiscover = () => {
     discoverRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToTravel = () => {
+    travelRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleRSVPClick = () => {
@@ -416,7 +422,35 @@ export default function EnvelopeIntro() {
       )}
       {/* SECTION 2a: REGRETS (Only renders if button is clicked) */}
       {showRSVP && (
-        <RSVPSection innerRef={rsvpRef as React.RefObject<HTMLDivElement>} />
+        <>
+          <div ref={rsvpRef} className="snap-start">
+            <RSVPSection
+              innerRef={rsvpRef as React.RefObject<HTMLDivElement>}
+              onBackToDiscover={scrollToDiscover}
+              onBackToStory={scrollToStory}
+              onNavigateToTravel={scrollToTravel}
+            />
+          </div>
+          {/* SECTION 3: OUR STORY (Renders alongside Regrets) */}
+          <div ref={storyRef} className="snap-start">
+            <OurStory
+              onBack={() =>
+                regretsRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            />
+          </div>
+
+          <div ref={discoverRef} className="snap-start">
+            <DiscoverAssam
+              onBack={() =>
+                regretsRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            />
+          </div>
+          <TravelPortal
+            innerRef={travelRef as React.RefObject<HTMLDivElement>}
+          />
+        </>
       )}
     </div>
   );

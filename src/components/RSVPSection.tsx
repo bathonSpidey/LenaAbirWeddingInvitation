@@ -43,8 +43,14 @@ const handleDownloadICS = () => {
 
 export default function RSVPSection({
   innerRef,
+  onBackToDiscover,
+  onBackToStory,
+  onNavigateToTravel,
 }: {
   innerRef: React.RefObject<HTMLDivElement>;
+  onBackToDiscover: () => void;
+  onBackToStory: () => void;
+  onNavigateToTravel: () => void;
 }) {
   const [country, setCountry] = useState<"Germany" | "Other">("Germany");
 
@@ -68,7 +74,7 @@ export default function RSVPSection({
           4 DECEMBER 2026
         </p>
 
-        <div className="mb-12">
+        <div className="mb-8">
           <p className="font-['Cinzel'] text-[9px] tracking-[0.3em] text-stone-400 uppercase mb-4">
             Add to Calendar
           </p>
@@ -123,7 +129,7 @@ export default function RSVPSection({
       </div>
 
       {/* RIGHT: DYNAMIC CONCIERGE */}
-      <div className="w-full md:w-2/3 p-12 md:p-24 bg-[#f5ead4]/30 relative overflow-hidden">
+      <div className="w-full md:w-2/3 p-8 md:p-6 bg-[#f5ead4]/30 relative overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={country}
@@ -132,32 +138,37 @@ export default function RSVPSection({
             exit={{ opacity: 0, x: -20 }}
             className="relative z-10"
           >
-            <h3 className="font-['Cinzel'] text-xs tracking-[0.4em] uppercase text-amber-800 mb-12">
+            <h3 className="font-['Cinzel'] text-xs tracking-[0.4em] uppercase text-amber-800 mb-8">
               Travel Guide
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <section>
-                <h4 className="font-['Cinzel'] text-[9px] font-bold mb-4 tracking-widest uppercase">
-                  Flights
+              <section className="bg-amber-50/30 p-6 border border-stone-200/60 rounded-sm text-center">
+                <h4 className="font-['Cinzel'] text-[11px] font-bold mb-4 tracking-widest uppercase text-stone-800">
+                  Planning your Journey?
                 </h4>
-                <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-relaxed">
-                  {TRAVEL_DATA[country].flights}
+                <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-8">
+                  We’ve curated a complete guide for our international
+                  guests—covering flights from Germany & China, local stays, and
+                  visa requirements.
                 </p>
+
+                <motion.button
+                  onClick={onNavigateToTravel} // Pass this as a prop
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#2D241E",
+                    color: "#fdf8ec",
+                  }}
+                  className="border border-stone-800 py-1 px-10 text-[10px] font-['Cinzel'] tracking-[0.3em] uppercase cursor-pointer transition-all"
+                >
+                  Open Travel Guide
+                </motion.button>
               </section>
 
               <section>
                 <h4 className="font-['Cinzel'] text-[9px] font-bold mb-4 tracking-widest uppercase">
-                  Where to Stay
-                </h4>
-                <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-relaxed">
-                  {TRAVEL_DATA[country].hotels}
-                </p>
-              </section>
-
-              <section className="md:col-span-2">
-                <h4 className="font-['Cinzel'] text-[9px] font-bold mb-4 tracking-widest uppercase">
-                  Must-Do Activities
+                  Must Do Activities
                 </h4>
                 <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-relaxed">
                   {TRAVEL_DATA[country].activities}
@@ -218,6 +229,37 @@ export default function RSVPSection({
                     Open in Navigation
                   </motion.button>
                 </div>
+              </div>
+            </section>
+            <section className="mt-12 pt-8 border-t border-stone-200/60">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                {/* Primary Button: Explore the Region */}
+                <motion.button
+                  onClick={onBackToDiscover}
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "#8B5E3C",
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex-1 bg-[#2D241E] text-[#fdf8ec] px-8 py-4 rounded-sm font-['Cinzel'] text-[10px] tracking-[0.25em] uppercase font-bold cursor-pointer transition-colors flex items-center justify-center gap-3 shadow-md"
+                >
+                  Explore the Region
+                </motion.button>
+
+                {/* Secondary/Ghost Button: Our Story */}
+                <motion.button
+                  onClick={onBackToStory}
+                  whileHover={{
+                    backgroundColor: "rgba(139, 94, 60, 0.05)",
+                    borderColor: "#8B5E3C",
+                    scale: 1.02,
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex-1 border border-stone-300 text-[#8B5E3C] px-8 py-4 rounded-sm font-['Cinzel'] text-[10px] tracking-[0.25em] uppercase font-bold cursor-pointer transition-all flex items-center justify-center gap-3"
+                >
+                  Our Story
+                </motion.button>
               </div>
             </section>
           </motion.div>
