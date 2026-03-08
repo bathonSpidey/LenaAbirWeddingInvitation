@@ -3,6 +3,11 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import WaxSeal from "./WaxSeal";
 import CardContent from "./CardContent";
+import { GoldDust } from "./GoldDust";
+import CultureMorph from "./CultureMorph";
+import EnvelopeTexture from "../assets/Envelop.jpg";
+import PaperTexture from "../assets/Paper.jpg";
+import BridgertonMusic from "../assets/Brigerton.mp3"; // Adjust the path based on your folder structure
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
@@ -11,10 +16,12 @@ type Phase = "idle" | "opening" | "risen" | "card";
 
 const EW = 400;
 const EH = 520;
-const ENVELOPE_BG =
-  "linear-gradient(160deg, #e2c570 0%, #ccaa4a 45%, #ba8f38 100%)";
+// const ENVELOPE_BG =
+//   "linear-gradient(160deg, #e2c570 0%, #ccaa4a 45%, #ba8f38 100%)";
 const FLAP_CLIP = "polygon(0 0, 50% 40%, 100% 0)";
 const CARD_W = 300;
+const music = new Audio(BridgertonMusic);
+music.volume = 0.6;
 
 const FoldLines = () => (
   <svg
@@ -74,6 +81,18 @@ export default function EnvelopeIntro() {
     if (phase !== "idle") return;
 
     setPhase("opening");
+    music.volume = 0;
+    music.play();
+
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 0.6) {
+        vol += 0.05;
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200);
     // Wait for flap
     await new Promise((r) => setTimeout(r, 900));
 
@@ -88,9 +107,11 @@ export default function EnvelopeIntro() {
     });
 
     confetti({
-      particleCount: 70,
+      particleCount: 90,
       spread: 80,
       origin: { y: 0.6 },
+      scalar: 0.9,
+      ticks: 220,
       colors: ["#C9A84C", "#E8D5A0", "#ffffff"],
     });
 
@@ -107,6 +128,11 @@ export default function EnvelopeIntro() {
     // Instead of switching phases to a new component,
     // we just animate the SAME letter to its final center spot.
     setPhase("card");
+    await letterAnim.start({
+      rotateX: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    });
     await letterAnim.start({
       y: -120, // Adjust this until the card is perfectly centered on your screen
       transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
@@ -131,6 +157,7 @@ export default function EnvelopeIntro() {
           ].join(","),
         }}
       />
+      <GoldDust />
 
       {/* ambient glow */}
       <div
@@ -156,7 +183,9 @@ export default function EnvelopeIntro() {
           <div
             className="absolute inset-0 rounded-md"
             style={{
-              background: ENVELOPE_BG,
+              backgroundImage: `url(${EnvelopeTexture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               boxShadow:
                 "0 20px 60px rgba(160,100,20,0.3), 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,240,180,0.25)",
             }}
@@ -168,8 +197,9 @@ export default function EnvelopeIntro() {
               left: 20,
               bottom: 0,
               height: EH - 10,
-              background:
-                "linear-gradient(145deg, #fffef9 0%, #fdf8ec 60%, #faf2de 100%)",
+              backgroundImage: `url(${PaperTexture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
         </motion.div>
@@ -201,7 +231,11 @@ export default function EnvelopeIntro() {
               left: (EW - CARD_W) / 2,
               top: 15, // Pushed down just a touch more to hide safely behind the flap
             }}
-            initial={{ y: 0 }}
+            initial={{
+              y: 0,
+              rotateX: 8,
+              scale: 0.96,
+            }}
           >
             <div
               className="rounded-lg"
@@ -223,7 +257,13 @@ export default function EnvelopeIntro() {
           className="absolute inset-0 pointer-events-none"
           style={{
             zIndex: 30,
-            background: ENVELOPE_BG,
+            backgroundImage: `
+  linear-gradient(160deg, rgba(226,197,112,0.95), rgba(186,143,56,0.95)),
+  url(${EnvelopeTexture})
+`,
+            backgroundBlendMode: "multiply",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             // Changed 52% to 35% to match the new FoldLines meeting point
             clipPath: "polygon(0 0, 52% 35%, 100% 0, 100% 100%, 0 100%)",
           }}
@@ -271,8 +311,13 @@ export default function EnvelopeIntro() {
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  "linear-gradient(180deg, #c59535 0%, #b08328 65%, #987018 100%)",
+                backgroundImage: `
+  linear-gradient(160deg, rgba(226,197,112,0.95), rgba(186,143,56,0.95)),
+  url(${EnvelopeTexture})
+`,
+                backgroundBlendMode: "multiply",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             />
             <div

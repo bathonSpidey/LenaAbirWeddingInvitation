@@ -27,7 +27,8 @@ export default function CardContent() {
       style={{
         padding: "36px 30px 30px",
         border: "1px solid rgba(201,168,76,0.3)",
-        background: "linear-gradient(145deg, #fffefb 0%, #fdf9f0 100%)",
+        boxShadow: "inset 0 0 12px rgba(120,90,30,0.08)",
+        background: "transparent",
       }}
     >
       <Corner className="absolute top-2 left-2" />
