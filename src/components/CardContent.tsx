@@ -20,7 +20,7 @@ const Corner = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function CardContent() {
+export default function CardContent({ onDecline }: { onDecline: () => void }) {
   return (
     <div
       className="m-2.5 rounded relative overflow-hidden"
@@ -119,6 +119,21 @@ export default function CardContent() {
           }}
         >
           RSVP
+        </motion.button>
+
+        <motion.button
+          onClick={onDecline} // Add this handler
+          whileHover={{ scale: 1.03, borderColor: "#8c7e6a", color: "#8c7e6a" }}
+          whileTap={{ scale: 0.98 }}
+          className="px-10 py-3 bg-transparent rounded-full cursor-pointer tracking-[0.2em] uppercase border transition-colors w-full sm:w-auto"
+          style={{
+            fontFamily: "'Cinzel', serif",
+            fontSize: 9,
+            color: "#a8a297",
+            borderColor: "#d1cfca",
+          }}
+        >
+          I Can't Make It
         </motion.button>
       </div>
     </div>
