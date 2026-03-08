@@ -9,6 +9,7 @@ import { GoldDust } from "./GoldDust";
 import EnvelopeTexture from "../assets/Envelop.jpg";
 import PaperTexture from "../assets/Paper.jpg";
 import BridgertonMusic from "../assets/Brigerton.mp3"; // Adjust the path based on your folder structure
+import DiscoverAssam from "./DiscoverAssam";
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
@@ -75,6 +76,7 @@ export default function EnvelopeIntro() {
     null,
   ) as React.RefObject<HTMLDivElement>;
   const storyRef = useRef<HTMLDivElement>(null);
+  const discoverRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -82,6 +84,10 @@ export default function EnvelopeIntro() {
 
   const scrollToStory = () => {
     storyRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToDiscover = () => {
+    discoverRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   // Magic trick: We start the flap in front of the letter, but
@@ -373,11 +379,21 @@ export default function EnvelopeIntro() {
             innerRef={regretsRef}
             onBack={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             onOurStory={scrollToStory}
+            onDiscover={scrollToDiscover}
           />
 
           {/* SECTION 3: OUR STORY (Renders alongside Regrets) */}
           <div ref={storyRef} className="snap-start">
             <OurStory
+              onBack={() =>
+                regretsRef.current?.scrollIntoView({ behavior: "smooth" })
+              }
+            />
+          </div>
+
+          {/* SECTION 4: DISCOVER ASSAM */}
+          <div ref={discoverRef} className="snap-start">
+            <DiscoverAssam
               onBack={() =>
                 regretsRef.current?.scrollIntoView({ behavior: "smooth" })
               }

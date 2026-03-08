@@ -6,12 +6,14 @@ interface RegretsSectionProps {
   innerRef: React.RefObject<HTMLDivElement>;
   onBack: () => void;
   onOurStory: () => void; // New prop for the story layout
+  onDiscover: () => void;
 }
 
 const RegretsSection: React.FC<RegretsSectionProps> = ({
   innerRef,
   onBack,
   onOurStory,
+  onDiscover,
 }) => {
   return (
     <div
@@ -62,6 +64,7 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
           </motion.button>
 
           <motion.button
+            onClick={onDiscover} // Use the new prop here
             whileHover={{ scale: 1.05 }}
             className="px-8 py-4 bg-[#C9A84C] text-white tracking-[0.2em] uppercase text-[10px] shadow-lg rounded-sm cursor-pointer"
             style={{ fontFamily: "'Cinzel', serif" }}
