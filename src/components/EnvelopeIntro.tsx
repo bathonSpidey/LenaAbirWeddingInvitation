@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import WaxSeal from "./WaxSeal";
+import CardContent from "./CardContent";
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
@@ -14,37 +15,6 @@ const ENVELOPE_BG =
   "linear-gradient(160deg, #e2c570 0%, #ccaa4a 45%, #ba8f38 100%)";
 const FLAP_CLIP = "polygon(0 0, 50% 40%, 100% 0)";
 const CARD_W = 300;
-
-// ─── Ornaments ───────────────────────────────────────────
-
-const DiamondDivider = () => (
-  <div className="flex items-center justify-center gap-2 w-full my-2">
-    <div className="h-px w-16 bg-amber-400/50" />
-    <div className="w-2 h-2 rotate-45 bg-amber-500/70" />
-    <div className="h-px w-16 bg-amber-400/50" />
-  </div>
-);
-
-const Corner = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 40 40" width="32" height="32" className={className}>
-    <path
-      d="M6 6 L6 20 M6 6 L20 6"
-      stroke="#C9A84C"
-      strokeWidth="1.2"
-      fill="none"
-      strokeLinecap="round"
-      opacity="0.6"
-    />
-    <path
-      d="M6 6 Q14 6 14 14"
-      stroke="#C9A84C"
-      strokeWidth="0.8"
-      fill="none"
-      opacity="0.4"
-    />
-    <circle cx="6" cy="6" r="2" fill="#C9A84C" opacity="0.6" />
-  </svg>
-);
 
 const FoldLines = () => (
   <svg
@@ -85,96 +55,6 @@ const FoldLines = () => (
       strokeWidth="0.8"
     />
   </svg>
-);
-
-// ─── Invitation card content (shared between risen + card states) ──
-
-const CardContent = () => (
-  <div
-    className="m-3 rounded relative"
-    style={{
-      padding: "28px 36px 24px",
-      border: "1px solid rgba(201,168,76,0.35)",
-      boxShadow:
-        "inset 0 0 0 4px rgba(255,255,255,0.7), inset 0 0 0 5px rgba(201,168,76,0.1)",
-    }}
-  >
-    <Corner className="absolute top-1 left-1" />
-    <Corner className="absolute top-1 right-1 rotate-90" />
-    <Corner className="absolute bottom-1 right-1 rotate-180" />
-    <Corner className="absolute bottom-1 left-1 -rotate-90" />
-
-    <div className="flex flex-col items-center text-center">
-      <p
-        className="tracking-[0.24em] uppercase mb-3 text-amber-700/70"
-        style={{ fontFamily: "'Cinzel', serif", fontSize: 9 }}
-      >
-        Together with their families
-      </p>
-
-      <h1
-        className="font-light italic text-stone-800 leading-none mb-1"
-        style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: 50,
-          letterSpacing: "0.02em",
-        }}
-      >
-        Abir &amp; Lena
-      </h1>
-
-      <DiamondDivider />
-
-      <p
-        className="italic text-amber-900/70 mb-1.5"
-        style={{ fontFamily: "'EB Garamond', serif", fontSize: 15 }}
-      >
-        joyfully invite you to celebrate their
-      </p>
-
-      <p
-        className="tracking-[0.2em] uppercase font-semibold mb-5 text-amber-700"
-        style={{ fontFamily: "'Cinzel', serif", fontSize: 13 }}
-      >
-        Wedding Reception
-      </p>
-
-      <div className="flex flex-col gap-4 mb-6">
-        {" "}
-        {/* Changed from flex-row gap-8 */}
-        {[
-          { label: "DATE", val: "4 December 2026" },
-          { label: "VENUE", val: "Royal Park, Jorhat" },
-          { label: "TIME", val: "7 o'clock in the evening" },
-        ].map(({ label, val }) => (
-          <div key={label} className="text-center">
-            <p className="tracking-[0.22em] uppercase text-amber-500 text-[9px] font-['Cinzel']">
-              {label}
-            </p>
-            <p className="italic text-stone-600 text-[14px] font-['EB_Garamond']">
-              {val}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <DiamondDivider />
-
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.96 }}
-        className="mt-4 px-8 py-2.5 text-white rounded-sm cursor-pointer tracking-[0.22em] uppercase border-0"
-        style={{
-          fontFamily: "'Cinzel', serif",
-          fontSize: 10,
-          background: "linear-gradient(135deg, #C9A84C, #A0722A)",
-          boxShadow: "0 3px 16px rgba(160,114,42,0.4)",
-        }}
-      >
-        Continue
-      </motion.button>
-    </div>
-  </div>
 );
 
 // ═══════════════════════════════════════════════════════════
@@ -303,13 +183,14 @@ export default function EnvelopeIntro() {
           className="absolute inset-0"
           style={{
             zIndex: 20,
-            // When idle, clip the top so it doesn't show above the V-cut (52% of EH)
-            // When opening/risen, remove the top clip to let it slide out
+            // Fix: When in "card" phase, we remove the clip entirely (inset 0)
             clipPath:
               phase === "idle"
-                ? `inset(${EH * 0.6}px 0px 0px 0px)` // Matches the new 60% pocket depth
-                : "inset(-1000px 0px 0px 0px)",
-            transition: "clip-path 0.1s", // Optional: small delay to sync with flap
+                ? `inset(${EH * 0.6}px 0px 0px 0px)`
+                : phase === "card"
+                  ? "inset(-500px -500px -500px -500px)" // Expansion to ensure no edges are cut
+                  : "inset(-1000px 0px 0px 0px)",
+            transition: "clip-path 0.4s ease-in-out",
           }}
         >
           <motion.div
@@ -369,8 +250,7 @@ export default function EnvelopeIntro() {
                     fontFamily: "'Cormorant Garamond', serif",
                     color: "rgba(60,35,5,0.38)",
                   }}
-                >
-                </p>
+                ></p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -410,7 +290,7 @@ export default function EnvelopeIntro() {
             <motion.div
               animate={envelopeAnim}
               className="absolute inset-0 flex items-center justify-center pointer-events-auto"
-              style={{ zIndex: 50, top: `calc(${EH * 0.35}px - 350px)` }}
+              style={{ zIndex: 50, top: `calc(${EH * 0.35}px - 320px)` }}
             >
               <WaxSeal onClick={handleSeal} />
             </motion.div>
