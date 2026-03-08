@@ -20,7 +20,13 @@ const Corner = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function CardContent({ onDecline }: { onDecline: () => void }) {
+export default function CardContent({
+  onDecline,
+  onRSVP,
+}: {
+  onDecline: () => void;
+  onRSVP: () => void;
+}) {
   return (
     <div
       className="m-2.5 rounded relative overflow-hidden"
@@ -109,16 +115,17 @@ export default function CardContent({ onDecline }: { onDecline: () => void }) {
         </div>
 
         <motion.button
+          onClick={onRSVP} // Triggered from EnvelopeIntro
           whileHover={{ scale: 1.03, backgroundColor: "#b59440" }}
           whileTap={{ scale: 0.98 }}
-          className="mt-4 px-12 py-3 text-white rounded-full cursor-pointer tracking-[0.25em] uppercase border-0 transition-colors shadow-lg"
+          className="mt-4 px-12 py-3 text-white rounded-full cursor-pointer tracking-[0.25em] uppercase shadow-lg"
           style={{
             fontFamily: "'Cinzel', serif",
             fontSize: 9,
             background: "#C9A84C",
           }}
         >
-          RSVP
+          RSVP & Travel Guide
         </motion.button>
 
         <motion.button
@@ -131,6 +138,7 @@ export default function CardContent({ onDecline }: { onDecline: () => void }) {
             fontSize: 9,
             color: "#a8a297",
             borderColor: "#d1cfca",
+            marginTop: 12,
           }}
         >
           I Can't Make It

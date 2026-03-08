@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import React from "react";
 
 // Updated assets based on your imports
 import TeaGarden from "../assets/tea.png";

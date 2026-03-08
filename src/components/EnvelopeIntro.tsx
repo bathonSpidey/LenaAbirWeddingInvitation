@@ -10,6 +10,7 @@ import EnvelopeTexture from "../assets/Envelop.jpg";
 import PaperTexture from "../assets/Paper.jpg";
 import BridgertonMusic from "../assets/Brigerton.mp3"; // Adjust the path based on your folder structure
 import DiscoverAssam from "./DiscoverAssam";
+import RSVPSection from "./RSVPSection";
 
 // ── Add this to your index.html <head>:
 // <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
@@ -72,11 +73,13 @@ const FoldLines = () => (
 export default function EnvelopeIntro() {
   const [phase, setPhase] = useState<Phase>("idle");
   const [showRegrets, setShowRegrets] = useState(false);
+  const [showRSVP, setShowRSVP] = useState(false);
   const regretsRef = useRef<HTMLDivElement>(
     null,
   ) as React.RefObject<HTMLDivElement>;
   const storyRef = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
+  const rsvpRef = useRef<HTMLDivElement>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -88,6 +91,13 @@ export default function EnvelopeIntro() {
 
   const scrollToDiscover = () => {
     discoverRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleRSVPClick = () => {
+    setShowRSVP(true);
+    setTimeout(() => {
+      rsvpRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   // Magic trick: We start the flap in front of the letter, but
@@ -274,7 +284,10 @@ export default function EnvelopeIntro() {
                     "0 24px 80px rgba(160,110,30,0.28), 0 4px 16px rgba(0,0,0,0.1)",
                 }}
               >
-                <CardContent onDecline={handleDecline} />
+                <CardContent
+                  onDecline={handleDecline}
+                  onRSVP={handleRSVPClick}
+                />
               </div>
             </motion.div>
           </div>
@@ -400,6 +413,10 @@ export default function EnvelopeIntro() {
             />
           </div>
         </>
+      )}
+      {/* SECTION 2a: REGRETS (Only renders if button is clicked) */}
+      {showRSVP && (
+        <RSVPSection innerRef={rsvpRef as React.RefObject<HTMLDivElement>} />
       )}
     </div>
   );
