@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import CountdownStrip from "../BridgertonCountdown";
 import RSVPTexture from "../../assets/RSVPTexture.png";
 import CalendarButton from "./CalendarButton";
 import { TRAVEL_DATA } from "./types";
@@ -41,9 +42,9 @@ export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExp
         6 DECEMBER 2026
       </p>
       {daysUntil > 0 && (
-        <p className="font-['Cormorant_Garamond'] text-stone-400 text-sm italic mb-8">
-          {t("saveTheDate.daysToGo", { count: daysUntil })}
-        </p>
+        <div className="mb-8">
+          <CountdownStrip />
+        </div>
       )}
 
       <div className="mb-8">

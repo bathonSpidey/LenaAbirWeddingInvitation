@@ -5,7 +5,6 @@ import EnvelopeBack from "./EnvelopeBack";
 import EnvelopeLetter from "./EnvelopeLetter";
 import EnvelopeFrontPocket from "./EnvelopeFrontPocket";
 import EnvelopeFlap from "./EnvelopeFlap";
-import CountdownStrip from "../BridgertonCountdown";
 import { EW, EH } from "./constants";
 import type { Phase } from "./constants";
 
@@ -104,21 +103,6 @@ export default function EnvelopeStage({
         </AnimatePresence>
       </div>
 
-      {/* ── Countdown strip ── */}
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-2 pointer-events-none">
-        <p
-          style={{
-            fontFamily: "'Cinzel', serif",
-            fontSize: "7px",
-            letterSpacing: "0.4em",
-            color: "rgba(139,100,40,0.6)",
-            textTransform: "uppercase",
-          }}
-        >
-          6 December 2026
-        </p>
-        <CountdownStrip />
-      </div>
     </div>
   );
 }
