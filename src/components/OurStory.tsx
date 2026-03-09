@@ -12,8 +12,10 @@ const EdelweissIcon = ({ className = "" }: { className?: string }) => (
     {[0, 60, 120, 180, 240, 300].map((deg) => (
       <ellipse
         key={deg}
-        cx="12" cy="12"
-        rx="2.2" ry="5"
+        cx="12"
+        cy="12"
+        rx="2.2"
+        ry="5"
         fill="currentColor"
         opacity="0.85"
         transform={`rotate(${deg} 12 12)`}
@@ -28,13 +30,37 @@ const EdelweissIcon = ({ className = "" }: { className?: string }) => (
 const LotusIcon = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
     {/* Three back petals */}
-    <path d="M12 18 C9 14 7 10 12 6 C17 10 15 14 12 18Z" fill="currentColor" opacity="0.35" />
-    <path d="M12 18 C7  15 4  11  7  7  C10 8  11 13 12 18Z" fill="currentColor" opacity="0.35" />
-    <path d="M12 18 C17 15 20 11 17  7  C14 8  13 13 12 18Z" fill="currentColor" opacity="0.35" />
+    <path
+      d="M12 18 C9 14 7 10 12 6 C17 10 15 14 12 18Z"
+      fill="currentColor"
+      opacity="0.35"
+    />
+    <path
+      d="M12 18 C7  15 4  11  7  7  C10 8  11 13 12 18Z"
+      fill="currentColor"
+      opacity="0.35"
+    />
+    <path
+      d="M12 18 C17 15 20 11 17  7  C14 8  13 13 12 18Z"
+      fill="currentColor"
+      opacity="0.35"
+    />
     {/* Three front petals */}
-    <path d="M12 18 C9.5 13 9 9 12 7   C15 9 14.5 13 12 18Z" fill="currentColor" opacity="0.75" />
-    <path d="M12 18 C7.5 14 6 9.5 9 7  C11 9  11.5 14 12 18Z" fill="currentColor" opacity="0.75" />
-    <path d="M12 18 C16.5 14 18 9.5 15 7 C13 9  12.5 14 12 18Z" fill="currentColor" opacity="0.75" />
+    <path
+      d="M12 18 C9.5 13 9 9 12 7   C15 9 14.5 13 12 18Z"
+      fill="currentColor"
+      opacity="0.75"
+    />
+    <path
+      d="M12 18 C7.5 14 6 9.5 9 7  C11 9  11.5 14 12 18Z"
+      fill="currentColor"
+      opacity="0.75"
+    />
+    <path
+      d="M12 18 C16.5 14 18 9.5 15 7 C13 9  12.5 14 12 18Z"
+      fill="currentColor"
+      opacity="0.75"
+    />
     {/* Stamen */}
     <circle cx="12" cy="13" r="1.5" fill="currentColor" />
   </svg>
@@ -48,7 +74,11 @@ const Pin = ({ image, title }: { image?: string; title: string }) => (
     style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
   >
     {image ? (
-      <img src={image} alt={title} className="w-full h-full object-cover block" />
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover block"
+      />
     ) : (
       <div className="w-full h-full flex items-center justify-center bg-amber-50">
         <div className="w-2 h-2 rotate-45 bg-amber-300 border border-amber-400" />
@@ -92,10 +122,16 @@ const StoryMilestone = ({
         </span>
         <Pin image={image} title={title} />
         {/* Location badge */}
-        <span
-          className="mt-1 px-2 py-0.5 rounded-full bg-stone-800/8 text-stone-500 border border-stone-300/50 text-[9px] tracking-widest font-['Cinzel'] flex items-center gap-1 whitespace-nowrap"
-        >
-          <span>{flag}</span> {location}
+        <span className="mt-1 px-2 py-0.5 rounded-full bg-stone-800/8 text-stone-500 border border-stone-300/50 text-[9px] tracking-widest font-['Cinzel'] flex items-center gap-1 whitespace-nowrap">
+          <span
+            style={{
+              fontFamily:
+                "'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif",
+            }}
+          >
+            {flag}
+          </span>
+          {location}
         </span>
       </div>
 
@@ -118,7 +154,9 @@ const StoryMilestone = ({
 
 export default function OurStory({ onBack }: { onBack: () => void }) {
   const { t } = useTranslation();
-  const milestones = t("ourStory.milestones", { returnObjects: true }) as Array<{ title: string; desc: string }>;
+  const milestones = t("ourStory.milestones", {
+    returnObjects: true,
+  }) as Array<{ title: string; desc: string }>;
   return (
     <div
       className="min-h-screen w-full bg-[#fdf8ec] p-8 md:p-20 relative"
@@ -174,10 +212,41 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
 
           {/* Milestones */}
           <div>
-            <StoryMilestone index={0} year="2024" title={milestones[0].title} location="Oberstdorf" flag="🇩🇪" desc={milestones[0].desc} image={FirstEncounter} />
-            <StoryMilestone index={1} year="2024" title={milestones[1].title} location="Baden-Baden" flag="🇩🇪" desc={milestones[1].desc} image={LeapOfFaith} />
-            <StoryMilestone index={2} year="2025" title={milestones[2].title} location="Rheinfall" flag="🇨🇭" desc={milestones[2].desc} image={Proposal} />
-            <StoryMilestone index={3} year="2026" title={milestones[3].title} location="Denmark → Jorhat" flag="🇩🇰🇮🇳" desc={milestones[3].desc} />
+            <StoryMilestone
+              index={0}
+              year="2024"
+              title={milestones[0].title}
+              location="Oberstdorf"
+              flag="🇩🇪"
+              desc={milestones[0].desc}
+              image={FirstEncounter}
+            />
+            <StoryMilestone
+              index={1}
+              year="2024"
+              title={milestones[1].title}
+              location="Baden-Baden"
+              flag="🇩🇪"
+              desc={milestones[1].desc}
+              image={LeapOfFaith}
+            />
+            <StoryMilestone
+              index={2}
+              year="2025"
+              title={milestones[2].title}
+              location="Rheinfall"
+              flag="🇨🇭"
+              desc={milestones[2].desc}
+              image={Proposal}
+            />
+            <StoryMilestone
+              index={3}
+              year="2026"
+              title={milestones[3].title}
+              location="Denmark → Jorhat"
+              flag="🇩🇰🇮🇳"
+              desc={milestones[3].desc}
+            />
           </div>
 
           {/* Cultural bridge banner */}

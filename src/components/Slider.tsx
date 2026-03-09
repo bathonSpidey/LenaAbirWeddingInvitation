@@ -8,6 +8,7 @@ import { useState } from "react";
 import Dove from "../assets/dove.png"; // A subtle dove icon for the completed state (optional)
 import Land from "../assets/handLand.png"; // A subtle land icon for the active state (optional)
 import Thanks from "../assets/Thanks.png"; // A "Thank You" image to show after completion (optional)
+import ThankYou from "../assets/thankyou.png"; // A "Thank You" image to show after completion (optional)
 
 const KNOB_SIZE = 48; // Slightly larger for detail
 const PADDING = 4;
@@ -18,7 +19,9 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
   const x = useMotionValue(0);
 
   // Adjusted for slightly larger knob
+
   const maxDrag = Math.max(0, trackWidth - KNOB_SIZE - PADDING * 2);
+  const pathLengthValue = useTransform(x, [0, maxDrag], [0, 1]);
   const textOpacity = useTransform(x, [0, maxDrag * 0.3], [1, 0]);
 
   const handleDragEnd = () => {
@@ -60,17 +63,30 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
           zIndex: 1,
         }}
       >
-        <motion.path
-          // This "d" creates a curve that scales perfectly to your maxDrag distance
-          d={`M 0 20 Q ${maxDrag / 4} 5, ${maxDrag / 2} 10 T ${maxDrag} 10`}
-          fill="transparent"
-          stroke="url(#goldGradient)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          style={{
-            pathLength: useTransform(x, [0, maxDrag], [0, 1]),
-          }}
-        />
+        {!completed ? (
+          <motion.path
+            d={`M 0 20 Q ${maxDrag / 4} 5, ${maxDrag / 2} 10 T ${maxDrag} 10`}
+            fill="transparent"
+            stroke="url(#goldGradient)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            style={{ pathLength: pathLengthValue }}
+          />
+        ) : (
+          <foreignObject x="-5" y="-36" width={maxDrag} height="72">
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <img
+                src={ThankYou}
+                alt="Thank You"
+                className="h-full object-contain"
+              />
+            </motion.div>
+          </foreignObject>
+        )}
         <defs>
           <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(212,175,55,0.1)" />
