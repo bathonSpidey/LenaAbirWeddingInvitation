@@ -46,7 +46,7 @@ const FeatureCard = ({
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
   return (
     <div
-      className="min-h-screen w-full py-20 px-6 md:px-20 relative snap-start overflow-hidden"
+      className="min-h-screen w-full py-20 px-6 md:px-20 relative overflow-hidden"
       style={{
         backgroundImage: `url(${AssamTexture})`,
         backgroundSize: "cover",

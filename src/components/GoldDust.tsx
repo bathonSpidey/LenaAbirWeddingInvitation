@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const GoldDust = () => {
-  const particles = Array.from({ length: 24 });
+  const [particles] = useState<Array<{ left: number; top: number; duration: number }>>(() =>
+    Array.from({ length: 24 }).map(() => ({
+      left: Math.random() * window.innerWidth,
+      top: Math.random() * window.innerHeight,
+      duration: 6 + Math.random() * 4,
+    }))
+  );
 
   return (
     <>
-      {particles.map((_, i) => (
+      {particles.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full pointer-events-none"
@@ -17,15 +24,15 @@ export const GoldDust = () => {
             zIndex: 5,
           }}
           initial={{
-            left: Math.random() * window.innerWidth,
-            top: Math.random() * window.innerHeight,
+            left: particle.left,
+            top: particle.top,
           }}
           animate={{
             y: ["0%", "-20%", "0%"],
             opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
-            duration: 6 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
           }}
         />
