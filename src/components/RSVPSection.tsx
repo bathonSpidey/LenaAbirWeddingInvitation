@@ -119,6 +119,7 @@ export default function RSVPSection({
             Traveling from
           </label>
           <select
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onChange={(e) => setCountry(e.target.value as any)}
             className="w-full border-b border-stone-300 bg-transparent py-2 font-['Cormorant_Garamond'] text-xl focus:outline-none focus:border-amber-500"
           >

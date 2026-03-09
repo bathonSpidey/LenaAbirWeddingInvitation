@@ -28,15 +28,18 @@ export default function FlightGuide() {
             onClick={() =>
               window.open("https://www.google.com/travel/flights", "_blank")
             }
-            className="border border-stone-300 py-2 px-6 text-[9px] font-['Cinzel'] tracking-widest uppercase hover:bg-stone-50 transition-all"
+            whileHover={{ scale: 1.02, backgroundColor: "#2D3E50", color: "#fff" }}
+            className="border border-[#2D3E50] py-3 px-6 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all"
           >
             Search Global Flights ↗
           </motion.button>
         </div>
 
         {/* STEP 2: DOMESTIC SIDE-BY-SIDE */}
-        <div className="relative pl-10 border-l border-blue-100">
+        <div className="relative pl-10 border-l border-blue-100 pb-6">
           <div className="absolute -left-[4.5px] top-0 w-2 h-2 rounded-full bg-[#2D3E50]" />
+          <div className="absolute -left-[8px] bottom-0 w-4 h-px bg-[#2D3E50]/40" />
+          <div className="absolute -left-[4.5px] bottom-0 w-2 h-2 rotate-45 bg-[#2D3E50]/40" />
           <h5 className="font-['Cinzel'] text-[12px] tracking-[0.2em] uppercase mb-3 font-bold">
             02. The Final Hop
           </h5>

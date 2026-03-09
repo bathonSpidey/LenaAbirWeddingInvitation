@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FlightGuide from "./FlightGuide";
 import { motion } from "framer-motion";
 import TravelTexture from "../assets/travel-texture.png";
@@ -8,6 +8,10 @@ export default function TravelPortal({
 }: {
   innerRef: React.RefObject<HTMLDivElement>;
 }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div
       ref={innerRef}
@@ -22,7 +26,16 @@ export default function TravelPortal({
       />
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <header className="mb-16 text-center">
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <p className="font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-[#8B5E3C] font-bold mb-6 opacity-80">
+            Your Guide
+          </p>
           <h2 className="font-['Pinyon_Script'] text-7xl md:text-9xl mb-4 text-[#2D3E50]">
             Travel Concierge
           </h2>
@@ -30,25 +43,40 @@ export default function TravelPortal({
           <p className="font-['Cinzel'] text-[11px] tracking-[0.6em] uppercase text-[#2D3E50] opacity-70">
             Assam Arrival & Stay Guide
           </p>
-        </header>
+        </motion.header>
 
         <div className="grid grid-cols-1 gap-10">
           {/* FLIGHT SECTION */}
-          <section className="bg-white p-8 md:p-12 rounded-sm border border-blue-100 shadow-xl shadow-blue-900/5">
+          <motion.section
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white p-8 md:p-12 rounded-sm border border-blue-100 shadow-xl shadow-blue-900/5"
+          >
             <FlightGuide />
-          </section>
+          </motion.section>
 
           {/* STAYS & VISA GRID */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8"
+          >
             {/* VISA CARD */}
             <div className="bg-white/80 border border-blue-100 p-8 rounded-sm shadow-sm flex flex-col justify-between">
               <div>
                 <h6 className="font-['Cinzel'] text-[10px] tracking-widest text-[#8B5E3C] mb-4 uppercase font-bold">
                   Entry Requirements
                 </h6>
-                <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-6">
+                <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-3">
                   For our German and International guests, an e-Visa is required
                   for entry into India.
+                </p>
+                <p className="font-['Cormorant_Garamond'] text-sm text-stone-400 italic mb-6">
+                  We recommend applying at least 4 weeks before travel.
                 </p>
               </div>
               <motion.button
@@ -67,45 +95,68 @@ export default function TravelPortal({
 
             {/* STAYS CARD */}
             <div className="bg-white/80 border border-blue-100 p-8 rounded-sm shadow-sm">
-              <h6 className="font-['Cinzel'] text-[10px] tracking-widest text-[#8B5E3C] mb-4 uppercase font-bold">
+              <h6 className="font-['Cinzel'] text-[10px] tracking-widest text-[#8B5E3C] mb-2 uppercase font-bold">
                 Accommodations
               </h6>
+              <p className="font-['Cormorant_Garamond'] text-sm italic text-stone-400 mb-6">
+                Curated searches on Booking.com
+              </p>
               <div className="space-y-3">
                 {[
                   {
-                    label: "Jorhat Stays",
+                    label: "Jorhat",
+                    sublabel: "Wedding venue & surrounds",
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Jorhat",
                   },
                   {
-                    label: "Kaziranga Lodges",
+                    label: "Kaziranga",
+                    sublabel: "Jungle lodges & safari stays",
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Kaziranga",
                   },
                   {
-                    label: "Guwahati Hotels",
+                    label: "Guwahati",
+                    sublabel: "Gateway city, near the airport",
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Guwahati",
                   },
-                ].map((item) => (
-                  <button
+                ].map((item, i) => (
+                  <motion.button
                     key={item.label}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.25 + i * 0.1 }}
+                    viewport={{ once: true }}
                     onClick={() => window.open(item.url, "_blank")}
-                    className="w-full text-left font-['Cormorant_Garamond'] text-lg text-stone-600 hover:text-[#2D3E50] flex justify-between items-center border-b border-stone-100 pb-1 group cursor-pointer"
+                    className="w-full text-left flex justify-between items-center group cursor-pointer border-l-2 border-transparent hover:border-[#8B5E3C] pl-3 transition-all duration-300 py-2"
                   >
-                    {item.label}{" "}
-                    <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div>
+                      <p className="font-['Cinzel'] text-[11px] tracking-widest uppercase text-[#2D3E50] font-bold group-hover:text-[#8B5E3C] transition-colors duration-300">
+                        {item.label}
+                      </p>
+                      <p className="font-['Cormorant_Garamond'] text-sm italic text-stone-400 group-hover:text-stone-500 transition-colors duration-300">
+                        {item.sublabel}
+                      </p>
+                    </div>
+                    <span className="font-['Cinzel'] text-[10px] text-stone-300 group-hover:text-[#8B5E3C] group-hover:translate-x-1 transition-all duration-300">
                       ↗
                     </span>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        <footer className="mt-16 text-center">
+        <motion.footer
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
           <p className="font-['Cormorant_Garamond'] text-2xl italic text-[#2D3E50]">
             We are here to help you every step of the way.
           </p>
-        </footer>
+        </motion.footer>
       </div>
     </div>
   );
