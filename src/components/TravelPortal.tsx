@@ -1,8 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import FlightGuide from "./FlightGuide";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import TravelTexture from "../assets/travel-texture.png";
+
+// ── EmailJS config (set values in .env) ──────────────────────────────────────
+const EMAILJS_SERVICE_ID  = "wedding";
+const EMAILJS_TEMPLATE_ID = "template_l3v4gsa";
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
 
 export default function TravelPortal({
   innerRef,
@@ -10,6 +20,29 @@ export default function TravelPortal({
   innerRef: React.RefObject<HTMLDivElement>;
 }) {
   const { t } = useTranslation();
+  const [guestEmail, setGuestEmail] = useState("");
+  const [sending, setSending]       = useState(false);
+  const [sent, setSent]             = useState(false);
+
+  const handleReachOut = async () => {
+    if (!isValidEmail(guestEmail) || sending) return;
+    setSending(true);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        { email: guestEmail.trim(), to_email: "abir.bhattacharyya22@gmail.com" },
+        EMAILJS_PUBLIC_KEY,
+      );
+      setSent(true);
+      setGuestEmail("");
+    } catch {
+      alert("Something went wrong — please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -165,15 +198,18 @@ export default function TravelPortal({
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
+              value={guestEmail}
+              onChange={(e) => { setGuestEmail(e.target.value); setSent(false); }}
               placeholder="your@email.com"
               className="flex-1 border border-[#2D3E50]/30 rounded-sm px-4 py-3 font-['Cormorant_Garamond'] text-base italic text-stone-600 placeholder:text-stone-300 focus:outline-none focus:border-[#8B5E3C] transition-colors bg-white"
             />
             <motion.button
-              whileHover={{ backgroundColor: "#2D3E50", color: "#fff" }}
-              onClick={() => alert("In progress — we'll be in touch soon!")}
-              className="border border-[#2D3E50] px-6 py-3 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all whitespace-nowrap"
+              disabled={!isValidEmail(guestEmail) || sending}
+              whileHover={isValidEmail(guestEmail) && !sending ? { backgroundColor: "#2D3E50", color: "#fff" } : {}}
+              onClick={handleReachOut}
+              className="border border-[#2D3E50] px-6 py-3 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all whitespace-nowrap disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {t("travelPortal.reachOut")}
+              {sending ? "Sending…" : sent ? "Sent ✓" : t("travelPortal.reachOut")}
             </motion.button>
           </div>
         </motion.div>
