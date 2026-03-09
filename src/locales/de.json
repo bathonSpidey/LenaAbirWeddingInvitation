@@ -169,7 +169,10 @@
     "label": "Ihr Ratgeber",
     "heading": "Reisekoncierge",
     "subheading": "Ankunfts- & Aufenthaltsführer Assam",
-    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da."
+    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da.",
+    "needHand": "Brauchen Sie Hilfe?",
+    "guidedBooking": "Möchten Sie, dass wir Sie führen? Senden Sie uns Ihre E-Mail und wir rufen Sie zurück, um Ihre Buchung zu besprechen.",
+    "reachOut": "Kontaktieren Sie uns"
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",

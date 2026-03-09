@@ -148,6 +148,36 @@ export default function TravelPortal({
           </motion.div>
         </div>
 
+        {/* GUIDED BOOKING CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-10 bg-white/80 border border-blue-100 rounded-sm shadow-sm p-8 md:p-12 text-center"
+        >
+          <p className="font-['Cinzel'] text-[10px] tracking-widest uppercase text-[#8B5E3C] font-bold mb-3">
+            {t("travelPortal.needHand")}
+          </p>
+          <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-6">
+            {t("travelPortal.guidedBooking")}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="flex-1 border border-[#2D3E50]/30 rounded-sm px-4 py-3 font-['Cormorant_Garamond'] text-base italic text-stone-600 placeholder:text-stone-300 focus:outline-none focus:border-[#8B5E3C] transition-colors bg-white"
+            />
+            <motion.button
+              whileHover={{ backgroundColor: "#2D3E50", color: "#fff" }}
+              onClick={() => alert("In progress — we'll be in touch soon!")}
+              className="border border-[#2D3E50] px-6 py-3 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all whitespace-nowrap"
+            >
+              {t("travelPortal.reachOut")}
+            </motion.button>
+          </div>
+        </motion.div>
+
         <motion.footer
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

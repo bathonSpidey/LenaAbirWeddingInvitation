@@ -169,7 +169,10 @@
     "label": "Your Guide",
     "heading": "Travel Concierge",
     "subheading": "Assam Arrival & Stay Guide",
-    "footer": "We are here to help you every step of the way."
+    "footer": "We are here to help you every step of the way.",
+    "needHand": "Need a hand?",
+    "guidedBooking": "Want us to guide you? Send us your email and we'll call you right back with your booking.",
+    "reachOut": "Reach Out"
   },
   "flightGuide": {
     "heading": "The Journey to Assam",
