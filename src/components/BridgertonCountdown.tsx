@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const WEDDING = new Date("2026-12-06T00:00:00");
 
@@ -100,6 +101,7 @@ function Dot() {
 }
 
 export default function CountdownStrip() {
+  const { t } = useTranslation();
   const [time, setTime] = useState(getTimeLeft);
 
   useEffect(() => {
@@ -109,13 +111,13 @@ export default function CountdownStrip() {
 
   return (
     <div className="flex items-center gap-2">
-      <Tile value={pad(time.days)}    label="Days"    />
+      <Tile value={pad(time.days)}    label={t("countdown.days")}    />
       <Dot />
-      <Tile value={pad(time.hours)}   label="Hours"   />
+      <Tile value={pad(time.hours)}   label={t("countdown.hours")}   />
       <Dot />
-      <Tile value={pad(time.minutes)} label="Minutes" />
+      <Tile value={pad(time.minutes)} label={t("countdown.minutes")} />
       <Dot />
-      <Tile value={pad(time.seconds)} label="Seconds" />
+      <Tile value={pad(time.seconds)} label={t("countdown.seconds")} />
     </div>
   );
 }

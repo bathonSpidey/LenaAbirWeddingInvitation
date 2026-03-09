@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Activities from "./Activities";
 
 // Updated assets based on your imports
@@ -47,6 +48,7 @@ const FeatureCard = ({
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
   const [showActivities, setShowActivities] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -81,7 +83,7 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
           className={`${TEXT_ACCENT} mb-16 flex items-center gap-2 hover:text-amber-900 transition-colors cursor-pointer uppercase tracking-widest text-[10px] font-bold`}
           style={{ fontFamily: "'Cinzel', serif" }}
         >
-          <span>←</span> Back to Invitation
+          <span>←</span> {t("common.backToInvitation")}
         </motion.button>
 
         <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
@@ -90,19 +92,16 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
               className={`${TEXT_PRIMARY} mb-8 leading-tight`}
               style={{
                 fontFamily: "'Pinyon Script', cursive",
-                fontSize: "clamp(50px, 7vw, 82px)", // Responsive size
+                fontSize: "clamp(50px, 7vw, 82px)",
                 textShadow: "1px 1px 0px rgba(255,255,255,0.5)",
               }}
             >
-              A Land of Blue Hills
+              {t("discoverAssam.heading")}
             </h2>
             <p
               className={`font-['Cormorant_Garamond'] text-2xl ${TEXT_PRIMARY} leading-relaxed italic mb-8 opacity-90`}
             >
-              Beyond the wedding bells lies a gateway to the mystic East. From
-              the rolling emerald tea estates of Jorhat to the ancient rhythms
-              of the Brahmaputra, we invite you to see the world through our
-              eyes.
+              {t("discoverAssam.intro")}
             </p>
             <div className="h-px w-24 bg-[#8B5E3C]/40" />
           </div>
@@ -110,15 +109,15 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
           <div className="grid grid-cols-2 gap-6">
             <FeatureCard
               delay={0.2}
-              title="The Heritage"
-              desc="Muga silk, woven with stories of generations."
+              title={t("discoverAssam.feature1Title")}
+              desc={t("discoverAssam.feature1Desc")}
               img={Silk}
             />
             <div className="pt-16">
               <FeatureCard
                 delay={0.4}
-                title="The Wild"
-                desc="A dawn safari in Kaziranga, home to the Rhino."
+                title={t("discoverAssam.feature2Title")}
+                desc={t("discoverAssam.feature2Desc")}
                 img={Rhinos}
               />
             </div>
@@ -129,11 +128,10 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
         <div className="bg-[#2D241E] text-[#fdf8ec] p-12 md:p-20 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden">
           <div className="relative z-20 text-center max-w-2xl mx-auto">
             <h3 className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase mb-6 text-amber-400/80">
-              The Experience
+              {t("discoverAssam.experience")}
             </h3>
             <p className="font-['Cormorant_Garamond'] text-2xl md:text-4xl italic leading-snug">
-              "Lush green tea gardens, and fresh river breezes. A place where
-              time slows down, and every moment feels like a sip of serenity."
+              {t("discoverAssam.quote")}
             </p>
           </div>
           <div
@@ -152,7 +150,7 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
           <p
             className={`font-['Cinzel'] text-[9px] tracking-[0.5em] ${TEXT_ACCENT} uppercase font-bold`}
           >
-            We truly wish you could be there with us
+            {t("discoverAssam.wish")}
           </p>
 
           <motion.button
@@ -162,7 +160,7 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
             className="mt-12 inline-flex items-center gap-3 px-10 py-4 bg-[#2D241E] text-[#fdf8ec] rounded-sm shadow-lg hover:bg-amber-900 transition-colors cursor-pointer"
             style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.3em", fontSize: "10px" }}
           >
-            <span>EXPLORE ACTIVITIES</span>
+            <span>{t("discoverAssam.exploreActivities")}</span>
             <span className="text-amber-400/80">→</span>
           </motion.button>
         </div>

@@ -1,0 +1,206 @@
+{
+  "common": {
+    "backToInvitation": "Zurück zur Einladung",
+    "back": "Zurück",
+    "backToDetails": "Zurück zu den Details"
+  },
+  "countdown": {
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden"
+  },
+  "card": {
+    "honor": "Wir bitten um die Ehre Ihrer Anwesenheit",
+    "celebration": "bei der Feier ihrer Hochzeit",
+    "reception": "Hochzeitsempfang",
+    "saturday": "SAMSTAG",
+    "venue": "ORT",
+    "time": "UHRZEIT",
+    "dateWords": "Zweitausendundsechsundzwanzig",
+    "rsvp": "RSVP & Reiseführer",
+    "cantMakeIt": "Ich kann leider nicht kommen"
+  },
+  "expectations": {
+    "label": "Ein Leitfaden für unsere Gäste",
+    "heading": "Was Sie erwartet",
+    "subtitle": "Zwei Familien, zwei Kontinente, eine Feier. Hier ist alles, was Sie brauchen, um vorbereitet anzukommen und unvergesslich abzureisen.",
+    "items": [
+      {
+        "tag": "Die Zeremonie",
+        "title": "Eine Verschmelzung zweier Welten",
+        "desc": "Die Hochzeitszeremonie verbindet assamesische und europäische Traditionen — erwarten Sie heilige Feuerrituale neben herzlichen Gelübden in zwei Sprachen. Sie werden eine Verbindung erleben, die so vielschichtig und schön ist wie die Kulturen, die uns geprägt haben."
+      },
+      {
+        "tag": "Dresscode",
+        "title": "Festlich & Farbenfroh",
+        "desc": "Wir laden Sie ein, sich festlich zu kleiden. Traditionelle indische Kleidung ist herzlich willkommen — Sarees, Sherwanis, Kurtas. Wer westliche Kleidung bevorzugt, sollte formell-festlich wählen. Vermeiden Sie Weiß oder Schwarz als Hauptfarbe. Denken Sie an Schmucktöne, Pastellfarben und Gold."
+      },
+      {
+        "tag": "Speisen & Feiern",
+        "title": "Ein Fest für die Sinne",
+        "desc": "Ein üppiges Angebot assamesischer Spezialitäten erwartet Sie — langsam gekochtes Entengulasch, Senfkarpfen, im Bambus gedämpfter Reis und Tische voller Süßigkeiten aus beiden Kulturen. Jedes Gericht erzählt eine Geschichte; kommen Sie hungrig."
+      },
+      {
+        "tag": "Musik & Tanz",
+        "title": "Bihu unter den Sternen",
+        "desc": "Mit dem Einbruch des Abends erfüllt live Bihu-Volksmusik den Innenhof. Erwarten Sie Aufführungen, spontanen Tanz und ein DJ-Set, das durch Kontinente führt — von assamesischen Rhythmen bis zu europäischen Favoriten."
+      },
+      {
+        "tag": "Wetter & Umgebung",
+        "title": "Dezember in Jorhat",
+        "desc": "Anfang Dezember ist Jorhats schönste Jahreszeit — kühle, goldene Tage (18–24 °C) und klare Abende. Das Veranstaltungsgelände liegt inmitten von Teegärten und offenem Himmel. Bringen Sie einen leichten Schal für nach Einbruch der Dunkelheit; die Sterne hier sind bemerkenswert."
+      },
+      {
+        "tag": "Menschen & Herzlichkeit",
+        "title": "Assamesische Gastfreundschaft",
+        "desc": "Wer Assam besucht hat, weiß: Gastfreundschaft ist hier keine Geste, sondern eine Lebensweise. Erwarten Sie, bewirtet zu werden, bevor Sie hungrig sind, willkommen geheißen zu werden, bevor Sie klopfen, und nach Hause mit mehr Wärme zu gehen, als Sie mitgebracht haben."
+      }
+    ]
+  },
+  "activities": {
+    "label": "Während Ihres Aufenthalts",
+    "heading": "Erlebnisse entdecken",
+    "subtitle": "Assam belohnt den neugierigen Reisenden. Hier sind unsere Lieblingsbeschäftigungen — Erlebnisse, die wir gerne mit Ihnen über die Hochzeit hinaus teilen möchten.",
+    "noteLabel": "Eine Notiz von uns",
+    "noteQuote": "\"Jorhat ist unser Zuhause — und wir hoffen, dass es auch ein kleiner Teil Ihres wird. Nehmen Sie sich Zeit. Essen Sie gut. Beobachten Sie den Fluss.\"",
+    "footerLabel": "Wir können es kaum erwarten, mit Ihnen zu erkunden",
+    "items": [
+      {
+        "tag": "Natur & Wildtiere",
+        "title": "Kaziranga bei Sonnenaufgang",
+        "desc": "Bei Sonnenaufgang teilt sich der Nebel und gibt den Blick auf Panzernashörner frei, die neben dem Brahmaputra grasen. Unternehmen Sie eine Jeep- oder Elefantensafari durch das zum UNESCO-Welterbe gehörende Kaziranga — Heimat von mehr Nashörnern als irgendwo sonst auf der Erde."
+      },
+      {
+        "tag": "Fluss & Inseln",
+        "title": "Majuli-Insel",
+        "desc": "Die weltgrößte Flussinsel und Wiege der Vaishnavitischen Kultur. Erkunden Sie alte Satras (Klöster), beobachten Sie Maskenhandwerker und radeln Sie durch Reisfelder, während der Brahmaputra Sie umgibt. Am besten per kurzer Fähre von Jorhat erreichbar."
+      },
+      {
+        "tag": "Kultur & Erbe",
+        "title": "Ahom-Kulturerbe-Wege",
+        "desc": "Wandeln Sie auf den Spuren des imposanten Rang-Ghar-Pavillons und des Kareng-Ghar-Palastes in Sibasagar — 600 Jahre alte Monumente des Ahom-Königreichs, das Assam fast sechs Jahrhunderte regierte."
+      },
+      {
+        "tag": "Essen & Märkte",
+        "title": "Jorhat Kulinarische Tour",
+        "desc": "Folgen Sie den Aromen durch Jorhats Märkte: frisch geräucherte Ente mit Senf, im Bambus gedämpfter Klebreis und der unverwechselbare Geschmack von Khar. Machen Sie Halt bei einem einheimischen Haushalt für ein vollständiges assamesisches Thali."
+      },
+      {
+        "tag": "Flussleben",
+        "title": "Brahmaputra-Flusskreuzfahrt",
+        "desc": "Gleiten Sie entlang eines der mächtigsten Flüsse Asiens, während goldenes Abendlicht das Wasser bernsteinfarben färbt. Halten Sie an Sandbänken, wo seltene Ganges-Flussdelfine auftauchen, und beobachten Sie Fischer beim Auswerfen ihrer Netze."
+      },
+      {
+        "tag": "Regenwald & Wildtiere",
+        "title": "Dehing-Patkai-Regenwald",
+        "desc": "Wagen Sie sich ostwärts in einen der letzten überlebenden Tieflandregenwälder Indiens. Lauschen Sie dem seltenen Hoolock-Gibbon, dessen Rufe durch ein Kronendach mit Nebelpardern und Nashornvögeln hallen."
+      },
+      {
+        "tag": "Kunsthandwerk & Textil",
+        "title": "Muga-Seidenweberei",
+        "desc": "Reisen Sie nach Sualkuchi — Assams Seidendorf — und beobachten Sie, wie Handwerker goldene Muga-Kokons in die weltweit einzige von Natur aus goldene Seide verwandeln."
+      },
+      {
+        "tag": "Wild & Selten",
+        "title": "Dibru-Saikhowa Wildpferde",
+        "desc": "Eines der seltensten Naturschauspiele Asiens: wild lebende Pferde, die frei über die Überschwemmungsebenen des Dibru-Saikhowa-Nationalparks streifen — seit den indo-burmanischen Grenzkriegen ungezähmt."
+      }
+    ]
+  },
+  "ourStory": {
+    "heading": "Unsere Reise",
+    "milestones": [
+      {
+        "title": "Die erste Begegnung",
+        "desc": "Ein geplantes Treffen in einem Sushi-Restaurant in Osnabrück gefolgt von einem spontanen Ausflug in die üppigen grünen Berge von Oberstdorf, wo wir entdeckten, dass die besten Abenteuer die sind, die man nicht plant."
+      },
+      {
+        "title": "Der Sprung ins Unbekannte",
+        "desc": "Nach einem Jahr voller Abenteuer, Lachen und der Erkenntnis, dass 'Zuhause' ein Mensch ist, kein Ort."
+      },
+      {
+        "title": "Der Heiratsantrag",
+        "desc": "Im Nebel des Rheinfalls an einem warmen Nachmittag stellte er die Frage, und sie sagte Ja."
+      },
+      {
+        "title": "Die Hochzeit",
+        "desc": "Ein privater Ausflug nach Dänemark; nur wir und die Standesbeamten, um unser stilles 'Ja' zu bezeugen. Dann ostwärts — nach Assam, wo zwei Welten gemeinsam feiern werden."
+      }
+    ]
+  },
+  "discoverAssam": {
+    "heading": "Ein Land blauer Hügel",
+    "intro": "Jenseits der Hochzeitsglocken liegt ein Tor zum mystischen Osten. Von den rollenden smaragdgrünen Teeplantagen Jorhats bis zu den uralten Rhythmen des Brahmaputra laden wir Sie ein, die Welt durch unsere Augen zu sehen.",
+    "feature1Title": "Das Erbe",
+    "feature1Desc": "Muga-Seide, gewoben mit Geschichten von Generationen.",
+    "feature2Title": "Die Wildnis",
+    "feature2Desc": "Eine Morgensafari in Kaziranga, Heimat des Nashorns.",
+    "experience": "Das Erlebnis",
+    "quote": "\"Üppige grüne Teegärten und frische Flussbriesen. Ein Ort, an dem die Zeit langsamer wird und jeder Moment sich anfühlt wie ein Schluck Gelassenheit.\"",
+    "wish": "Wir wünschten so sehr, Sie könnten bei uns sein",
+    "exploreActivities": "AKTIVITÄTEN ENTDECKEN"
+  },
+  "regrets": {
+    "heading": "Wir werden Sie vermissen",
+    "quote": "\"Eine Feier ist nur so strahlend wie die Menschen, die sie teilen. Obwohl Sie nicht persönlich bei uns sein können, tragen wir Ihre Liebe in unseren Herzen.\"",
+    "knowStory": "Unsere Geschichte kennenlernen",
+    "seeWhatMissing": "Sehen Sie, was Sie verpassen werden"
+  },
+  "saveTheDate": {
+    "heading": "Termin vormerken",
+    "daysToGo": "Noch {{count}} Tage",
+    "addToCalendar": "Zum Kalender hinzufügen",
+    "googleCalendar": "Google Kalender",
+    "appleOutlook": "Apple / Outlook",
+    "whatToExpect": "Was Sie erwartet",
+    "travelingFrom": "Reise von",
+    "germany": "Deutschland",
+    "india": "Indien",
+    "otherInternational": "Anderes internationales Land"
+  },
+  "venue": {
+    "label": "Der Veranstaltungsort",
+    "name": "The Royal Park",
+    "desc": "Unser Veranstaltungsort liegt entlang des historischen Highway 37 und ist ein Tor zu Jorhats lebendiger Kultur und den friedvollen Landschaften Ober-Assams.",
+    "navigate": "In Navigation öffnen"
+  },
+  "travelPortal": {
+    "label": "Ihr Ratgeber",
+    "heading": "Reisekoncierge",
+    "subheading": "Ankunfts- & Aufenthaltsführer Assam",
+    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da."
+  },
+  "flightGuide": {
+    "heading": "Die Reise nach Assam",
+    "step1Title": "01. Internationale Drehkreuze",
+    "step1Desc": "Sichern Sie Ihre Reise nach Delhi (DEL) oder Kalkutta (CCU).",
+    "searchFlights": "Internationale Flüge suchen ↗",
+    "step2Title": "02. Der letzte Abschnitt",
+    "step2Desc": "Buchen Sie Ihre letzte Verbindung nach Jorhat (JRH).",
+    "delhiToJorhat": "Delhi nach Jorhat",
+    "kolkataToJorhat": "Kalkutta nach Jorhat",
+    "entryTitle": "Einreisebestimmungen",
+    "entryDesc": "Für unsere deutschen und internationalen Gäste ist ein e-Visum für die Einreise nach Indien erforderlich.",
+    "entryRecommend": "Wir empfehlen, mindestens 4 Wochen vor der Reise zu beantragen.",
+    "eVisaPortal": "Offizielles e-Visum-Portal",
+    "accomTitle": "Unterkünfte",
+    "accomSub": "Kuratierte Suchen auf Booking.com",
+    "jorhatSub": "Hochzeitsstandort & Umgebung",
+    "kazirangaSub": "Dschungellodges & Safariunterkünfte",
+    "guwahatiSub": "Eingangsstadt, nahe dem Flughafen"
+  },
+  "travelCards": {
+    "journeyTitle": "Reise planen?",
+    "journeyBody": "Wir haben einen vollständigen Leitfaden für unsere internationalen Gäste zusammengestellt — mit Flügen aus Deutschland, lokalen Unterkünften und Visaanforderungen.",
+    "openTravelGuide": "Reiseführer öffnen",
+    "activitiesTitle": "Must-Do-Aktivitäten",
+    "discoverAssam": "Assam entdecken"
+  },
+  "navFooter": {
+    "ourStory": "Unsere Geschichte"
+  },
+  "rsvp": {
+    "travelGuide": "Reiseführer"
+  }
+}

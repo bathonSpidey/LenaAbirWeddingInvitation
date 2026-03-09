@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import PaperTexture from "../assets/Paper.jpg"; // Adjust the path based on your folder structure
 
 interface RegretsSectionProps {
@@ -15,6 +16,7 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
   onOurStory,
   onDiscover,
 }) => {
+  const { t } = useTranslation();
   return (
     <div
       ref={innerRef}
@@ -32,7 +34,7 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
         style={{ fontFamily: "'Cinzel', serif" }}
         whileHover={{ x: -5 }}
       >
-        <span>←</span> Back to Invitation
+        <span>←</span> {t("common.backToInvitation")}
       </motion.button>
 
       <div className="max-w-2xl text-center">
@@ -42,15 +44,14 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
           className="text-stone-800 mb-6"
           style={{ fontFamily: "'Pinyon Script', cursive", fontSize: 52 }}
         >
-          We will miss you
+          {t("regrets.heading")}
         </motion.h2>
 
         <p
           className="text-stone-600 mb-12 leading-relaxed italic"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22 }}
         >
-          "A celebration is only as bright as the people who share it. Though
-          you cannot be with us in person, we carry your love in our hearts."
+          {t("regrets.quote")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -60,7 +61,7 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
             className="px-8 py-4 border-b border-stone-300 text-stone-700 tracking-[0.2em] uppercase text-[10px] cursor-pointer"
             style={{ fontFamily: "'Cinzel', serif" }}
           >
-            Know Our Story
+            {t("regrets.knowStory")}
           </motion.button>
 
           <motion.button
@@ -69,7 +70,7 @@ const RegretsSection: React.FC<RegretsSectionProps> = ({
             className="px-8 py-4 bg-[#C9A84C] text-white tracking-[0.2em] uppercase text-[10px] shadow-lg rounded-sm cursor-pointer"
             style={{ fontFamily: "'Cinzel', serif" }}
           >
-            See what you'll be missing
+            {t("regrets.seeWhatMissing")}
           </motion.button>
         </div>
       </div>

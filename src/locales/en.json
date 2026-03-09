@@ -1,0 +1,206 @@
+{
+  "common": {
+    "backToInvitation": "Back to Invitation",
+    "back": "Back",
+    "backToDetails": "Back to Details"
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "card": {
+    "honor": "The Honor of your presence is requested",
+    "celebration": "at the celebration of their marriage",
+    "reception": "Wedding Reception",
+    "saturday": "SATURDAY",
+    "venue": "VENUE",
+    "time": "TIME",
+    "dateWords": "Two Thousand Twenty Six",
+    "rsvp": "RSVP & Travel Guide",
+    "cantMakeIt": "I Can't Make It"
+  },
+  "expectations": {
+    "label": "A guide for our guests",
+    "heading": "What to Expect",
+    "subtitle": "Two families, two continents, one celebration. Here is everything you need to arrive prepared and leave unforgettable.",
+    "items": [
+      {
+        "tag": "The Ceremony",
+        "title": "A Fusion of Two Worlds",
+        "desc": "The wedding ceremony will weave together Assamese and European traditions — expect sacred fire rituals alongside heartfelt vows spoken in two languages. You will witness a union as layered and beautiful as the cultures that shaped us."
+      },
+      {
+        "tag": "Dress Code",
+        "title": "Festive & Vibrant",
+        "desc": "We invite you to dress in celebration. Traditional Indian attire is warmly welcomed — sarees, sherwanis, kurtas. Those preferring Western wear should opt for formal festive. Avoid white or black as primary colours. Think jewel tones, pastels, and gold."
+      },
+      {
+        "tag": "Food & Feasting",
+        "title": "A Feast for the Senses",
+        "desc": "A lavish spread of Assamese delicacies awaits — slow-cooked duck curry, mustard fish, bamboo-steamed rice, and tables lined with sweets from both cultures. Every dish tells a story; come hungry."
+      },
+      {
+        "tag": "Music & Dance",
+        "title": "Bihu Beneath the Stars",
+        "desc": "As evening deepens, live Bihu folk music will fill the courtyard. Expect performances, spontaneous dancing, and a DJ set that moves through continents — from Assamese beats to European favourites."
+      },
+      {
+        "tag": "Weather & Setting",
+        "title": "December in Jorhat",
+        "desc": "Early December is Jorhat's most beautiful season — cool, golden days (18–24 °C) and clear evenings. The venue sits amid tea gardens and open skies. Bring a light shawl for after dark; the stars here are remarkable."
+      },
+      {
+        "tag": "People & Warmth",
+        "title": "Assamese Hospitality",
+        "desc": "Those who have visited Assam know: hospitality here is not a gesture, it is a way of life. Expect to be fed before you are hungry, welcomed before you knock, and sent home with more warmth than you arrived with."
+      }
+    ]
+  },
+  "activities": {
+    "label": "While You're Here",
+    "heading": "Things to Experience",
+    "subtitle": "Assam rewards the curious traveller. Here are our favourite things to do — experiences we'd love to share with you beyond the wedding itself.",
+    "noteLabel": "A Note From Us",
+    "noteQuote": "\"Jorhat is our home — and we hope it becomes a small part of yours. Take it slowly. Eat well. Watch the river.\"",
+    "footerLabel": "We can't wait to explore with you",
+    "items": [
+      {
+        "tag": "Nature & Wildlife",
+        "title": "Kaziranga at Dawn",
+        "desc": "At sunrise, the mist parts to reveal one-horned rhinos grazing beside the Brahmaputra. Join a jeep or elephant safari through UNESCO-listed Kaziranga — home to more rhinos than anywhere else on earth, alongside tigers, wild elephants, and hundreds of migratory birds."
+      },
+      {
+        "tag": "River & Islands",
+        "title": "Majuli Island",
+        "desc": "The world's largest river island and a cradle of Vaishnavite culture. Explore ancient satras (monasteries), watch mask-making artisans, and cycle through paddy fields as the Brahmaputra wraps around you. Best reached by a short ferry from Jorhat."
+      },
+      {
+        "tag": "Culture & Heritage",
+        "title": "Ahom Heritage Trails",
+        "desc": "Walk among the imposing Rang Ghar pavilion and Kareng Ghar palace in Sibasagar — 600-year-old monuments of the Ahom kingdom that ruled Assam for nearly six centuries without a single Mughal conquest."
+      },
+      {
+        "tag": "Food & Markets",
+        "title": "Jorhat Food Trail",
+        "desc": "Follow the aromas through Jorhat's markets: freshly smoked duck with mustard, sticky rice steamed inside bamboo, and the unmistakable tang of khar. Stop at a local home for a full Assamese thali — food here is not just sustenance, it is ceremony."
+      },
+      {
+        "tag": "River Life",
+        "title": "Brahmaputra River Cruise",
+        "desc": "Drift along one of Asia's mightiest rivers as golden evening light paints the water amber. Stop at midstream sandbanks where rare Gangetic river dolphins surface beside the boat, and watch fishermen cast their nets as the sky turns pink."
+      },
+      {
+        "tag": "Rainforest & Wildlife",
+        "title": "Dehing Patkai Rainforest",
+        "desc": "Venture east into one of India's last surviving lowland rainforests. Listen for the rare Hoolock gibbon calling through a canopy shared with clouded leopards, hornbills, and slow lorises — a world that feels entirely untouched."
+      },
+      {
+        "tag": "Craft & Textile",
+        "title": "Muga Silk Weaving",
+        "desc": "Travel to Sualkuchi — Assam's silk village — to watch artisans transform golden Muga cocoons into the world's only naturally gold silk. The soft clatter of heritage handlooms fills every home, and every weaver has a story spanning generations."
+      },
+      {
+        "tag": "Wild & Rare",
+        "title": "Dibru-Saikhowa Feral Horses",
+        "desc": "One of the rarest sights in Asia: wild horses roaming freely across the floodplains of Dibru-Saikhowa National Park. An early morning jeep ride brings you close to herds that have run untamed since the Indo-Burma border wars."
+      }
+    ]
+  },
+  "ourStory": {
+    "heading": "Our Journey",
+    "milestones": [
+      {
+        "title": "The First Encounter",
+        "desc": "A planned meeting at a Sushi restaurant in Osnabrück followed by a quick escapade to the lush green mountains of Oberstdorf, where we discovered that the best adventures are the ones you don't plan."
+      },
+      {
+        "title": "The Leap of Faith",
+        "desc": "After a year of adventures, laughter, and the realization that 'home' was a person, not a place."
+      },
+      {
+        "title": "The Proposal",
+        "desc": "In the mist of the Rheinfall on a warm afternoon, he asked the question, and she said yes."
+      },
+      {
+        "title": "The Wedding",
+        "desc": "A private escapade to Denmark; just us and the officials to witness our quiet 'I do'. Then, east — to Assam, where two worlds will celebrate as one."
+      }
+    ]
+  },
+  "discoverAssam": {
+    "heading": "A Land of Blue Hills",
+    "intro": "Beyond the wedding bells lies a gateway to the mystic East. From the rolling emerald tea estates of Jorhat to the ancient rhythms of the Brahmaputra, we invite you to see the world through our eyes.",
+    "feature1Title": "The Heritage",
+    "feature1Desc": "Muga silk, woven with stories of generations.",
+    "feature2Title": "The Wild",
+    "feature2Desc": "A dawn safari in Kaziranga, home to the Rhino.",
+    "experience": "The Experience",
+    "quote": "\"Lush green tea gardens, and fresh river breezes. A place where time slows down, and every moment feels like a sip of serenity.\"",
+    "wish": "We truly wish you could be there with us",
+    "exploreActivities": "EXPLORE ACTIVITIES"
+  },
+  "regrets": {
+    "heading": "We will miss you",
+    "quote": "\"A celebration is only as bright as the people who share it. Though you cannot be with us in person, we carry your love in our hearts.\"",
+    "knowStory": "Know Our Story",
+    "seeWhatMissing": "See what you'll be missing"
+  },
+  "saveTheDate": {
+    "heading": "Save the Date",
+    "daysToGo": "{{count}} days to go",
+    "addToCalendar": "Add to Calendar",
+    "googleCalendar": "Google Calendar",
+    "appleOutlook": "Apple / Outlook",
+    "whatToExpect": "What to Expect",
+    "travelingFrom": "Traveling from",
+    "germany": "Germany",
+    "india": "India",
+    "otherInternational": "Other International"
+  },
+  "venue": {
+    "label": "The Venue",
+    "name": "The Royal Park",
+    "desc": "Located along the historic Highway 37, our venue sits as a gateway to Jorhat's vibrant culture and the serene landscapes of Upper Assam.",
+    "navigate": "Open in Navigation"
+  },
+  "travelPortal": {
+    "label": "Your Guide",
+    "heading": "Travel Concierge",
+    "subheading": "Assam Arrival & Stay Guide",
+    "footer": "We are here to help you every step of the way."
+  },
+  "flightGuide": {
+    "heading": "The Journey to Assam",
+    "step1Title": "01. International Hubs",
+    "step1Desc": "Secure your journey to Delhi (DEL) or Kolkata (CCU).",
+    "searchFlights": "Search Global Flights ↗",
+    "step2Title": "02. The Final Hop",
+    "step2Desc": "Book your final connection to Jorhat (JRH).",
+    "delhiToJorhat": "Delhi to Jorhat",
+    "kolkataToJorhat": "Kolkata to Jorhat",
+    "entryTitle": "Entry Requirements",
+    "entryDesc": "For our German and International guests, an e-Visa is required for entry into India.",
+    "entryRecommend": "We recommend applying at least 4 weeks before travel.",
+    "eVisaPortal": "Official e-Visa Portal",
+    "accomTitle": "Accommodations",
+    "accomSub": "Curated searches on Booking.com",
+    "jorhatSub": "Wedding venue & surrounds",
+    "kazirangaSub": "Jungle lodges & safari stays",
+    "guwahatiSub": "Gateway city, near the airport"
+  },
+  "travelCards": {
+    "journeyTitle": "Planning your Journey?",
+    "journeyBody": "We've curated a complete guide for our international guests—covering flights from Germany & China, local stays, and visa requirements.",
+    "openTravelGuide": "Open Travel Guide",
+    "activitiesTitle": "Must Do Activities",
+    "discoverAssam": "Discover Assam"
+  },
+  "navFooter": {
+    "ourStory": "Our Story"
+  },
+  "rsvp": {
+    "travelGuide": "Travel Guide"
+  }
+}

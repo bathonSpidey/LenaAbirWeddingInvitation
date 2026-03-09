@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Jorhat from "../../assets/AssamMap.png";
 import { S } from "./styles";
 
 export default function VenueSection() {
+  const { t } = useTranslation();
   return (
     <section className="pt-12 border-t border-stone-200/60">
-      <p className={S.sectionLabel}>The Venue</p>
+      <p className={S.sectionLabel}>{t("venue.label")}</p>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-[#2D241E] mb-4 font-['Pinyon_Script'] text-5xl">The Royal Park</h2>
+          <h2 className="text-[#2D241E] mb-4 font-['Pinyon_Script'] text-5xl">{t("venue.name")}</h2>
           <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-relaxed mb-6">
-            Located along the historic Highway 37, our venue sits as a gateway to Jorhat's vibrant
-            culture and the serene landscapes of Upper Assam.
+            {t("venue.desc")}
           </p>
           <address className="not-italic font-['Cinzel'] text-[10px] tracking-widest text-stone-400 leading-loose uppercase">
             National Highway 37, By Pass Rd
@@ -36,7 +37,7 @@ export default function VenueSection() {
             whileHover={{ y: -5, backgroundColor: "#2D241E", color: "#fdf8ec" }}
             className="absolute bottom-6 right-6 bg-white text-[#2D241E] px-6 py-3 text-[9px] font-['Cinzel'] tracking-[0.2em] uppercase shadow-2xl transition-all cursor-pointer"
           >
-            Open in Navigation
+            {t("venue.navigate")}
           </motion.button>
         </div>
       </div>

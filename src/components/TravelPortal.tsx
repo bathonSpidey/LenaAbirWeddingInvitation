@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import FlightGuide from "./FlightGuide";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import TravelTexture from "../assets/travel-texture.png";
 
 export default function TravelPortal({
@@ -8,6 +9,7 @@ export default function TravelPortal({
 }: {
   innerRef: React.RefObject<HTMLDivElement>;
 }) {
+  const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,14 +36,14 @@ export default function TravelPortal({
           className="mb-16 text-center"
         >
           <p className="font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-[#8B5E3C] font-bold mb-6 opacity-80">
-            Your Guide
+            {t("travelPortal.label")}
           </p>
           <h2 className="font-['Pinyon_Script'] text-7xl md:text-9xl mb-4 text-[#2D3E50]">
-            Travel Concierge
+            {t("travelPortal.heading")}
           </h2>
           <div className="h-px w-32 bg-[#8B5E3C]/30 mx-auto mb-6" />
           <p className="font-['Cinzel'] text-[11px] tracking-[0.6em] uppercase text-[#2D3E50] opacity-70">
-            Assam Arrival & Stay Guide
+            {t("travelPortal.subheading")}
           </p>
         </motion.header>
 
@@ -89,33 +91,33 @@ export default function TravelPortal({
                 whileHover={{ backgroundColor: "#2D3E50", color: "#fff" }}
                 className="w-full border border-[#2D3E50] py-3 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all"
               >
-                Official e-Visa Portal
+                {t("flightGuide.eVisaPortal")}
               </motion.button>
             </div>
 
             {/* STAYS CARD */}
             <div className="bg-white/80 border border-blue-100 p-8 rounded-sm shadow-sm">
               <h6 className="font-['Cinzel'] text-[10px] tracking-widest text-[#8B5E3C] mb-2 uppercase font-bold">
-                Accommodations
+                {t("flightGuide.accomTitle")}
               </h6>
               <p className="font-['Cormorant_Garamond'] text-sm italic text-stone-400 mb-6">
-                Curated searches on Booking.com
+                {t("flightGuide.accomSub")}
               </p>
               <div className="space-y-3">
                 {[
                   {
                     label: "Jorhat",
-                    sublabel: "Wedding venue & surrounds",
+                    sublabel: t("flightGuide.jorhatSub"),
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Jorhat",
                   },
                   {
                     label: "Kaziranga",
-                    sublabel: "Jungle lodges & safari stays",
+                    sublabel: t("flightGuide.kazirangaSub"),
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Kaziranga",
                   },
                   {
                     label: "Guwahati",
-                    sublabel: "Gateway city, near the airport",
+                    sublabel: t("flightGuide.guwahatiSub"),
                     url: "https://www.booking.com/searchresults.en-gb.html?ss=Guwahati",
                   },
                 ].map((item, i) => (
@@ -154,7 +156,7 @@ export default function TravelPortal({
           className="mt-16 text-center"
         >
           <p className="font-['Cormorant_Garamond'] text-2xl italic text-[#2D3E50]">
-            We are here to help you every step of the way.
+            {t("travelPortal.footer")}
           </p>
         </motion.footer>
       </div>

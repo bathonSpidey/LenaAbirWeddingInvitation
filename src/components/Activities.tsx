@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import AssamTexture from "../assets/Activities.jpg";
 import ImgKaziranga from "../assets/kaziranga.jpeg";
@@ -11,75 +12,19 @@ import ImgSilk from "../assets/silk.webp";
 import Hollock from "../assets/Hollock.jpg";
 import Horses from "../assets/ferel-horses.jpg";
 
+const ACTIVITY_IMAGES = [ImgKaziranga, ImgMajuli, ImgAhom, ImgFood, ImgRiver, Hollock, ImgSilk, Horses];
+
 const TEXT_PRIMARY = "text-[#2D241E]";
 const TEXT_ACCENT = "text-[#8B5E3C]";
 
-const activities = [
-  {
-    number: "01",
-    tag: "Nature & Wildlife",
-    title: "Kaziranga at Dawn",
-    desc: "At sunrise, the mist parts to reveal one-horned rhinos grazing beside the Brahmaputra. Join a jeep or elephant safari through UNESCO-listed Kaziranga — home to more rhinos than anywhere else on earth, alongside tigers, wild elephants, and hundreds of migratory birds.",
-    img: ImgKaziranga,
-    delay: 0.1,
-  },
-  {
-    number: "02",
-    tag: "River & Islands",
-    title: "Majuli Island",
-    desc: "The world's largest river island and a cradle of Vaishnavite culture. Explore ancient satras (monasteries), watch mask-making artisans, and cycle through paddy fields as the Brahmaputra wraps around you. Best reached by a short ferry from Jorhat.",
-    img: ImgMajuli,
-    delay: 0.2,
-  },
-  {
-    number: "03",
-    tag: "Culture & Heritage",
-    title: "Ahom Heritage Trails",
-    desc: "Walk among the imposing Rang Ghar pavilion and Kareng Ghar palace in Sibasagar — 600-year-old monuments of the Ahom kingdom that ruled Assam for nearly six centuries without a single Mughal conquest.",
-    img: ImgAhom,
-    delay: 0.3,
-  },
-  {
-    number: "04",
-    tag: "Food & Markets",
-    title: "Jorhat Food Trail",
-    desc: "Follow the aromas through Jorhat's markets: freshly smoked duck with mustard, sticky rice steamed inside bamboo, and the unmistakable tang of khar. Stop at a local home for a full Assamese thali — food here is not just sustenance, it is ceremony.",
-    img: ImgFood,
-    delay: 0.4,
-  },
-  {
-    number: "05",
-    tag: "River Life",
-    title: "Brahmaputra River Cruise",
-    desc: "Drift along one of Asia's mightiest rivers as golden evening light paints the water amber. Stop at midstream sandbanks where rare Gangetic river dolphins surface beside the boat, and watch fishermen cast their nets as the sky turns pink.",
-    img: ImgRiver,
-    delay: 0.5,
-  },
-  {
-    number: "06",
-    tag: "Rainforest & Wildlife",
-    title: "Dehing Patkai Rainforest",
-    desc: "Venture east into one of India's last surviving lowland rainforests. Listen for the rare Hoolock gibbon calling through a canopy shared with clouded leopards, hornbills, and slow lorises — a world that feels entirely untouched.",
-    img: Hollock,
-    delay: 0.6,
-  },
-  {
-    number: "07",
-    tag: "Craft & Textile",
-    title: "Muga Silk Weaving",
-    desc: "Travel to Sualkuchi — Assam's silk village — to watch artisans transform golden Muga cocoons into the world's only naturally gold silk. The soft clatter of heritage handlooms fills every home, and every weaver has a story spanning generations.",
-    img: ImgSilk,
-    delay: 0.7,
-  },
-  {
-    number: "08",
-    tag: "Wild & Rare",
-    title: "Dibru-Saikhowa Feral Horses",
-    desc: "One of the rarest sights in Asia: wild horses roaming freely across the floodplains of Dibru-Saikhowa National Park. An early morning jeep ride brings you close to herds that have run untamed since the Indo-Burma border wars.",
-    img: Horses,
-    delay: 0.8,
-  },
-];
+type ActivityCardProps = {
+  number: string;
+  tag: string;
+  title: string;
+  desc: string;
+  img: string;
+  delay: number;
+};
 
 const ActivityCard = ({
   number,
@@ -88,7 +33,7 @@ const ActivityCard = ({
   desc,
   img,
   delay,
-}: (typeof activities)[0]) => (
+}: ActivityCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -139,6 +84,16 @@ const ActivityCard = ({
 );
 
 export default function Activities({ onBack }: { onBack: () => void }) {
+  const { t } = useTranslation();
+  const activities = (t("activities.items", { returnObjects: true }) as Array<{ tag: string; title: string; desc: string }>).map(
+    (item, i) => ({
+      ...item,
+      number: String(i + 1).padStart(2, "0"),
+      img: ACTIVITY_IMAGES[i],
+      delay: (i + 1) * 0.1,
+    }),
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -170,7 +125,7 @@ export default function Activities({ onBack }: { onBack: () => void }) {
           className={`${TEXT_ACCENT} mb-16 flex items-center gap-2 hover:text-amber-900 transition-colors cursor-pointer uppercase tracking-widest text-[10px] font-bold`}
           style={{ fontFamily: "'Cinzel', serif" }}
         >
-          <span>←</span> Back
+          <span>←</span> {t("common.back")}
         </motion.button>
 
         {/* Header */}
@@ -183,7 +138,7 @@ export default function Activities({ onBack }: { onBack: () => void }) {
           <p
             className={`font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase ${TEXT_ACCENT} mb-4 font-bold`}
           >
-            While You're Here
+            {t("activities.label")}
           </p>
           <h1
             className={`${TEXT_PRIMARY} leading-none mb-6`}
@@ -193,14 +148,12 @@ export default function Activities({ onBack }: { onBack: () => void }) {
               textShadow: "1px 1px 0px rgba(255,255,255,0.5)",
             }}
           >
-            Things to Experience
+            {t("activities.heading")}
           </h1>
           <p
             className={`font-['Cormorant_Garamond'] text-xl italic ${TEXT_PRIMARY} opacity-75 max-w-xl leading-relaxed`}
           >
-            Assam rewards the curious traveller. Here are our favourite things
-            to do — experiences we'd love to share with you beyond the wedding
-            itself.
+            {t("activities.subtitle")}
           </p>
           <div className="h-px w-24 bg-[#8B5E3C]/40 mt-8" />
         </motion.div>
@@ -223,12 +176,10 @@ export default function Activities({ onBack }: { onBack: () => void }) {
           <p
             className={`font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-amber-400/70 mb-5`}
           >
-            A Note From Us
+            {t("activities.noteLabel")}
           </p>
           <p className="font-['Cormorant_Garamond'] text-2xl md:text-3xl italic leading-snug">
-            "Jorhat is our home — and we hope it becomes a small part of yours.
-            <br className="hidden md:block" /> Take it slowly. Eat well. Watch
-            the river."
+            {t("activities.noteQuote")}
           </p>
         </motion.div>
 
@@ -242,7 +193,7 @@ export default function Activities({ onBack }: { onBack: () => void }) {
           <p
             className={`font-['Cinzel'] text-[9px] tracking-[0.5em] ${TEXT_ACCENT} uppercase font-bold`}
           >
-            We can't wait to explore with you
+            {t("activities.footerLabel")}
           </p>
         </div>
       </div>

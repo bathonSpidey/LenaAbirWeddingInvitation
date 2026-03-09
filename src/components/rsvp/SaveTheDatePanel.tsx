@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import RSVPTexture from "../../assets/RSVPTexture.png";
 import CalendarButton from "./CalendarButton";
 import { TRAVEL_DATA } from "./types";
@@ -28,33 +29,34 @@ interface SaveTheDatePanelProps {
 
 export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExpect }: SaveTheDatePanelProps) {
   const daysUntil = useDaysUntil(WEDDING_DATE);
+  const { t } = useTranslation();
 
   return (
     <aside
       className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center bg-white/30"
       style={{ backgroundImage: `url(${RSVPTexture})`, backgroundSize: "cover" }}
     >
-      <h2 className="text-stone-800 mb-2 font-['Pinyon_Script'] text-5xl">Save the Date</h2>
+      <h2 className="text-stone-800 mb-2 font-['Pinyon_Script'] text-5xl">{t("saveTheDate.heading")}</h2>
       <p className="font-['Cinzel'] text-[10px] tracking-widest text-amber-700 mb-2">
         6 DECEMBER 2026
       </p>
       {daysUntil > 0 && (
         <p className="font-['Cormorant_Garamond'] text-stone-400 text-sm italic mb-8">
-          {daysUntil} days to go
+          {t("saveTheDate.daysToGo", { count: daysUntil })}
         </p>
       )}
 
       <div className="mb-8">
         <p className="font-['Cinzel'] text-[9px] tracking-[0.3em] text-stone-400 uppercase mb-4">
-          Add to Calendar
+          {t("saveTheDate.addToCalendar")}
         </p>
         <div className="flex flex-col gap-3">
           <CalendarButton
             icon="G"
-            label="Google Calendar"
+            label={t("saveTheDate.googleCalendar")}
             onClick={() => window.open("https://calendar.app.google/Tx5hkVCbDU5iQH2x8", "_blank")}
           />
-          <CalendarButton icon="📅" label="Apple / Outlook" onClick={downloadICS} />
+          <CalendarButton icon="📅" label={t("saveTheDate.appleOutlook")} onClick={downloadICS} />
         </div>
       </div>
 
@@ -63,13 +65,13 @@ export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExp
           onClick={onWhatToExpect}
           className="w-full border border-stone-400 text-stone-600 py-2 px-4 text-[9px] font-['Cinzel'] tracking-[0.3em] uppercase cursor-pointer hover:border-amber-600 hover:text-amber-700 transition-all duration-300"
         >
-          What to Expect
+          {t("saveTheDate.whatToExpect")}
         </button>
       </div>
 
       <div className="space-y-3">
         <label className="block font-['Cinzel'] text-[9px] tracking-widest text-stone-500 uppercase">
-          Traveling from
+          {t("saveTheDate.travelingFrom")}
         </label>
         <select
           value={country}
@@ -79,9 +81,9 @@ export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExp
           }}
           className="w-full border-b border-stone-300 bg-transparent py-2 font-['Cormorant_Garamond'] text-xl focus:outline-none focus:border-amber-500"
         >
-          <option value="Germany">Germany</option>
-          <option value="India">India</option>
-          <option value="Other">Other International</option>
+          <option value="Germany">{t("saveTheDate.germany")}</option>
+          <option value="India">{t("saveTheDate.india")}</option>
+          <option value="Other">{t("saveTheDate.otherInternational")}</option>
         </select>
       </div>
     </aside>

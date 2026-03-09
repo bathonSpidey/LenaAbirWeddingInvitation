@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Story from "../assets/ourstory.jpg";
 import FirstEncounter from "../assets/firstencounter.jpg";
 import LeapOfFaith from "../assets/leapoffaith.jpg";
@@ -116,6 +117,8 @@ const StoryMilestone = ({
 };
 
 export default function OurStory({ onBack }: { onBack: () => void }) {
+  const { t } = useTranslation();
+  const milestones = t("ourStory.milestones", { returnObjects: true }) as Array<{ title: string; desc: string }>;
   return (
     <div
       className="min-h-screen w-full bg-[#fdf8ec] p-8 md:p-20 relative"
@@ -135,7 +138,7 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
           className="mb-12 flex items-center gap-2 text-stone-400 hover:text-amber-700 transition-colors cursor-pointer uppercase tracking-widest text-[9px]"
           style={{ fontFamily: "'Cinzel', serif" }}
         >
-          <span>←</span> Back to Invitation
+          <span>←</span> {t("common.backToInvitation")}
         </motion.button>
 
         <div className="max-w-3xl mx-auto">
@@ -147,7 +150,7 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
             className="text-stone-800 text-center mb-2"
             style={{ fontFamily: "'Pinyon Script', cursive", fontSize: 60 }}
           >
-            Our Journey
+            {t("ourStory.heading")}
           </motion.h2>
 
           {/* Bilingual subtitle */}
@@ -171,10 +174,10 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
 
           {/* Milestones */}
           <div>
-            <StoryMilestone index={0} year="2024" title="The First Encounter" location="Oberstdorf" flag="🇩🇪" desc="A planned meeting at a Sushi restaurant in Osnabrück followed by a quick escapade to the lush green mountains of Oberstdorf, where we discovered that the best adventures are the ones you don't plan." image={FirstEncounter} />
-            <StoryMilestone index={1} year="2024" title="The Leap of Faith" location="Baden-Baden" flag="🇩🇪" desc="After a year of adventures, laughter, and the realization that 'home' was a person, not a place." image={LeapOfFaith} />
-            <StoryMilestone index={2} year="2025" title="The Proposal" location="Rheinfall" flag="🇨🇭" desc="In the mist of the Rheinfall on a warm afternoon, he asked the question, and she said yes." image={Proposal} />
-            <StoryMilestone index={3} year="2026" title="The Wedding" location="Denmark → Jorhat" flag="🇩🇰🇮🇳" desc="A private escapade to Denmark; just us and the officials to witness our quiet 'I do'. Then, east — to Assam, where two worlds will celebrate as one." />
+            <StoryMilestone index={0} year="2024" title={milestones[0].title} location="Oberstdorf" flag="🇩🇪" desc={milestones[0].desc} image={FirstEncounter} />
+            <StoryMilestone index={1} year="2024" title={milestones[1].title} location="Baden-Baden" flag="🇩🇪" desc={milestones[1].desc} image={LeapOfFaith} />
+            <StoryMilestone index={2} year="2025" title={milestones[2].title} location="Rheinfall" flag="🇨🇭" desc={milestones[2].desc} image={Proposal} />
+            <StoryMilestone index={3} year="2026" title={milestones[3].title} location="Denmark → Jorhat" flag="🇩🇰🇮🇳" desc={milestones[3].desc} />
           </div>
 
           {/* Cultural bridge banner */}

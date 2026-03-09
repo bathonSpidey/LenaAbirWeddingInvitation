@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import NavFooter from "./rsvp/NavFooter";
 import SaveTheDatePanel from "./rsvp/SaveTheDatePanel";
 import { S } from "./rsvp/styles";
@@ -27,6 +28,7 @@ export default function RSVPSection({
   onWhatToExpect,
 }: RSVPSectionProps) {
   const [country, setCountry] = useState<CountryKey>("Germany");
+  const { t } = useTranslation();
 
   return (
     <div
@@ -44,7 +46,7 @@ export default function RSVPSection({
             exit={{ opacity: 0, x: -20 }}
             className="relative z-10"
           >
-            <p className={S.sectionLabel}>Travel Guide</p>
+            <p className={S.sectionLabel}>{t("rsvp.travelGuide")}</p>
 
             <TravelCardsGrid
               country={country}

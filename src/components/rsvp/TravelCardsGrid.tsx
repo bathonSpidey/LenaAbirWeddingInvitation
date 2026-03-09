@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import InfoCard from "./InfoCard";
 import { type CountryKey, TRAVEL_DATA } from "./types";
 
@@ -12,18 +13,19 @@ export default function TravelCardsGrid({
   onOpenGuide,
   onDiscoverAssam,
 }: TravelCardsGridProps) {
+  const { t } = useTranslation();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
       <InfoCard
-        title="Planning your Journey?"
-        body="We've curated a complete guide for our international guests—covering flights from Germany & China, local stays, and visa requirements."
-        buttonLabel="Open Travel Guide"
+        title={t("travelCards.journeyTitle")}
+        body={t("travelCards.journeyBody")}
+        buttonLabel={t("travelCards.openTravelGuide")}
         onButtonClick={onOpenGuide}
       />
       <InfoCard
-        title="Must Do Activities"
+        title={t("travelCards.activitiesTitle")}
         body={TRAVEL_DATA[country].activities}
-        buttonLabel="Discover Assam"
+        buttonLabel={t("travelCards.discoverAssam")}
         onButtonClick={onDiscoverAssam}
       />
     </div>

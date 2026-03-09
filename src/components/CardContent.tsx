@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const DiamondDivider = () => (
   <div className="flex items-center justify-center gap-2 w-full my-3">
@@ -27,6 +28,7 @@ export default function CardContent({
   onDecline: () => void;
   onRSVP: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <div
       className="m-2.5 rounded relative overflow-hidden"
@@ -47,7 +49,7 @@ export default function CardContent({
           className="tracking-[0.35em] uppercase mb-6 text-amber-800/60"
           style={{ fontFamily: "'Cinzel', serif", fontSize: 8 }}
         >
-          The Honor of your presence is requested
+          {t("card.honor")}
         </p>
 
         {/* --- SCRIPT NAMES SECTION --- */}
@@ -71,26 +73,26 @@ export default function CardContent({
             fontSize: 18,
           }}
         >
-          at the celebration of their marriage
+          {t("card.celebration")}
         </p>
 
         <p
           className="tracking-[0.25em] uppercase font-semibold mb-8 text-amber-700/90"
           style={{ fontFamily: "'Cinzel', serif", fontSize: 13 }}
         >
-          Wedding Reception
+          {t("card.reception")}
         </p>
 
         {/* --- DETAILS SECTION --- */}
         <div className="flex flex-col gap-6 mb-8">
           {[
             {
-              label: "SATURDAY",
+              label: t("card.saturday"),
               val: "6 December 2026",
-              sub: "Two Thousand Twenty Six",
+              sub: t("card.dateWords"),
             },
-            { label: "VENUE", val: "Royal Park, Jorhat" },
-            { label: "TIME", val: "5:00-9:00 PM" },
+            { label: t("card.venue"), val: "Royal Park, Jorhat" },
+            { label: t("card.time"), val: "5:00-9:00 PM" },
           ].map(({ label, val, sub }) => (
             <div key={label} className="text-center group">
               <p className="tracking-[0.3em] uppercase text-amber-600/70 text-[7.5px] font-['Cinzel'] mb-1.5">
@@ -125,7 +127,7 @@ export default function CardContent({
             background: "#C9A84C",
           }}
         >
-          RSVP & Travel Guide
+          {t("card.rsvp")}
         </motion.button>
 
         <motion.button
@@ -141,7 +143,7 @@ export default function CardContent({
             marginTop: 12,
           }}
         >
-          I Can't Make It
+          {t("card.cantMakeIt")}
         </motion.button>
       </div>
     </div>

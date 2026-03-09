@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import RSVPTexture from "../assets/ExpectTexture.jpeg";
 import ImgCeremony from "../assets/fusion.png";
 import ImgDressCode from "../assets/silk.webp";
@@ -7,55 +8,14 @@ import ImgMusic from "../assets/Majuli.jpg";
 import ImgWeather from "../assets/tea.png";
 import ImgWarmth from "../assets/brahmaputra.jpg";
 
+const ITEM_IMAGES = [ImgCeremony, ImgDressCode, ImgFood, ImgMusic, ImgWeather, ImgWarmth];
+
 interface ExpectationsProps {
   innerRef: React.RefObject<HTMLDivElement>;
   onBack: () => void;
 }
 
-const items = [
-  {
-    number: "01",
-    tag: "The Ceremony",
-    title: "A Fusion of Two Worlds",
-    desc: "The wedding ceremony will weave together Assamese and European traditions — expect sacred fire rituals alongside heartfelt vows spoken in two languages. You will witness a union as layered and beautiful as the cultures that shaped us.",
-    img: ImgCeremony,
-  },
-  {
-    number: "02",
-    tag: "Dress Code",
-    title: "Festive & Vibrant",
-    desc: "We invite you to dress in celebration. Traditional Indian attire is warmly welcomed — sarees, sherwanis, kurtas. Those preferring Western wear should opt for formal festive. Avoid white or black as primary colours. Think jewel tones, pastels, and gold.",
-    img: ImgDressCode,
-  },
-  {
-    number: "03",
-    tag: "Food & Feasting",
-    title: "A Feast for the Senses",
-    desc: "A lavish spread of Assamese delicacies awaits — slow-cooked duck curry, mustard fish, bamboo-steamed rice, and tables lined with sweets from both cultures. Every dish tells a story; come hungry.",
-    img: ImgFood,
-  },
-  {
-    number: "04",
-    tag: "Music & Dance",
-    title: "Bihu Beneath the Stars",
-    desc: "As evening deepens, live Bihu folk music will fill the courtyard. Expect performances, spontaneous dancing, and a DJ set that moves through continents — from Assamese beats to European favourites.",
-    img: ImgMusic,
-  },
-  {
-    number: "05",
-    tag: "Weather & Setting",
-    title: "December in Jorhat",
-    desc: "Early December is Jorhat's most beautiful season — cool, golden days (18–24 °C) and clear evenings. The venue sits amid tea gardens and open skies. Bring a light shawl for after dark; the stars here are remarkable.",
-    img: ImgWeather,
-  },
-  {
-    number: "06",
-    tag: "People & Warmth",
-    title: "Assamese Hospitality",
-    desc: "Those who have visited Assam know: hospitality here is not a gesture, it is a way of life. Expect to be fed before you are hungry, welcomed before you knock, and sent home with more warmth than you arrived with.",
-    img: ImgWarmth,
-  },
-];
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -67,6 +27,11 @@ const fadeUp = {
 };
 
 export default function Expectations({ innerRef, onBack }: ExpectationsProps) {
+  const { t } = useTranslation();
+  const items = (t("expectations.items", { returnObjects: true }) as Array<{ tag: string; title: string; desc: string }>).map(
+    (item, i) => ({ ...item, number: String(i + 1).padStart(2, "0"), img: ITEM_IMAGES[i] }),
+  );
+
   return (
     <section
       ref={innerRef}
@@ -88,15 +53,14 @@ export default function Expectations({ innerRef, onBack }: ExpectationsProps) {
           className="mb-16"
         >
           <p className="font-['Cinzel'] text-[9px] tracking-[0.35em] uppercase text-amber-800 mb-4">
-            A guide for our guests
+            {t("expectations.label")}
           </p>
           <h2 className="font-['Pinyon_Script'] text-6xl md:text-7xl text-stone-800 mb-4 leading-tight">
-            What to Expect
+            {t("expectations.heading")}
           </h2>
           <div className="w-16 h-px bg-amber-600 mb-6" />
           <p className="font-['Cormorant_Garamond'] text-xl text-stone-500 italic max-w-lg leading-relaxed">
-            Two families, two continents, one celebration. Here is everything you
-            need to arrive prepared and leave unforgettable.
+            {t("expectations.subtitle")}
           </p>
         </motion.div>
 
@@ -159,7 +123,7 @@ export default function Expectations({ innerRef, onBack }: ExpectationsProps) {
             onClick={onBack}
             className="border border-stone-400 text-stone-600 py-2 px-10 text-[10px] font-['Cinzel'] tracking-[0.3em] uppercase cursor-pointer hover:border-amber-600 hover:text-amber-700 transition-all duration-300"
           >
-            Back to Details
+            {t("common.backToDetails")}
           </button>
         </motion.div>
       </div>
