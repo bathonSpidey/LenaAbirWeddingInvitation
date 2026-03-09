@@ -1,27 +1,29 @@
+// Suggested Asset Names: 
+// knob: wax-seal.svg (A high-quality gold/burgundy seal)
+// target: seal-outline.svg (A faint gold dashed or solid stroke circle)
+// completed: seal-stamped.svg (The seal with a little gold 'gline' or ribbon)
+
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useState } from "react";
-import weddingCake from "../assets/wedding-cake.svg";
-import coupleSvg from "../assets/couple.svg";
-import afterSlideSvg from "../assets/after-slide.svg";
 
-const KNOB_SIZE = 44;
+const KNOB_SIZE = 48; // Slightly larger for detail
 const PADDING = 4;
 
-export default function FlowerSlider({ onRSVP }: { onRSVP: () => void }) {
+export default function RoyalRSVPSlider({ onRSVP }) {
   const [completed, setCompleted] = useState(false);
   const [trackWidth, setTrackWidth] = useState(0);
   const x = useMotionValue(0);
+  
+  // Adjusted for slightly larger knob
   const maxDrag = Math.max(0, trackWidth - KNOB_SIZE - PADDING * 2);
-
   const fillOpacity = useTransform(x, [0, maxDrag], [0, 1]);
-  const textOpacity = useTransform(x, [0, maxDrag * 0.25], [1, 0]);
-  const knobScale = useTransform(x, [maxDrag * 0.7, maxDrag], [1, 1.12]);
+  const textOpacity = useTransform(x, [0, maxDrag * 0.3], [1, 0]);
 
   const handleDragEnd = () => {
-    if (x.get() >= maxDrag * 0.8) {
-      animate(x, maxDrag, { type: "spring", stiffness: 400, damping: 30 });
+    if (x.get() >= maxDrag * 0.85) {
+      animate(x, maxDrag, { type: "spring", stiffness: 300, damping: 25 });
       setCompleted(true);
-      setTimeout(onRSVP, 650);
+      setTimeout(onRSVP, 800);
     } else {
       animate(x, 0, { type: "spring", stiffness: 300, damping: 25 });
     }
@@ -29,105 +31,90 @@ export default function FlowerSlider({ onRSVP }: { onRSVP: () => void }) {
 
   return (
     <div
-      ref={(el) => {
-        if (el && el.offsetWidth !== trackWidth) setTrackWidth(el.offsetWidth);
-      }}
+      ref={(el) => el && setTrackWidth(el.offsetWidth)}
       className="relative rounded-full select-none"
       style={{
         height: KNOB_SIZE + PADDING * 2,
-        border: "1.5px solid rgba(185,145,40,0.75)",
-        background: "linear-gradient(90deg, #f5e8c0 0%, #e8d08a 100%)",
-        boxShadow: "inset 0 1px 4px rgba(120,90,20,0.15), 0 1px 6px rgba(180,140,40,0.18)",
+        // The "Parchment" track
+        background: "#FDFBF7", 
+        border: "1px solid #D4AF37", // Classic Gold
+        boxShadow: "inset 0 2px 4px rgba(0,0,0,0.05)",
         width: "100%",
-        maxWidth: 300,
+        maxWidth: 320,
       }}
     >
-      {/* Animated gold fill */}
+      {/* The "Gold Ribbon" fill that follows the slider */}
       <motion.div
         style={{
-          opacity: fillOpacity,
-          background:
-            "linear-gradient(90deg, rgba(185,145,40,0.55) 0%, rgba(201,160,30,0.85) 100%)",
+          width: x,
+          left: PADDING + KNOB_SIZE / 2,
+          height: 2,
+          top: "50%",
+          translateY: "-50%",
+          background: "linear-gradient(90deg, #D4AF37, #F2D479)",
+          position: "absolute",
         }}
-        className="absolute inset-0 rounded-full pointer-events-none"
       />
 
-      {/* Slide label */}
       <motion.p
         style={{
           opacity: textOpacity,
-          fontFamily: "'Cinzel', serif",
-          fontSize: 7,
-          letterSpacing: "0.35em",
-          color: "rgba(90,60,10,0.8)",
+          fontFamily: "'Cinzel', serif", // Ensure this is loaded in your project
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          color: "#8B7355",
           textTransform: "uppercase",
-          userSelect: "none",
-          pointerEvents: "none",
         }}
-        className="absolute inset-0 flex items-center justify-center"
+        className="absolute inset-0 flex items-center justify-center pl-8"
       >
-        {completed ? "See you there!" : "Slide to RSVP"}
+        {completed ? "Your presence is requested" : "Seal your RSVP"}
       </motion.p>
 
-      {/* Bride & Groom target on the right */}
-      <motion.div
-        className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none"
-        style={{ width: KNOB_SIZE, height: KNOB_SIZE }}
-        animate={completed ? { scale: [1, 1.35, 1] } : {}}
-        transition={{ duration: 0.45 }}
-      >
-        <img
-          src={coupleSvg}
-          alt="couple"
-          style={{ width: 32, height: 32, objectFit: "contain" }}
-        />
-      </motion.div>
+      {/* Target: The faint gold embossment */}
+      <div
+        className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center"
+        style={{ 
+          width: KNOB_SIZE, 
+          height: KNOB_SIZE,
+          border: "1.5px dashed #D4AF37",
+          borderRadius: "50%",
+          opacity: completed ? 0 : 0.4
+        }}
+      />
 
-      {/* Draggable bouquet knob */}
+      {/* Knob: The Wax Seal */}
       <motion.div
-        drag={completed ? false : "x"}
+        drag={!completed && "x"}
         dragConstraints={{ left: 0, right: maxDrag }}
-        dragElastic={0.03}
+        onDragEnd={handleDragEnd}
         style={{
           x,
-          scale: knobScale,
-          position: "absolute",
           left: PADDING,
           top: PADDING,
           width: KNOB_SIZE,
           height: KNOB_SIZE,
-          borderRadius: "50%",
-          background: completed
-            ? "linear-gradient(135deg, #c8a84b, #a07820)"
-            : "linear-gradient(135deg, #d4a82a, #b8880c)",
-          border: `1.5px solid ${completed ? "rgba(140,100,10,0.9)" : "rgba(160,118,20,0.7)"}`,
+          position: "absolute",
+          zIndex: 10,
           cursor: completed ? "default" : "grab",
+        }}
+      >
+        <div style={{
+          width: "100%",
+          height: "100%",
+          borderRadius: "50%",
+          background: "radial-gradient(circle at 30% 30%, #a52a2a, #800000)", // Wax Red
+          border: "2px solid #D4AF37",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0 2px 12px rgba(180,140,60,0.22), 0 1px 3px rgba(0,0,0,0.1)",
-          zIndex: 10,
-          touchAction: "none",
-          overflow: "hidden",
-        }}
-        onDragEnd={handleDragEnd}
-        whileDrag={{ cursor: "grabbing" }}
-        animate={completed ? { rotate: [0, -15, 15, 0] } : {}}
-        transition={completed ? { duration: 0.4 } : {}}
-      >
-        {completed ? (
-          <img
-            src={afterSlideSvg}
-            alt="celebration"
-            style={{ width: 28, height: 28, objectFit: "contain", pointerEvents: "none" }}
-          />
-        ) : (
-          <img
-            src={weddingCake}
-            alt="wedding cake"
-            style={{ width: 26, height: 26, objectFit: "contain", pointerEvents: "none" }}
-          />
-        )}
+          fontSize: "18px",
+          color: "#D4AF37",
+          fontWeight: "bold",
+          fontFamily: "'Playfair Display', serif"
+        }}>
+          {completed ? "✓" : "R"} 
+        </div>
       </motion.div>
     </div>
   );
