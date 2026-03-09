@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { RoyalBackgroundShapes } from "../RoyalBackgroundShapes";
+// import { RoyalBackgroundShapes } from "../RoyalBackgroundShapes";
 import WaxSeal from "../WaxSeal";
 import EnvelopeBack from "./EnvelopeBack";
 import EnvelopeLetter from "./EnvelopeLetter";
