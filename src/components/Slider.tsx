@@ -36,7 +36,7 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
       ref={(el) => (el && setTrackWidth(el.offsetWidth)) || undefined}
       className="relative rounded-full select-none"
       style={{
-        height: KNOB_SIZE + PADDING * 2,
+        height: KNOB_SIZE + PADDING * 2, // Extra height for the text and curve
         // The "Parchment" track
         background: "#FDFBF7",
         border: "1px solid #D4AF37", // Classic Gold
@@ -46,54 +46,60 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
       }}
     >
       {/* The "Gold Ribbon" fill that follows the slider */}
-      <div
+      <svg
+        key={trackWidth} // Forces re-render when track width is found
+        className="absolute pointer-events-none"
         style={{
           left: PADDING + KNOB_SIZE / 2,
-          right: PADDING + KNOB_SIZE / 2,
-          height: 1,
+          // We stop exactly at the center of the target hand
+          width: maxDrag,
+          height: 40,
           top: "50%",
-          transform: "translateY(-50%)",
-          background: "rgba(139, 115, 85, 0.1)", // Very faint "pressed" line
-          position: "absolute",
+          translate: "translateY(-50%)",
+          overflow: "visible",
+          zIndex: 1,
         }}
-      />
+      >
+        <motion.path
+          // This "d" creates a curve that scales perfectly to your maxDrag distance
+          d={`M 0 20 Q ${maxDrag / 4} 5, ${maxDrag / 2} 10 T ${maxDrag} 10`}
+          fill="transparent"
+          stroke="url(#goldGradient)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          style={{
+            pathLength: useTransform(x, [0, maxDrag], [0, 1]),
+          }}
+        />
+        <defs>
+          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(212,175,55,0.1)" />
+            <stop offset="100%" stopColor="#D4AF37" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-      {/* 2. The Golden Flight Trail (This follows the Dove) */}
-      <motion.div
-        style={{
-          width: x,
-          left: PADDING + KNOB_SIZE / 2,
-          height: 2,
-          top: "50%",
-          translateY: "-50%",
-          position: "absolute",
-          // This gradient makes the "new" part of the line near the bird bright gold
-          // and the "old" part near the start fade into a soft silk thread
-          background:
-            "linear-gradient(90deg, rgba(212,175,55,0.2) 0%, #D4AF37 100%)",
-          boxShadow: "0px 0px 6px rgba(242, 212, 121, 0.4)",
-          zIndex: 2,
-        }}
-      />
-
-      {/* 3. The "Lead" Sparkle (The tiny glint right behind the Dove) */}
+      {/* 2. The Sparkle following the exact curve */}
       <motion.div
         style={{
           x,
+          // This Y-transform must match the "S-curve" of the path above
+          y: useTransform(
+            x,
+            [0, maxDrag * 0.25, maxDrag * 0.5, maxDrag * 0.75, maxDrag],
+            [0, -4, 0, 4, 0],
+          ),
           left: PADDING + KNOB_SIZE / 2,
           top: "50%",
-          translateY: "-50%",
+          translate: "translateY(-50%)",
           position: "absolute",
           width: 6,
           height: 6,
           borderRadius: "50%",
-          background: "radial-gradient(circle, #FFF5D1 0%, #D4AF37 100%)",
+          background: "#FFF5D1",
           boxShadow: "0 0 12px #F2D479",
           zIndex: 3,
         }}
-        // Makes the sparkle "flicker" slightly as you drag
-        animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.1, 1] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
       />
 
       <motion.p
@@ -150,6 +156,11 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
         onDragEnd={handleDragEnd}
         style={{
           x,
+          y: useTransform(
+            x,
+            [0, maxDrag * 0.25, maxDrag * 0.5, maxDrag * 0.75, maxDrag],
+            [0, -12, 0, 12, 0],
+          ),
           left: PADDING,
           top: PADDING,
           width: KNOB_SIZE,
