@@ -12,6 +12,7 @@ import VenueSection from "./rsvp/VenueSection";
 interface RSVPSectionProps {
   innerRef: React.RefObject<HTMLDivElement>;
   onBackToDiscover: () => void;
+  onDiscoverActivities: () => void;
   onBackToStory: () => void;
   onNavigateToTravel: () => void;
 }
@@ -19,6 +20,7 @@ interface RSVPSectionProps {
 export default function RSVPSection({
   innerRef,
   onBackToDiscover,
+  onDiscoverActivities,
   onBackToStory,
   onNavigateToTravel,
 }: RSVPSectionProps) {
@@ -45,12 +47,12 @@ export default function RSVPSection({
             <TravelCardsGrid
               country={country}
               onOpenGuide={onNavigateToTravel}
-              onDiscoverAssam={onBackToDiscover}
+              onDiscoverAssam={onDiscoverActivities}
             />
 
             <VenueSection />
 
-            <NavFooter onExplore={onBackToDiscover} onOurStory={onBackToStory} />
+            <NavFooter onOurStory={onBackToStory} />
           </motion.div>
         </AnimatePresence>
 

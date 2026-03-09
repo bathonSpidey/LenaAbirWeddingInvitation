@@ -86,7 +86,7 @@ export default function CardContent({
           {[
             {
               label: "SATURDAY",
-              val: "4 December 2026",
+              val: "6 December 2026",
               sub: "Two Thousand Twenty Six",
             },
             { label: "VENUE", val: "Royal Park, Jorhat" },

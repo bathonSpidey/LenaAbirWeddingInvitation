@@ -5,6 +5,7 @@ import DiscoverAssam from "./DiscoverAssam";
 import RSVPSection from "./RSVPSection";
 import TravelPortal from "./TravelPortal";
 import EnvelopeStage from "./envelope/EnvelopeStage";
+import Activities from "./Activities";
 import { useEnvelopeAnimation } from "../hooks/useEnvelopeAnimation";
 
 // ── Add this to your index.html <head>:
@@ -23,8 +24,9 @@ export default function EnvelopeIntro() {
   const regretsRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
   const storyRef   = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
-  const rsvpRef    = useRef<HTMLDivElement>(null);
-  const travelRef  = useRef<HTMLDivElement>(null);
+  const rsvpRef        = useRef<HTMLDivElement>(null);
+  const travelRef      = useRef<HTMLDivElement>(null);
+  const activitiesRef  = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (!ref.current || !containerRef.current) return;
@@ -93,6 +95,7 @@ export default function EnvelopeIntro() {
             <RSVPSection
               innerRef={rsvpRef as React.RefObject<HTMLDivElement>}
               onBackToDiscover={() => scrollTo(discoverRef)}
+              onDiscoverActivities={() => scrollTo(activitiesRef)}
               onBackToStory={() => scrollTo(storyRef)}
               onNavigateToTravel={() => scrollTo(travelRef)}
             />
@@ -107,6 +110,10 @@ export default function EnvelopeIntro() {
           </div>
 
           <TravelPortal innerRef={travelRef as React.RefObject<HTMLDivElement>} />
+
+          <div ref={activitiesRef} className="snap-start">
+            <Activities onBack={() => scrollTo(rsvpRef)} />
+          </div>
         </>
       )}
     </div>

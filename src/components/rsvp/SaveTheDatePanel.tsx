@@ -16,7 +16,7 @@ export default function SaveTheDatePanel({ country, onCountryChange }: SaveTheDa
     >
       <h2 className="text-stone-800 mb-2 font-['Pinyon_Script'] text-5xl">Save the Date</h2>
       <p className="font-['Cinzel'] text-[10px] tracking-widest text-amber-700 mb-8">
-        4 DECEMBER 2026
+        6 DECEMBER 2026
       </p>
 
       <div className="mb-8">
