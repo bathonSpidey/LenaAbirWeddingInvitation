@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { GoldDust } from "../GoldDust";
+import { RoyalBackgroundShapes } from "../RoyalBackgroundShapes";
 import WaxSeal from "../WaxSeal";
 import EnvelopeBack from "./EnvelopeBack";
 import EnvelopeLetter from "./EnvelopeLetter";
@@ -7,6 +7,7 @@ import EnvelopeFrontPocket from "./EnvelopeFrontPocket";
 import EnvelopeFlap from "./EnvelopeFlap";
 import { EW, EH } from "./constants";
 import type { Phase } from "./constants";
+import RoyalBackground from "../../assets/royalBackground.png";
 
 interface EnvelopeStageProps {
   phase: Phase;
@@ -33,41 +34,20 @@ export default function EnvelopeStage({
 }: EnvelopeStageProps) {
   return (
     <div
-      className="min-h-screen w-full flex items-center justify-center relative snap-start"
+      className="min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden"
       style={{
-        background:
-          "radial-gradient(ellipse at 50% 40%, #f5ead4 0%, #e8d5b0 55%, #d4b882 100%)",
+        // The single image background
+        backgroundImage: `url(${RoyalBackground})`,
+        // critical CSS for responsiveness
+        backgroundSize: "cover", // Ensures it covers the screen without stretching
+        backgroundPosition: "center", // Keeps the fused crest central
+        backgroundRepeat: "no-repeat", // Prevents visible tiling on large screens
       }}
     >
-      {/* Linen texture overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: [
-            "repeating-linear-gradient(0deg,  transparent, transparent 2px, rgba(160,120,60,0.05) 2px, rgba(160,120,60,0.05) 3px)",
-            "repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(160,120,60,0.04) 2px, rgba(160,120,60,0.04) 3px)",
-          ].join(","),
-        }}
-      />
-
-      <GoldDust />
-
-      {/* Ambient golden glow */}
-      <div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: 700,
-          height: 420,
-          background:
-            "radial-gradient(ellipse, rgba(201,168,76,0.22) 0%, transparent 65%)",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      />
+      {/* <RoyalBackgroundShapes /> */}
 
       {/* Envelope layers container */}
-      <div className="relative" style={{ width: EW, height: EH }}>
+      <div className="relative" style={{ width: EW, height: EH, zIndex: 10 }}>
         {/* Layer 1 — envelope back (z-10) */}
         <EnvelopeBack envelopeAnim={envelopeAnim} />
 
@@ -102,7 +82,6 @@ export default function EnvelopeStage({
           )}
         </AnimatePresence>
       </div>
-
     </div>
   );
 }
