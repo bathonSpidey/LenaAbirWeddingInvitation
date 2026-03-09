@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Updated assets based on your imports
@@ -25,13 +26,13 @@ const FeatureCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay }}
     viewport={{ once: true }}
-    className="flex flex-col gap-4"
+    className="flex flex-col gap-4 group"
   >
     <div className="aspect-[4/5] overflow-hidden rounded-sm bg-stone-200 shadow-2xl border-[4px] border-white/90">
-      <img src={img} alt={title} className="w-full h-full object-cover" />
+      <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
     </div>
     <h2
-      className={`font-['Cinzel']  tracking-[0.3em] ${TEXT_ACCENT} mt-2 uppercase font-bold`}
+      className={`font-['Cinzel'] text-xs tracking-[0.3em] ${TEXT_ACCENT} mt-2 uppercase font-bold`}
     >
       {title}
     </h2>
@@ -44,6 +45,10 @@ const FeatureCard = ({
 );
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div
       className="min-h-screen w-full py-20 px-6 md:px-20 relative overflow-hidden"
@@ -115,7 +120,7 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
 
         {/* Highlight Section - Using the Deep Espresso for the box to ground the page */}
         <div className="bg-[#2D241E] text-[#fdf8ec] p-12 md:p-20 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden">
-          <div className="relative z-10 text-center max-w-2xl mx-auto">
+          <div className="relative z-20 text-center max-w-2xl mx-auto">
             <h3 className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase mb-6 text-amber-400/80">
               The Experience
             </h3>
@@ -125,9 +130,10 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
             </p>
           </div>
           <div
-            className="absolute inset-0 opacity-50 bg-cover bg-center" // removed grayscale class
+            className="absolute inset-0 opacity-40 bg-cover bg-center"
             style={{ backgroundImage: `url(${TeaGarden})` }}
           />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#2D241E] via-[#2D241E]/75 to-[#2D241E]/50" />
         </div>
 
         <div className="mt-20 text-center">
