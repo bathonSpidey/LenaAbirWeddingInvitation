@@ -7,8 +7,8 @@ const WEDDING = new Date("2026-12-06T00:00:00");
 function getTimeLeft() {
   const diff = Math.max(0, WEDDING.getTime() - Date.now());
   return {
-    days:    Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours:   Math.floor((diff / (1000 * 60 * 60)) % 24),
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
   };
@@ -18,8 +18,10 @@ function pad(n: number, width = 2) {
   return String(n).padStart(width, "0");
 }
 
-const GOLD = "#C9A84C";
-const TILE_BG = "rgba(28, 20, 10, 0.72)";
+const GOLD = "#D4AF37";
+const PARCHMENT = "#FDFBF7";
+const TEXT_DARK = "#8B7355";
+const TILE_BG = PARCHMENT;
 
 /** Renders one half (top or bottom) of a tile, clipping text at the midline. */
 function TileHalf({ text, half }: { text: string; half: "top" | "bottom" }) {
@@ -34,6 +36,10 @@ function TileHalf({ text, half }: { text: string; half: "top" | "bottom" }) {
         height: "50%",
         overflow: "hidden",
         background: TILE_BG,
+        // Add a very subtle inner "press" shadow to the parchment
+        boxShadow: isTop
+          ? "inset 0 -10px 15px -10px rgba(139,115,85,0.05)"
+          : "inset 0 10px 15px -10px rgba(139,115,85,0.05)",
       }}
     >
       {/* Full-height container so text appears centred across the whole tile */}
@@ -52,11 +58,12 @@ function TileHalf({ text, half }: { text: string; half: "top" | "bottom" }) {
         <span
           style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: "clamp(1.4rem, 3vw, 2rem)",
-            fontWeight: 300,
-            color: GOLD,
+            fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
+            fontWeight: 400,
+            color: TEXT_DARK, // Darker text on light background is more readable
             lineHeight: 1,
-            textShadow: "0 0 12px rgba(201,168,76,0.5)",
+            // Letterpress effect: subtle light highlight below the text
+            textShadow: "0px 1px 0px rgba(255,255,255,0.8)",
           }}
         >
           {text}
@@ -88,12 +95,15 @@ function Tile({ value, label }: { value: string; label: string }) {
       <div
         className="relative"
         style={{
-          width: 52,
-          height: 58,
-          border: "1px solid rgba(201,168,76,0.45)",
-          boxShadow: "inset 0 1px 0 rgba(201,168,76,0.15), 0 4px 16px rgba(0,0,0,0.35)",
-          backdropFilter: "blur(6px)",
-          perspective: "300px",
+          width: 58, // Slightly wider for elegance
+          height: 64,
+          background: PARCHMENT,
+          border: `1px solid ${GOLD}`,
+          // Double border effect common in Regency style
+          outline: `1px solid ${GOLD}`,
+          outlineOffset: "-4px",
+          boxShadow: "0 4px 12px rgba(139,115,85,0.15)", // Softer shadow
+          perspective: "400px",
         }}
       >
         {/* Static background halves — always visible behind the flipping cards */}
@@ -114,8 +124,8 @@ function Tile({ value, label }: { value: string; label: string }) {
             top: "50%",
             height: "1px",
             zIndex: 10,
-            background:
-              "linear-gradient(90deg,transparent,rgba(201,168,76,0.2) 30%,rgba(201,168,76,0.2) 70%,transparent)",
+            background: `linear-gradient(90deg, transparent, ${GOLD} 50%, transparent)`,
+            opacity: 0.3,
           }}
         />
 
@@ -124,7 +134,9 @@ function Tile({ value, label }: { value: string; label: string }) {
           <motion.div
             style={{
               position: "absolute",
-              top: 0, left: 0, right: 0,
+              top: 0,
+              left: 0,
+              right: 0,
               height: "50%",
               overflow: "hidden",
               background: TILE_BG,
@@ -147,7 +159,9 @@ function Tile({ value, label }: { value: string; label: string }) {
           <motion.div
             style={{
               position: "absolute",
-              bottom: 0, left: 0, right: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
               height: "50%",
               overflow: "hidden",
               background: TILE_BG,
@@ -184,16 +198,15 @@ function Tile({ value, label }: { value: string; label: string }) {
 function Dot() {
   return (
     <span
-      className="pb-5 self-end"
+      className="pb-6 self-center" // Centered dots look more like stationery
       style={{
         fontFamily: "'Cormorant Garamond', serif",
-        fontSize: "1.4rem",
-        color: "rgba(201,168,76,0.35)",
-        lineHeight: 1,
-        fontWeight: 300,
+        fontSize: "0.01rem",
+        color: GOLD,
+        opacity: 0.6,
       }}
     >
-      :
+      &bull; {/* A bullet point feels more high-end than a colon */}
     </span>
   );
 }
@@ -208,10 +221,10 @@ export default function CountdownStrip() {
   }, []);
 
   return (
-    <div className="flex items-center gap-2">
-      <Tile value={pad(time.days)}    label={t("countdown.days")}    />
+    <div className="flex items-center gap-1">
+      <Tile value={pad(time.days)} label={t("countdown.days")} />
       <Dot />
-      <Tile value={pad(time.hours)}   label={t("countdown.hours")}   />
+      <Tile value={pad(time.hours)} label={t("countdown.hours")} />
       <Dot />
       <Tile value={pad(time.minutes)} label={t("countdown.minutes")} />
       <Dot />

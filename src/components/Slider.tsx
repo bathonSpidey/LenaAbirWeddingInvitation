@@ -46,6 +46,19 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
       }}
     >
       {/* The "Gold Ribbon" fill that follows the slider */}
+      <div
+        style={{
+          left: PADDING + KNOB_SIZE / 2,
+          right: PADDING + KNOB_SIZE / 2,
+          height: 1,
+          top: "50%",
+          transform: "translateY(-50%)",
+          background: "rgba(139, 115, 85, 0.1)", // Very faint "pressed" line
+          position: "absolute",
+        }}
+      />
+
+      {/* 2. The Golden Flight Trail (This follows the Dove) */}
       <motion.div
         style={{
           width: x,
@@ -53,9 +66,34 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
           height: 2,
           top: "50%",
           translateY: "-50%",
-          background: "linear-gradient(90deg, #D4AF37, #F2D479)",
           position: "absolute",
+          // This gradient makes the "new" part of the line near the bird bright gold
+          // and the "old" part near the start fade into a soft silk thread
+          background:
+            "linear-gradient(90deg, rgba(212,175,55,0.2) 0%, #D4AF37 100%)",
+          boxShadow: "0px 0px 6px rgba(242, 212, 121, 0.4)",
+          zIndex: 2,
         }}
+      />
+
+      {/* 3. The "Lead" Sparkle (The tiny glint right behind the Dove) */}
+      <motion.div
+        style={{
+          x,
+          left: PADDING + KNOB_SIZE / 2,
+          top: "50%",
+          translateY: "-50%",
+          position: "absolute",
+          width: 6,
+          height: 6,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, #FFF5D1 0%, #D4AF37 100%)",
+          boxShadow: "0 0 12px #F2D479",
+          zIndex: 3,
+        }}
+        // Makes the sparkle "flicker" slightly as you drag
+        animate={{ opacity: [0.7, 1, 0.7], scale: [1, 1.1, 1] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
       />
 
       <motion.p
