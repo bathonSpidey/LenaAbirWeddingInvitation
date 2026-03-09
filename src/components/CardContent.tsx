@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import CountdownStrip from "./BridgertonCountdown";
+import FlowerSlider from "./Slider";
 
 const DiamondDivider = () => (
   <div className="flex items-center justify-center gap-2 w-full my-3">
@@ -30,6 +32,7 @@ export default function CardContent({
   onRSVP: () => void;
 }) {
   const { t } = useTranslation();
+  const [sliderKey, setSliderKey] = useState(0);
   return (
     <div
       className="m-2.5 rounded relative overflow-hidden"
@@ -119,22 +122,10 @@ export default function CardContent({
 
         
 
-        <motion.button
-          onClick={onRSVP} // Triggered from EnvelopeIntro
-          whileHover={{ scale: 1.03, backgroundColor: "#b59440" }}
-          whileTap={{ scale: 0.98 }}
-          className="mt-2 px-12 py-2.5 text-white rounded-full cursor-pointer tracking-[0.25em] uppercase shadow-lg"
-          style={{
-            fontFamily: "'Cinzel', serif",
-            fontSize: 9,
-            background: "#C9A84C",
-          }}
-        >
-          {t("card.rsvp")}
-        </motion.button>
+        <FlowerSlider key={sliderKey} onRSVP={onRSVP} />
 
         <motion.button
-          onClick={onDecline} // Add this handler
+          onClick={() => { setSliderKey((k) => k + 1); onDecline(); }} // Reset slider on decline
           whileHover={{ scale: 1.03, borderColor: "#8c7e6a", color: "#8c7e6a" }}
           whileTap={{ scale: 0.98 }}
           className="px-10 py-2 bg-transparent rounded-full cursor-pointer tracking-[0.2em] uppercase border transition-colors w-full sm:w-auto"
@@ -161,7 +152,6 @@ export default function CardContent({
               marginBottom: 4,
             }}
           >
-            Counting down
           </p>
           <CountdownStrip />
         </div>
