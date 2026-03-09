@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SealImage from "../assets/Seal.png"; // Adjust the path based on your folder structure
+import SealImage from "../assets/SealElegant.png"; // Adjust the path based on your folder structure
 
 interface WaxSealProps {
   onClick: () => void;
