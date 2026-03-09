@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Activities from "./Activities";
 
 // Updated assets based on your imports
 import TeaGarden from "../assets/tea.png";
@@ -45,9 +46,15 @@ const FeatureCard = ({
 );
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
+  const [showActivities, setShowActivities] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (showActivities) {
+    return <Activities onBack={() => setShowActivities(false)} />;
+  }
 
   return (
     <div
@@ -147,6 +154,17 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
           >
             We truly wish you could be there with us
           </p>
+
+          <motion.button
+            onClick={() => setShowActivities(true)}
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-12 inline-flex items-center gap-3 px-10 py-4 bg-[#2D241E] text-[#fdf8ec] rounded-sm shadow-lg hover:bg-amber-900 transition-colors cursor-pointer"
+            style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.3em", fontSize: "10px" }}
+          >
+            <span>EXPLORE ACTIVITIES</span>
+            <span className="text-amber-400/80">→</span>
+          </motion.button>
         </div>
       </div>
     </div>

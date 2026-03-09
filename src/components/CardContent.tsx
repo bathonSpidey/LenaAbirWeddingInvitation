@@ -90,7 +90,7 @@ export default function CardContent({
               sub: "Two Thousand Twenty Six",
             },
             { label: "VENUE", val: "Royal Park, Jorhat" },
-            { label: "TIME", val: "7:00 PM" },
+            { label: "TIME", val: "5:00-9:00 PM" },
           ].map(({ label, val, sub }) => (
             <div key={label} className="text-center group">
               <p className="tracking-[0.3em] uppercase text-amber-600/70 text-[7.5px] font-['Cinzel'] mb-1.5">
