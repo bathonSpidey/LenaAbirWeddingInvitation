@@ -15,6 +15,7 @@ interface RSVPSectionProps {
   onDiscoverActivities: () => void;
   onBackToStory: () => void;
   onNavigateToTravel: () => void;
+  onWhatToExpect: () => void;
 }
 
 export default function RSVPSection({
@@ -23,6 +24,7 @@ export default function RSVPSection({
   onDiscoverActivities,
   onBackToStory,
   onNavigateToTravel,
+  onWhatToExpect,
 }: RSVPSectionProps) {
   const [country, setCountry] = useState<CountryKey>("Germany");
 
@@ -31,7 +33,7 @@ export default function RSVPSection({
       ref={innerRef}
       className="min-h-screen w-full bg-[#fdf8ec] flex flex-col md:flex-row snap-start"
     >
-      <SaveTheDatePanel country={country} onCountryChange={setCountry} />
+      <SaveTheDatePanel country={country} onCountryChange={setCountry} onWhatToExpect={onWhatToExpect} />
 
       <div className="w-full md:w-2/3 p-8 md:p-10 bg-[#f5ead4]/30 relative overflow-hidden">
         <AnimatePresence mode="wait">

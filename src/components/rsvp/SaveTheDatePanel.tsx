@@ -23,9 +23,10 @@ function useDaysUntil(target: Date): number {
 interface SaveTheDatePanelProps {
   country: CountryKey;
   onCountryChange: (c: CountryKey) => void;
+  onWhatToExpect: () => void;
 }
 
-export default function SaveTheDatePanel({ country, onCountryChange }: SaveTheDatePanelProps) {
+export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExpect }: SaveTheDatePanelProps) {
   const daysUntil = useDaysUntil(WEDDING_DATE);
 
   return (
@@ -55,6 +56,15 @@ export default function SaveTheDatePanel({ country, onCountryChange }: SaveTheDa
           />
           <CalendarButton icon="📅" label="Apple / Outlook" onClick={downloadICS} />
         </div>
+      </div>
+
+      <div className="mb-6">
+        <button
+          onClick={onWhatToExpect}
+          className="w-full border border-stone-400 text-stone-600 py-2 px-4 text-[9px] font-['Cinzel'] tracking-[0.3em] uppercase cursor-pointer hover:border-amber-600 hover:text-amber-700 transition-all duration-300"
+        >
+          What to Expect
+        </button>
       </div>
 
       <div className="space-y-3">
