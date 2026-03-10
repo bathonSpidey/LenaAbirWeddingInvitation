@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 import CountdownStrip from "../BridgertonCountdown";
 import RSVPTexture from "../../assets/RSVPTexture.png";
 import CalendarButton from "./CalendarButton";
 import { TRAVEL_DATA } from "./types";
 import type { CountryKey } from "./types";
 import { downloadICS } from "./utils";
+import GoogleIcon from "../../assets/googleicon.png";
+import Quill from "../../assets/quill.png";
 
 const WEDDING_DATE = new Date("2026-12-06T00:00:00");
 
@@ -15,7 +18,9 @@ function useDaysUntil(target: Date): number {
   );
   useEffect(() => {
     const id = setInterval(() => {
-      setDays(Math.ceil((target.getTime() - Date.now()) / (1000 * 60 * 60 * 24)));
+      setDays(
+        Math.ceil((target.getTime() - Date.now()) / (1000 * 60 * 60 * 24)),
+      );
     }, 60_000);
     return () => clearInterval(id);
   }, [target]);
@@ -28,17 +33,58 @@ interface SaveTheDatePanelProps {
   onWhatToExpect: () => void;
 }
 
-export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExpect }: SaveTheDatePanelProps) {
+export default function SaveTheDatePanel({
+  country,
+  onCountryChange,
+  onWhatToExpect,
+}: SaveTheDatePanelProps) {
   const daysUntil = useDaysUntil(WEDDING_DATE);
   const { t } = useTranslation();
 
   return (
-    <aside
-      className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center bg-white/30"
-      style={{ backgroundImage: `url(${RSVPTexture})`, backgroundSize: "cover" }}
-    >
-      <h2 className="text-stone-800 mb-2 font-['Pinyon_Script'] text-5xl">{t("saveTheDate.heading")}</h2>
-      <p className="font-['Cinzel'] text-[10px] tracking-widest text-amber-700 mb-2">
+    <aside className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center relative overflow-hidden">
+      {/* Layer 1: The Base Paper Color */}
+      <div className="absolute inset-0 bg-[#FDFBF7]" />
+
+      {/* Layer 2: The Texture with modified blending */}
+      <div
+        className="absolute inset-0 opacity-60"
+        style={{
+          backgroundImage: `url(${RSVPTexture})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: " contrast(1.1)", // Matches the texture to the gold text
+          mixBlendMode: "multiply", // Allows the cream base color to bleed through
+        }}
+      />
+
+      {/* Layer 3: A subtle central 'lighting' effect to improve text legibility */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.4)_0%,transparent_70%)]" />
+      <h2
+        className="mb-2 font-['Pinyon_Script'] text-6xl py-2 select-none"
+        style={{
+          color: "#AF944D",
+          textShadow: `
+      -0.5px -0.5px 0px rgba(255,255,255,0.4), /* Subtle highlight on the top edge */
+      0.5px 0.5px 0px rgba(0,0,0,0.1),         /* Micro-depth on the bottom edge */
+      0px 1px 2px rgba(175, 148, 77, 0.2)      /* Soft 'color bleed' into the paper */
+    `,
+          /* Blending the text into the marble texture */
+          mixBlendMode: "multiply",
+          opacity: 0.9,
+          WebkitFontSmoothing: "antialiased",
+        }}
+      >
+        {t("saveTheDate.heading")}
+      </h2>
+      <p
+        className="font-['Cinzel'] text-[16px] tracking-[0.4em] mb-1"
+        style={{
+          color: "#8B7355",
+          opacity: 0.8,
+          textShadow: "0.5px 0.5px 0px rgba(255,255,255,0.5)",
+        }}
+      >
         6 DECEMBER 2026
       </p>
       {daysUntil > 0 && (
@@ -48,27 +94,78 @@ export default function SaveTheDatePanel({ country, onCountryChange, onWhatToExp
       )}
 
       <div className="mb-8">
-        <p className="font-['Cinzel'] text-[9px] tracking-[0.3em] text-stone-400 uppercase mb-4">
+        <p className="font-['Cinzel'] text-[12px] tracking-[0.3em] text-stone-600 uppercase mb-4 font-bold">
           {t("saveTheDate.addToCalendar")}
         </p>
         <div className="flex flex-col gap-3">
           <CalendarButton
-            icon="G"
+            iconUrl={GoogleIcon}
             label={t("saveTheDate.googleCalendar")}
-            onClick={() => window.open("https://calendar.app.google/Tx5hkVCbDU5iQH2x8", "_blank")}
+            onClick={() =>
+              window.open(
+                "https://calendar.app.google/Tx5hkVCbDU5iQH2x8",
+                "_blank",
+              )
+            }
           />
-          <CalendarButton icon="📅" label={t("saveTheDate.appleOutlook")} onClick={downloadICS} />
+          <CalendarButton
+            iconUrl={Quill}
+            label={t("saveTheDate.appleOutlook")}
+            onClick={downloadICS}
+          />
         </div>
       </div>
 
-      <div className="mb-6">
-        <button
-          onClick={onWhatToExpect}
-          className="w-full border border-stone-400 text-stone-600 py-2 px-4 text-[9px] font-['Cinzel'] tracking-[0.3em] uppercase cursor-pointer hover:border-amber-600 hover:text-amber-700 transition-all duration-300"
+      <motion.button
+        onClick={onWhatToExpect}
+        whileHover={{
+          scale: 1.01,
+          backgroundColor: "#8B1A1A", // Slightly richer red on hover
+          borderColor: "#F1E4A1",
+        }}
+        whileTap={{ scale: 0.98 }}
+        className="
+    w-full py-4 px-4 
+    text-[11px] font-['Cinzel'] tracking-[0.35em] uppercase 
+    cursor-pointer transition-all duration-300 relative group
+    /* THE COLOR: Royal Crimson Morocco Leather */
+    bg-[#7A1616] 
+    border border-[#C9A84C]/60
+    /* Physical 'Padded' Shadow: Outer lift + Inner depth */
+    shadow-[0_10px_25px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.15)]
+    overflow-hidden
+  "
+        style={{
+          /* PEBBLED LEATHER TEXTURE: Lower frequency creates organic 'pores' */
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.15'/%3E%3C/svg%3E")`,
+          backgroundBlendMode: "overlay",
+        }}
+      >
+        {/* THE LABEL: Champagne Gold with a 'Foil' Glow */}
+        <span
+          className="relative z-10 font-bold"
+          style={{
+            color: "#F1E4A1",
+            textShadow:
+              "0.5px 0.5px 0px rgba(0,0,0,0.2), 0px 0px 10px rgba(241, 228, 161, 0.3)",
+          }}
         >
           {t("saveTheDate.whatToExpect")}
-        </button>
-      </div>
+        </span>
+
+        {/* THE STITCHING: A subtle dashed line that looks like hand-sewn thread */}
+        <div className="absolute inset-[5px] border border-dashed border-[#C9A84C]/20 pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity" />
+
+        {/* THE GOLD TOOLING: Solid inner border for that 'Royal Dispatch Box' look */}
+        <div className="absolute inset-[2px] border border-[#C9A84C]/30 pointer-events-none" />
+
+        {/* DECORATIVE CORNERS: Brighter gold for the main CTA */}
+        <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#F1E4A1] transition-all duration-500 group-hover:w-5 group-hover:h-5" />
+        <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#F1E4A1] transition-all duration-500 group-hover:w-5 group-hover:h-5" />
+
+        {/* THE SHINE: A quick metallic glint on touch/hover */}
+        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+      </motion.button>
 
       <div className="space-y-3">
         <label className="block font-['Cinzel'] text-[9px] tracking-widest text-stone-500 uppercase">

@@ -10,7 +10,9 @@ export default function VenueSection() {
       <p className={S.sectionLabel}>{t("venue.label")}</p>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-[#2D241E] mb-4 font-['Pinyon_Script'] text-5xl">{t("venue.name")}</h2>
+          <h2 className="text-[#2D241E] mb-4 font-['Pinyon_Script'] text-5xl gold-text">
+            {t("venue.name")}
+          </h2>
           <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-relaxed mb-6">
             {t("venue.desc")}
           </p>
@@ -32,7 +34,10 @@ export default function VenueSection() {
           <div className="absolute inset-0 bg-[#2D241E]/5 group-hover:bg-transparent transition-colors" />
           <motion.button
             onClick={() =>
-              window.open("https://maps.google.com/?q=THE+ROYAL+PARK+Jorhat+Assam", "_blank")
+              window.open(
+                "https://maps.google.com/?q=THE+ROYAL+PARK+Jorhat+Assam",
+                "_blank",
+              )
             }
             whileHover={{ y: -5, backgroundColor: "#2D241E", color: "#fdf8ec" }}
             className="absolute bottom-6 right-6 bg-white text-[#2D241E] px-6 py-3 text-[9px] font-['Cinzel'] tracking-[0.2em] uppercase shadow-2xl transition-all cursor-pointer"

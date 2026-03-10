@@ -129,7 +129,7 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
         }}
         className="absolute inset-0 flex items-center justify-center pl-1"
       >
-        {completed ? "Your presence is requested" : "Seal your RSVP"}
+        {completed ? "Your presence is requested" : "Slide in your RSVP"}
       </motion.p>
 
       {/* Target: The faint gold embossment */}
