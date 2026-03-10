@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import InfoCard from "./InfoCard";
 import { type CountryKey, TRAVEL_DATA } from "./types";
+import TeaIcon from "../../assets/TeaIcon.png";
+import Map from "../../assets/Map.png";
 
 interface TravelCardsGridProps {
   country: CountryKey;
@@ -14,20 +16,31 @@ export default function TravelCardsGrid({
   onDiscoverAssam,
 }: TravelCardsGridProps) {
   const { t } = useTranslation();
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-20 px-4 max-w-6xl mx-auto">
+      {/* CARD 1: The Journey */}
       <InfoCard
+        variant="champagne"
+        icon={Map} // Placeholder for your upcoming custom Compass icon
         title={t("travelCards.journeyTitle")}
         body={t("travelCards.journeyBody")}
         buttonLabel={t("travelCards.openTravelGuide")}
         onButtonClick={onOpenGuide}
       />
+
+      {/* CARD 2: Discover Assam */}
       <InfoCard
+        variant="champagne"
+        icon={TeaIcon} // Placeholder for your upcoming custom Tea Leaf icon
         title={t("travelCards.activitiesTitle")}
         body={TRAVEL_DATA[country].activities}
         buttonLabel={t("travelCards.discoverAssam")}
         onButtonClick={onDiscoverAssam}
       />
+
+      {/* Vertical Decorative Divider (Desktop Only) */}
+      <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-48 bg-gradient-to-b from-transparent via-[#C9A84C]/20 to-transparent pointer-events-none" />
     </div>
   );
 }
