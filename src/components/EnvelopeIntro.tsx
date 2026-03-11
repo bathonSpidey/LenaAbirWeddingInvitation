@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import OurStory from "./OurStory";
+import OurStory from "./ourstory/OurStory";
 import RegretsSection from "./RegretSection";
 import DiscoverAssam from "./DiscoverAssam";
 import RSVPSection from "./RSVPSection";

@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import Story from "../assets/ourstory.jpg";
-import FirstEncounter from "../assets/firstencounter.jpg";
-import LeapOfFaith from "../assets/leapoffaith.jpg";
-import Proposal from "../assets/proposal.jpg";
+import { FloatingLeaves } from "./FloatingLeaves";
+import Story from "../../assets/ourstory.jpg";
+import FirstEncounter from "../../assets/firstencounter.jpg";
+import LeapOfFaith from "../../assets/leapoffaith.jpg";
+import Proposal from "../../assets/proposal.jpg";
 
 // ── Cultural icons ──────────────────────────────────────
 const EdelweissIcon = ({ className = "" }: { className?: string }) => (
@@ -68,9 +69,9 @@ const LotusIcon = ({ className = "" }: { className?: string }) => (
 
 const Pin = ({ image, title }: { image?: string; title: string }) => (
   <motion.div
-    whileHover={{ scale: 1.07 }}
+    whileHover={{ scale: 1.05 }}
     transition={{ duration: 0.3 }}
-    className="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-white/90 shadow-xl overflow-hidden bg-stone-100 flex-shrink-0 ring-1 ring-amber-300/50"
+    className="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-white/90 shadow-xl overflow-hidden bg-stone-100 flex-shrink-0 ring-1 ring-amber-300/30"
     style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
   >
     {image ? (
@@ -78,10 +79,11 @@ const Pin = ({ image, title }: { image?: string; title: string }) => (
         src={image}
         alt={title}
         className="w-full h-full object-cover block"
+        loading="lazy"
       />
     ) : (
       <div className="w-full h-full flex items-center justify-center bg-amber-50">
-        <div className="w-2 h-2 rotate-45 bg-amber-300 border border-amber-400" />
+        <div className="w-2 h-2 rotate-45 bg-amber-300 border border-amber-400/50" />
       </div>
     )}
   </motion.div>
@@ -105,46 +107,41 @@ const StoryMilestone = ({
   flag: string;
 }) => {
   const isEven = index % 2 === 0;
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
-      className={`flex items-center gap-8 md:gap-12 mb-16 ${
+      // Changed 'x' to 'y' to prevent horizontal scroll-stuttering
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.1 }} // Lower amount makes scrolling feel much lighter
+      className={`flex items-start gap-8 md:gap-12 mb-20 ${
         isEven ? "flex-row" : "flex-row-reverse"
       }`}
     >
       {/* Pin + year */}
       <div className="flex flex-col items-center gap-3 flex-shrink-0">
-        <span className="font-['Cinzel'] text-[11px] tracking-widest text-amber-700">
+        <span className="font-['Cinzel'] text-[11px] font-bold tracking-widest text-amber-800/80">
           {year}
         </span>
         <Pin image={image} title={title} />
         {/* Location badge */}
-        <span className="mt-1 px-2 py-0.5 rounded-full bg-stone-800/8 text-stone-500 border border-stone-300/50 text-[9px] tracking-widest font-['Cinzel'] flex items-center gap-1 whitespace-nowrap">
-          <span
-            style={{
-              fontFamily:
-                "'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif",
-            }}
-          >
-            {flag}
-          </span>
+        <span className="mt-1 px-3 py-1 rounded-full bg-white/60 text-stone-600 border border-stone-200 shadow-sm text-[9px] tracking-widest font-['Cinzel'] flex items-center gap-2 whitespace-nowrap">
+          <span className="scale-125">{flag}</span>
           {location}
         </span>
       </div>
 
-      {/* Text */}
+      {/* Text Container */}
       <div
-        className={`flex-1 border-b border-stone-200/40 pb-8 ${
+        className={`flex-1 pt-6 border-b border-stone-200/30 pb-10 ${
           isEven ? "text-left" : "text-right"
         }`}
       >
-        <h4 className="font-['Cinzel'] text-[10px] uppercase tracking-[0.3em] text-amber-800/80 mb-3">
+        <h4 className="font-['Cinzel'] text-[10px] uppercase tracking-[0.4em] text-amber-900/60 mb-4 font-bold">
           {title}
         </h4>
-        <p className="font-['Cormorant_Garamond'] text-[21px] italic text-stone-700 leading-relaxed">
+        <p className="font-['Cormorant_Garamond'] text-[22px] md:text-[24px] italic text-stone-800 leading-relaxed">
           {desc}
         </p>
       </div>
@@ -166,6 +163,7 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
         backgroundPosition: "center",
       }}
     >
+      <FloatingLeaves />
       {/* Readability overlay */}
       <div className="absolute inset-0  pointer-events-none" />
 
@@ -249,35 +247,62 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
             />
           </div>
 
-          {/* Cultural bridge banner */}
+          {/* CULTURAL BRIDGE BANNER */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="my-16 bg-[#2D241E] text-[#fdf8ec] rounded-sm px-10 py-8 text-center shadow-lg"
+            /* Updated to Rose Quartz (#B98C8C) with a deeper shadow for depth */
+            className="my-24 bg-[#B98C8C] text-[#FDFBF7] rounded-sm px-8 py-14 text-center shadow-[0_20px_50px_rgba(185,140,140,0.3)] relative overflow-hidden"
           >
-            <p className="font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-amber-400/70 mb-4 flex items-center justify-center gap-3">
-              <EdelweissIcon className="w-4 h-4 text-amber-400/70" />
-              Two Continents · One Story
-              <LotusIcon className="w-4 h-4 text-amber-400/70" />
+            {/* Subtle Silk/Paper Texture Overlay */}
+            <div
+              className="absolute inset-0 opacity-[0.07] pointer-events-none"
+              style={{
+                backgroundImage: `url('https://www.transparenttextures.com/patterns/natural-paper.png')`,
+              }}
+            />
+
+            {/* Header with Icons */}
+            <p className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase text-[#FDFBF7]/90 mb-8 flex items-center justify-center gap-4 relative z-10">
+              <EdelweissIcon className="w-4 h-4" />
+              Two Continents <span className="opacity-40">|</span> One Story
+              <LotusIcon className="w-4 h-4" />
             </p>
-            <p className="font-['Cormorant_Garamond'] text-2xl md:text-3xl italic leading-snug">
-              "Zwei Welten, ein Herz — von den Alpen bis zum Brahmaputra."
-            </p>
-            <p className="font-['Cormorant_Garamond'] text-base italic text-stone-400 mt-3">
-              Two worlds, one heart — from the Alps to the Brahmaputra.
-            </p>
+
+            {/* Main Quote - German & Assamese Bridge */}
+            <div className="space-y-6 relative z-10">
+              <p className="font-['Cormorant_Garamond'] text-3xl md:text-4xl italic leading-tight">
+                "Zwei Welten, ein Herz — von den Alpen bis zum Brahmaputra."
+              </p>
+
+              {/* Decorative Divider */}
+              <div className="flex justify-center items-center gap-3 opacity-30">
+                <div className="h-[0.5px] w-12 bg-white" />
+                <div className="w-1 h-1 rotate-45 bg-white" />
+                <div className="h-[0.5px] w-12 bg-white" />
+              </div>
+
+              <p className="font-['Cormorant_Garamond'] text-lg md:text-xl italic text-[#FDFBF7]/80 max-w-2xl mx-auto leading-relaxed">
+                দুই পৃথিৱী, এটি হৃদয় — আল্পছৰ পৰা ব্ৰহ্মপুত্ৰলৈ।
+              </p>
+
+              <p className="font-['Cormorant_Garamond'] text-[15px] tracking-wide italic text-[#FDFBF7]/60">
+                Two worlds, one heart — from the Alps to the Brahmaputra.
+              </p>
+            </div>
           </motion.div>
 
-          <div className="text-center mt-4 opacity-40">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <EdelweissIcon className="w-5 h-5 text-stone-600" />
-              <div className="w-1.5 h-1.5 rotate-45 border border-amber-500" />
-              <LotusIcon className="w-5 h-5 text-amber-700" />
+          {/* FINAL ORNAMENT - Updated to Assamese */}
+          <div className="text-center mt-12 pb-20 opacity-60">
+            <div className="flex items-center justify-center gap-5 mb-6">
+              <EdelweissIcon className="w-5 h-5 text-[#B98C8C]" />
+              <div className="w-1.5 h-1.5 rotate-45 border border-[#B98C8C]" />
+              <LotusIcon className="w-5 h-5 text-[#B98C8C]" />
             </div>
-            <p className="font-['Cinzel'] text-[8px] tracking-[0.4em] uppercase">
-              Bis bald · আহক লগ পাওঁ
+            <p className="font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-stone-600 font-bold">
+              Bis bald <span className="mx-2 opacity-30">|</span> আকৌ লগ পাম
             </p>
           </div>
         </div>
