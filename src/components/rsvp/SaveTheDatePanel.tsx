@@ -120,51 +120,47 @@ export default function SaveTheDatePanel({
         onClick={onWhatToExpect}
         whileHover={{
           scale: 1.01,
-          backgroundColor: "#8B1A1A", // Slightly richer red on hover
-          borderColor: "#F1E4A1",
+          backgroundColor: "#F9F6EE", // Very light cream
+          borderColor: "#D4AF37", // Classic Gold
         }}
         whileTap={{ scale: 0.98 }}
         className="
     w-full py-4 px-4 
     text-[11px] font-['Cinzel'] tracking-[0.35em] uppercase 
     cursor-pointer transition-all duration-300 relative group
-    /* THE COLOR: Royal Crimson Morocco Leather */
-    bg-[#7A1616] 
-    border border-[#C9A84C]/60
-    /* Physical 'Padded' Shadow: Outer lift + Inner depth */
-    shadow-[0_10px_25px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.15)]
+    /* THE COLOR: Shimmering Champagne Silk */
+    bg-[#FCFAf5] 
+    border border-[#C9A84C]/40
+    /* Softer, 'Airy' Shadow: No more heavy blacks */
+    shadow-[0_8px_20px_rgba(201,168,76,0.15),inset_0_1px_0px_rgba(255,255,255,0.8)]
     overflow-hidden
   "
         style={{
-          /* PEBBLED LEATHER TEXTURE: Lower frequency creates organic 'pores' */
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.15'/%3E%3C/svg%3E")`,
+          /* SILK TEXTURE: Very fine, smooth noise to mimic fabric instead of leather */
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='silk'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23silk)' opacity='0.03'/%3E%3C/svg%3E")`,
           backgroundBlendMode: "overlay",
         }}
       >
-        {/* THE LABEL: Champagne Gold with a 'Foil' Glow */}
+        {/* THE LABEL: Deep Bronze-Gold (Better legibility on light background) */}
         <span
           className="relative z-10 font-bold"
           style={{
-            color: "#F1E4A1",
-            textShadow:
-              "0.5px 0.5px 0px rgba(0,0,0,0.2), 0px 0px 10px rgba(241, 228, 161, 0.3)",
+            color: "#8B6E2A",
+            textShadow: "0.5px 0.5px 0px rgba(255,255,255,0.8)",
           }}
         >
           {t("saveTheDate.whatToExpect")}
         </span>
 
-        {/* THE STITCHING: A subtle dashed line that looks like hand-sewn thread */}
-        <div className="absolute inset-[5px] border border-dashed border-[#C9A84C]/20 pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity" />
+        {/* THE EMBROIDERY: Replaces 'stitching' with a more delicate gold thread look */}
+        <div className="absolute inset-[5px] border border-[#C9A84C]/20 pointer-events-none opacity-30 group-hover:opacity-50 transition-opacity" />
 
-        {/* THE GOLD TOOLING: Solid inner border for that 'Royal Dispatch Box' look */}
-        <div className="absolute inset-[2px] border border-[#C9A84C]/30 pointer-events-none" />
+        {/* DECORATIVE CORNERS: Softened to a thinner, more elegant gold line */}
+        <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#C9A84C]/40" />
+        <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#C9A84C]/40" />
 
-        {/* DECORATIVE CORNERS: Brighter gold for the main CTA */}
-        <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[#F1E4A1] transition-all duration-500 group-hover:w-5 group-hover:h-5" />
-        <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[#F1E4A1] transition-all duration-500 group-hover:w-5 group-hover:h-5" />
-
-        {/* THE SHINE: A quick metallic glint on touch/hover */}
-        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+        {/* THE PEARLESCENCE: A soft, white glow that follows the hover */}
+        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1500ms] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
       </motion.button>
 
       <div className="space-y-3">

@@ -1,13 +1,19 @@
 export const S = {
   sectionLabel:
-    "font-['Cinzel'] text-[9px] tracking-[0.35em] uppercase text-amber-800 mb-6",
+    "font-['Cinzel'] text-[10px] tracking-[0.4em] uppercase text-[#B98C8C] font-bold mb-2 text-center opacity-90", // COMPACT: Reduced mb-6 to mb-2, changed color to Rose
+    
   cardShell:
-    "bg-[#FDFBF7] p-8 border border-[#D4AF37]/30 rounded-sm text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] relative",
+    "bg-[#FFF9F9] p-6 border border-[#B98C8C]/20 rounded-sm text-center shadow-[0_4px_20px_-5px_rgba(185,140,140,0.15)] relative overflow-hidden", // COMPACT: p-8 to p-6
+    
   cardTitle:
-    "font-['Cinzel'] text-[11px] font-bold mb-4 tracking-widest uppercase text-stone-800",
+    "font-['Cinzel'] text-[12px] font-bold mb-3 tracking-widest uppercase text-[#A67C7C]", // THEME: Rose text
+    
   cardBody:
-    "font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-8 leading-relaxed flex-1",
+    "font-['Cormorant_Garamond'] text-[1.1rem] italic text-stone-600 mb-6 leading-tight flex-1", // COMPACT: Reduced text size and mb-8 to mb-6
+    
   ghostBtn:
-    "border border-[#8B6E2A] py-2 px-10 text-[9px] font-['Cinzel'] tracking-[0.4em] text-[#8B6E2A] hover:bg-[#8B6E2A] hover:text-white transition-all duration-500",
-    goldText: "gold-text font-bold",
+    "border border-[#B98C8C] py-2 px-10 text-[9px] font-['Cinzel'] tracking-[0.4em] text-[#B98C8C] hover:bg-[#B98C8C] hover:text-white transition-all duration-500 uppercase",
+    
+  goldText: 
+    "text-[#B98C8C] font-bold", // Changed from amber/gold to Rose Quartz
 } as const;

@@ -19,20 +19,26 @@ export default function InfoCard({
 }: InfoCardProps) {
   const themes = {
     champagne: {
-      bg: "#FDFBF7",
-      text: "#8B6E2A",
-      highlight: "rgba(255,255,255,0.7)",
-      shadow: "rgba(0,0,0,0.08)",
+      bg: "#FAEEED", // Soft Petal Pink
+      text: "#AF944D", // Muted Rose Text
+      btnBg: "#B98C8C", // Your chosen Rose Quartz for the button
+      btnText: "#FDFBF7", // Ivory text for the button
+      highlight: "rgba(255,255,255,0.8)",
+      shadow: "rgba(166, 124, 124, 0.15)",
     },
     wedgwood: {
-      bg: "#F2F5F7",
-      text: "#475569",
+      bg: "#E1E9F0",
+      text: "#4A647A",
+      btnBg: "#4A647A",
+      btnText: "#FDFBF7",
       highlight: "rgba(255,255,255,0.6)",
       shadow: "rgba(0,0,0,0.06)",
     },
     sage: {
-      bg: "#F4F6F2",
-      text: "#525E54",
+      bg: "#F2F5F0",
+      text: "#5F6B5E",
+      btnBg: "#5F6B5E",
+      btnText: "#FDFBF7",
       highlight: "rgba(255,255,255,0.6)",
       shadow: "rgba(0,0,0,0.06)",
     },
@@ -91,25 +97,36 @@ export default function InfoCard({
         </p>
 
         {/* Action Button */}
-        <div className="flex justify-center mt-2">
+        {/* Action Button */}
+        <div className="flex justify-center mt-auto">
           <motion.button
             onClick={onButtonClick}
             whileHover={{
               scale: 1.02,
-              backgroundColor: "#8B1A1A",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+              filter: "brightness(1.1)",
+              boxShadow: `0 8px 20px ${themes[variant].shadow}`,
             }}
             whileTap={{ scale: 0.98 }}
+            /* 1. REMOVED: bg-[#7A1616] and text-[#F1E4A1] from className */
             className="
-              px-10 py-2.5 relative overflow-hidden group
-              bg-[#7A1616] border border-[#C9A84C]/50
-              text-[#F1E4A1] font-['Cinzel'] text-[10px] font-bold tracking-[0.25em] uppercase
-              shadow-md transition-all duration-300
-            "
+      px-10 py-3 relative overflow-hidden group
+      border border-white/30
+      font-['Cinzel'] text-[10px] font-bold tracking-[0.25em] uppercase
+      transition-all duration-300 shadow-md
+    "
+            style={{
+              /* 2. ADDED: This now controls the color dynamically */
+              backgroundColor: themes[variant].btnBg,
+              color: themes[variant].btnText,
+            }}
           >
-            <div className="absolute inset-[3px] border border-dashed border-[#C9A84C]/20 pointer-events-none opacity-40" />
+            {/* The stitching line */}
+            <div className="absolute inset-[3px] border border-dashed border-white/20 pointer-events-none opacity-40" />
+
             <span className="relative z-10">{buttonLabel}</span>
-            <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+            {/* The metallic glint */}
+            <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
           </motion.button>
         </div>
       </div>
