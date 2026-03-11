@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FloatingLeaves } from "./FloatingLeaves";
+import { CulturalBridge } from "./CulturalBridge";
 import Story from "../../assets/ourstory.jpg";
 import FirstEncounter from "../../assets/firstencounter.jpg";
 import LeapOfFaith from "../../assets/leapoffaith.jpg";
@@ -69,21 +70,23 @@ const LotusIcon = ({ className = "" }: { className?: string }) => (
 
 const Pin = ({ image, title }: { image?: string; title: string }) => (
   <motion.div
-    whileHover={{ scale: 1.05 }}
-    transition={{ duration: 0.3 }}
-    className="w-28 h-28 md:w-32 md:h-32 rounded-full border-[3px] border-white/90 shadow-xl overflow-hidden bg-stone-100 flex-shrink-0 ring-1 ring-amber-300/30"
+    animate={{ y: [0, -10, 0] }}
+    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    whileHover={{ scale: 1.1, rotate: 2 }}
+    /* Updated: Added a Deep Moss Green ring and background */
+    className="w-40 h-48 md:w-36 md:h-36 rounded-full border-[3px] border-[#D4AF37]  shadow-2xl overflow-hidden bg-[#3E4A3D] flex-shrink-0 ring-4 ring-[#3E4A3D]/10 relative z-20"
     style={{ transform: "translateZ(0)", backfaceVisibility: "hidden" }}
   >
     {image ? (
       <img
         src={image}
         alt={title}
-        className="w-full h-full object-cover block"
-        loading="lazy"
+        className="w-full h-full object-cover block contrast-[1.05] brightness-[0.95]"
       />
     ) : (
-      <div className="w-full h-full flex items-center justify-center bg-amber-50">
-        <div className="w-2 h-2 rotate-45 bg-amber-300 border border-amber-400/50" />
+      <div className="w-full h-full flex items-center justify-center">
+        {/* Gold Diamond on Green Background */}
+        <div className="w-3 h-3 rotate-45 bg-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
       </div>
     )}
   </motion.div>
@@ -107,41 +110,40 @@ const StoryMilestone = ({
   flag: string;
 }) => {
   const isEven = index % 2 === 0;
-
   return (
     <motion.div
-      // Changed 'x' to 'y' to prevent horizontal scroll-stuttering
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.1 }} // Lower amount makes scrolling feel much lighter
-      className={`flex items-start gap-8 md:gap-12 mb-20 ${
+      viewport={{ once: true, amount: 0.2 }}
+      className={`flex items-center gap-8 md:gap-16 mb-24 ${
         isEven ? "flex-row" : "flex-row-reverse"
       }`}
     >
-      {/* Pin + year */}
-      <div className="flex flex-col items-center gap-3 flex-shrink-0">
-        <span className="font-['Cinzel'] text-[11px] font-bold tracking-widest text-amber-800/80">
+      {/* Pin + Year + Location Group */}
+      <div className="flex flex-col items-center gap-4 flex-shrink-0">
+        <span className="font-['Cinzel'] text-[12px] tracking-[0.3em] font-bold text-[#708090]">
           {year}
         </span>
+
         <Pin image={image} title={title} />
-        {/* Location badge */}
-        <span className="mt-1 px-3 py-1 rounded-full bg-white/60 text-stone-600 border border-stone-200 shadow-sm text-[9px] tracking-widest font-['Cinzel'] flex items-center gap-2 whitespace-nowrap">
-          <span className="scale-125">{flag}</span>
+
+        <span className="mt-2 px-3 py-1 rounded-full bg-[#F8F0E0] text-[#3E4A3D] border border-[#B98C8C]/30 text-[9px] tracking-widest font-['Cinzel'] font-bold flex items-center gap-2 whitespace-nowrap shadow-sm ">
+          <span className="text-[12px] ">{flag}</span>
           {location}
         </span>
       </div>
 
-      {/* Text Container */}
+      {/* Text Content */}
       <div
-        className={`flex-1 pt-6 border-b border-stone-200/30 pb-10 ${
+        className={`flex-1 border-b border-[#B98C8C]/20 pb-10 ${
           isEven ? "text-left" : "text-right"
         }`}
       >
-        <h4 className="font-['Cinzel'] text-[10px] uppercase tracking-[0.4em] text-amber-900/60 mb-4 font-bold">
+        <h4 className="font-['Cinzel'] text-[13px] uppercase tracking-[0.4em] text-[#A67C7C] mb-4 font-bold">
           {title}
         </h4>
-        <p className="font-['Cormorant_Garamond'] text-[22px] md:text-[24px] italic text-stone-800 leading-relaxed">
+        <p className="font-['Cormorant_Garamond'] text-[22px] md:text-[26px] italic text-stone-800 leading-relaxed max-w-xl inline-block">
           {desc}
         </p>
       </div>
@@ -154,62 +156,68 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
   const milestones = t("ourStory.milestones", {
     returnObjects: true,
   }) as Array<{ title: string; desc: string }>;
+
   return (
     <div
-      className="min-h-screen w-full  p-8 md:p-20 relative"
+      className="min-h-screen w-full p-8 md:p-20 relative"
       style={{
         backgroundImage: `url(${Story})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed", // Keeps bg stable while content moves
       }}
     >
       <FloatingLeaves />
-      {/* Readability overlay */}
-      <div className="absolute inset-0  pointer-events-none" />
+
+      {/* 1. Improved Readability Overlay */}
+      <div className="absolute inset-0  backdrop-blur-[1px] pointer-events-none" />
 
       <div className="relative z-10">
         <motion.button
           onClick={onBack}
-          whileHover={{ x: -5 }}
-          className="mb-12 flex items-center gap-2 text-stone-400 hover:text-amber-700 transition-colors cursor-pointer uppercase tracking-widest text-[9px]"
-          style={{ fontFamily: "'Cinzel', serif" }}
+          whileHover={{ x: -8 }}
+          className="mb-16 flex items-center gap-3 text-[#A67C7C] hover:text-[#B98C8C] transition-all cursor-pointer uppercase tracking-[0.4em] text-[10px] font-bold font-['Cinzel']"
         >
           <span>←</span> {t("common.backToInvitation")}
         </motion.button>
 
-        <div className="max-w-3xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+        <div className="max-w-4xl mx-auto">
+          {/* 2. Enhanced Heading Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="text-stone-800 text-center mb-2"
-            style={{ fontFamily: "'Pinyon Script', cursive", fontSize: 60 }}
+            className="text-center mb-24"
           >
-            {t("ourStory.heading")}
-          </motion.h2>
+            <h2
+              className="text-[#8E6D6D] mb-4"
+              style={{
+                fontFamily: "'Pinyon Script', cursive",
+                fontSize: "clamp(60px, 8vw, 85px)",
+              }}
+            >
+              {t("ourStory.heading")}
+            </h2>
 
-          {/* Bilingual subtitle */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-center font-['Cinzel'] text-[9px] tracking-[0.35em] uppercase text-stone-400 mb-3 flex items-center justify-center gap-3"
-          >
-            <EdelweissIcon className="w-4 h-4 text-stone-400 inline-block" />
-            Unsere Reise
-            <span className="text-amber-400/60">·</span>
-            আমাদের যাত্ৰা
-            <LotusIcon className="w-4 h-4 text-amber-500/70 inline-block" />
-          </motion.p>
+            <p className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase text-[#A67C7C] flex items-center justify-center gap-5">
+              <EdelweissIcon className="w-5 h-5 opacity-70" />
+              Unsere Reise <span className="opacity-30">·</span> আমাৰ যাত্ৰা
+              <LotusIcon className="w-5 h-5 opacity-70" />
+            </p>
 
-          <div className="flex justify-center mb-14">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-400/60 to-transparent" />
-          </div>
+            <div className="mt-8 flex justify-center">
+              <div className="h-[1px] w-32 bg-gradient-to-r from-transparent via-[#B98C8C]/40 to-transparent" />
+            </div>
+          </motion.div>
 
-          {/* Milestones */}
-          <div>
+          {/* 3. Milestones with Floating Animation */}
+          <div className="space-y-12">
+            {/* In your StoryMilestone component, ensure you wrap the <Pin /> 
+              in a motion div with this floating animation:
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            */}
             <StoryMilestone
               index={0}
               year="2024"
@@ -248,60 +256,16 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
           </div>
 
           {/* CULTURAL BRIDGE BANNER */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            /* Updated to Rose Quartz (#B98C8C) with a deeper shadow for depth */
-            className="my-24 bg-[#B98C8C] text-[#FDFBF7] rounded-sm px-8 py-14 text-center shadow-[0_20px_50px_rgba(185,140,140,0.3)] relative overflow-hidden"
-          >
-            {/* Subtle Silk/Paper Texture Overlay */}
-            <div
-              className="absolute inset-0 opacity-[0.07] pointer-events-none"
-              style={{
-                backgroundImage: `url('https://www.transparenttextures.com/patterns/natural-paper.png')`,
-              }}
-            />
+          <CulturalBridge />
 
-            {/* Header with Icons */}
-            <p className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase text-[#FDFBF7]/90 mb-8 flex items-center justify-center gap-4 relative z-10">
-              <EdelweissIcon className="w-4 h-4" />
-              Two Continents <span className="opacity-40">|</span> One Story
-              <LotusIcon className="w-4 h-4" />
-            </p>
-
-            {/* Main Quote - German & Assamese Bridge */}
-            <div className="space-y-6 relative z-10">
-              <p className="font-['Cormorant_Garamond'] text-3xl md:text-4xl italic leading-tight">
-                "Zwei Welten, ein Herz — von den Alpen bis zum Brahmaputra."
-              </p>
-
-              {/* Decorative Divider */}
-              <div className="flex justify-center items-center gap-3 opacity-30">
-                <div className="h-[0.5px] w-12 bg-white" />
-                <div className="w-1 h-1 rotate-45 bg-white" />
-                <div className="h-[0.5px] w-12 bg-white" />
-              </div>
-
-              <p className="font-['Cormorant_Garamond'] text-lg md:text-xl italic text-[#FDFBF7]/80 max-w-2xl mx-auto leading-relaxed">
-                দুই পৃথিৱী, এটি হৃদয় — আল্পছৰ পৰা ব্ৰহ্মপুত্ৰলৈ।
-              </p>
-
-              <p className="font-['Cormorant_Garamond'] text-[15px] tracking-wide italic text-[#FDFBF7]/60">
-                Two worlds, one heart — from the Alps to the Brahmaputra.
-              </p>
+          {/* FINAL FOOTER */}
+          <div className="text-center pb-20 opacity-70">
+            <div className="flex items-center justify-center gap-6 mb-6">
+              <EdelweissIcon className="w-6 h-6 text-[#AF944D]" />
+              <div className="w-2 h-2 rotate-45 border border-[#AF944D]" />
+              <LotusIcon className="w-6 h-6 text-[#AF944D]" />
             </div>
-          </motion.div>
-
-          {/* FINAL ORNAMENT - Updated to Assamese */}
-          <div className="text-center mt-12 pb-20 opacity-60">
-            <div className="flex items-center justify-center gap-5 mb-6">
-              <EdelweissIcon className="w-5 h-5 text-[#B98C8C]" />
-              <div className="w-1.5 h-1.5 rotate-45 border border-[#B98C8C]" />
-              <LotusIcon className="w-5 h-5 text-[#B98C8C]" />
-            </div>
-            <p className="font-['Cinzel'] text-[9px] tracking-[0.5em] uppercase text-stone-600 font-bold">
+            <p className="font-['Cinzel'] text-[10px] tracking-[0.6em] uppercase text-[#AF944D] font-bold">
               Bis bald <span className="mx-2 opacity-30">|</span> আকৌ লগ পাম
             </p>
           </div>
