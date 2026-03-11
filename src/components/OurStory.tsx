@@ -159,7 +159,7 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
   }) as Array<{ title: string; desc: string }>;
   return (
     <div
-      className="min-h-screen w-full bg-[#fdf8ec] p-8 md:p-20 relative"
+      className="min-h-screen w-full  p-8 md:p-20 relative"
       style={{
         backgroundImage: `url(${Story})`,
         backgroundSize: "cover",
@@ -167,7 +167,7 @@ export default function OurStory({ onBack }: { onBack: () => void }) {
       }}
     >
       {/* Readability overlay */}
-      <div className="absolute inset-0 bg-[#fdf8ec]/75 pointer-events-none" />
+      <div className="absolute inset-0  pointer-events-none" />
 
       <div className="relative z-10">
         <motion.button
