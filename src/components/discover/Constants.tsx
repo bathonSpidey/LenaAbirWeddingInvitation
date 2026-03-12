@@ -6,3 +6,4 @@ export const BURNISHED_GOLD = "text-[#D4AF6A]";
 export const IVORY_SURFACE = "bg-[#FAF3E8]"; // card / panel backgrounds
 export const WARM_WHITE_BG = "bg-[#FDF8F0]";
 export const DEEP_WINE_BG = "bg-[#3D1515]"; // sparingly, for anchors only
+export const ASSAM_QUOTE = "text-[#7B2D2D]";

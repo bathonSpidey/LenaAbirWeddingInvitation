@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Activities from "../Activities";
 import FeatureCard from "./FeaturedCard";
-import { WARM_WHITE, DEEP_WINE } from "./Constants";
+import { WARM_WHITE, ASSAM_QUOTE } from "./Constants";
 
 // Updated assets based on your imports
 import TeaGarden from "../../assets/tea.png";
 import Silk from "../../assets/silk.webp";
 import Rhinos from "../../assets/kaziranga.jpeg";
 import AssamTexture from "../../assets/assam-texture.jpeg";
+import { AssameseLaceBorder } from "./AssameseLaceBorder";
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
   const [showActivities, setShowActivities] = useState(false);
@@ -20,7 +21,7 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
   }
 
   return (
-    <div
+    <motion.div
       className="min-h-screen w-full py-20 px-6 md:px-20 relative overflow-hidden"
       style={{
         backgroundImage: `url(${AssamTexture})`,
@@ -50,7 +51,8 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
               style={{
                 fontFamily: "'Pinyon Script', cursive",
                 fontSize: "clamp(50px, 7vw, 82px)",
-                textShadow: "0 2px 12px rgba(80,20,0,0.25)",
+                textShadow:
+                  "1px 1px 0px #FAF3E8, 3px 3px 15px rgba(61,21,21,0.2)",
               }}
             >
               {t("discoverAssam.heading")}
@@ -84,13 +86,13 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
         </div>
 
         {/* HIGHLIGHT BOX: Flipped to warm ivory — light panel, deep wine quote text */}
-        <div className="bg-[#FAF3E8]/90 p-12 md:p-20 rounded-sm shadow-[0_25px_60px_rgba(80,20,0,0.25)] relative overflow-hidden border border-[#D4AF6A]/70">
+        <div className="bg-[#F8F0E0]/90 p-12 md:p-20 rounded-sm shadow-[0_25px_60px_rgba(80,20,0,0.25)] relative overflow-hidden border border-[#D4AF6A]/70">
           <div className="relative z-20 text-center max-w-2xl mx-auto">
             <h3 className="font-['Cinzel'] text-[10px] tracking-[0.5em] uppercase mb-6 text-[#C0392B]">
               {t("discoverAssam.experience")}
             </h3>
             <p
-              className={`font-['Cormorant_Garamond'] text-2xl md:text-4xl italic leading-snug ${DEEP_WINE}`}
+              className={`font-['Cormorant_Garamond'] text-2xl md:text-4xl italic leading-snug ${ASSAM_QUOTE}`}
             >
               {t("discoverAssam.quote")}
             </p>
@@ -102,24 +104,25 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
             style={{ backgroundImage: `url(${TeaGarden})` }}
           />
           {/* Ivory wash to keep text crisp */}
-          <div className="absolute inset-0 z-10 bg-gradient-to-tr from-[#FAF3E8]/80 via-[#FAF3E8]/60 to-[#FAF3E8]/40" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-tr from-[#F8F0E0]/80 via-[#F8F0E0]/60 to-[#F8F0E0]/40" />
 
           {/* Gold corner ornament — top left */}
           <div className="absolute top-6 left-6 z-20 opacity-40">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 100 100"
+              fill="none"
+              className="z-20"
+            >
               <path
-                d="M2 2 Q20 2 20 20 Q20 2 38 2"
+                d="M10 10C30 10 45 25 45 45M10 10C10 30 25 45 45 45M10 10L30 30"
                 stroke="#D4AF6A"
-                strokeWidth="1"
-                fill="none"
+                strokeWidth="1.5"
+                strokeLinecap="round"
               />
-              <path
-                d="M2 38 Q2 20 20 20 Q2 20 2 2"
-                stroke="#D4AF6A"
-                strokeWidth="1"
-                fill="none"
-              />
-              <circle cx="20" cy="20" r="2" fill="#D4AF6A" />
+              <circle cx="45" cy="45" r="3" fill="#C0392B" />{" "}
+              {/* A "ruby" drop */}
             </svg>
           </div>
 
@@ -144,12 +147,33 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
         </div>
 
         {/* EXPLORE BUTTON — Crimson with warm white text */}
-        <div className="mt-20 text-center">
+        <div className="absolute bottom-6 right-6 z-20 opacity-40 rotate-180">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path
+              d="M2 2 Q20 2 20 20 Q20 2 38 2"
+              stroke="#D4AF6A"
+              strokeWidth="1"
+              fill="none"
+            />
+            <path
+              d="M2 38 Q2 20 20 20 Q2 20 2 2"
+              stroke="#D4AF6A"
+              strokeWidth="1"
+              fill="none"
+            />
+            <circle cx="20" cy="20" r="2" fill="#D4AF6A" />
+          </svg>
+        </div>
+      </div>
+
+      {/* EXPLORE BUTTON — Crimson with warm white text, lace frame */}
+      <div className="mt-20 text-center">
+        <AssameseLaceBorder>
           <motion.button
             onClick={() => setShowActivities(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-12 inline-flex items-center gap-4 px-12 py-5 bg-[#C0392B] text-[#FDF8F0] rounded-full shadow-[0_10px_30px_rgba(192,57,43,0.35)] hover:bg-[#A93226] transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-4 px-12 py-5 bg-[#C0392B] text-[#FDF8F0] rounded-full shadow-[0_10px_30px_rgba(192,57,43,0.35)] hover:bg-[#A93226] transition-colors cursor-pointer group"
             style={{
               fontFamily: "'Cinzel', serif",
               letterSpacing: "0.3em",
@@ -161,8 +185,8 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
               →
             </span>
           </motion.button>
-        </div>
+        </AssameseLaceBorder>
       </div>
-    </div>
+    </motion.div>
   );
 }
