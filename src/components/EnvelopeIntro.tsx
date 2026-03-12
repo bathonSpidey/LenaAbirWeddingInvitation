@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import OurStory from "./ourstory/OurStory";
 import RegretsSection from "./RegretSection";
-import DiscoverAssam from "./DiscoverAssam";
+import DiscoverAssam from "./discover/DiscoverAssam";
 import RSVPSection from "./RSVPSection";
 import TravelPortal from "./TravelPortal";
 import EnvelopeStage from "./envelope/EnvelopeStage";
@@ -22,12 +22,14 @@ export default function EnvelopeIntro() {
 
   // ── Scroll targets ──────────────────────────────────────
   const containerRef = useRef<HTMLDivElement>(null);
-  const regretsRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
-  const storyRef   = useRef<HTMLDivElement>(null);
+  const regretsRef = useRef<HTMLDivElement>(
+    null,
+  ) as React.RefObject<HTMLDivElement>;
+  const storyRef = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
-  const rsvpRef        = useRef<HTMLDivElement>(null);
-  const travelRef      = useRef<HTMLDivElement>(null);
-  const activitiesRef  = useRef<HTMLDivElement>(null);
+  const rsvpRef = useRef<HTMLDivElement>(null);
+  const travelRef = useRef<HTMLDivElement>(null);
+  const activitiesRef = useRef<HTMLDivElement>(null);
   const expectationsRef = useRef<HTMLDivElement>(null);
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
@@ -36,7 +38,8 @@ export default function EnvelopeIntro() {
     const element = ref.current;
     const elementRect = element.getBoundingClientRect();
     const containerRect = container.getBoundingClientRect();
-    const scrollTop = container.scrollTop + (elementRect.top - containerRect.top);
+    const scrollTop =
+      container.scrollTop + (elementRect.top - containerRect.top);
     container.scrollTo({ top: scrollTop, behavior: "smooth" });
   };
 
@@ -75,17 +78,27 @@ export default function EnvelopeIntro() {
         <>
           <RegretsSection
             innerRef={regretsRef}
-            onBack={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+            onBack={() =>
+              containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+            }
             onOurStory={() => scrollTo(storyRef)}
             onDiscover={() => scrollTo(discoverRef)}
           />
 
           <div ref={storyRef} className="snap-start">
-            <OurStory onBack={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })} />
+            <OurStory
+              onBack={() =>
+                containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+              }
+            />
           </div>
 
           <div ref={discoverRef} className="snap-start">
-            <DiscoverAssam onBack={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })} />
+            <DiscoverAssam
+              onBack={() =>
+                containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+              }
+            />
           </div>
         </>
       )}
@@ -105,14 +118,24 @@ export default function EnvelopeIntro() {
           </div>
 
           <div ref={storyRef} className="snap-start">
-            <OurStory onBack={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })} />
+            <OurStory
+              onBack={() =>
+                containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+              }
+            />
           </div>
 
           <div ref={discoverRef} className="snap-start">
-            <DiscoverAssam onBack={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })} />
+            <DiscoverAssam
+              onBack={() =>
+                containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
+              }
+            />
           </div>
 
-          <TravelPortal innerRef={travelRef as React.RefObject<HTMLDivElement>} />
+          <TravelPortal
+            innerRef={travelRef as React.RefObject<HTMLDivElement>}
+          />
 
           <div ref={activitiesRef} className="snap-start">
             <Activities onBack={() => scrollTo(rsvpRef)} />
