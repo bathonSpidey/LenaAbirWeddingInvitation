@@ -5,7 +5,7 @@ import FlightSection from "./FlightSection";
 import TajMahalSection from "./TajMahalSection";
 import AssamPreparationSection from "./AssamPreperationSection";
 import StaysAndVisaGrid from "./StayAndVisaGrid";
-import GuidedBookingCTA from "./Guidedbookingcta";
+import GuidedBookingCTA from "./GuidedBookingCTA";
 import TravelPortalFooter from "./TravelFooter";
 
 export default function TravelPortal({
