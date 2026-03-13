@@ -56,7 +56,6 @@ export default function FlightGuide() {
           },
         }}
       >
-        {/* STEP 1 */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 12 },
