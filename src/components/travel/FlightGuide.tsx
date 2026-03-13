@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import RegencyButton from "./RegencyButton";
 import RegencyStepItem from "./RegencyStepItem";
+import Ship from "../../assets/Ship.png";
+import Carriage from "../../assets/Carriage.png";
 
 export default function FlightGuide() {
   const { t } = useTranslation();
@@ -71,11 +73,12 @@ export default function FlightGuide() {
           }}
         >
           <RegencyStepItem
-            stepNumber={1}
+            icon={
+              <img src={Ship} alt="Ship" className="w-12 h-12 object-contain" />
+            }
             title={t("flightGuide.step1Title")}
             description={t("flightGuide.step1Desc")}
             accent="rose"
-            isLast={false}
           >
             <RegencyButton
               label={t("flightGuide.searchFlights")}
@@ -104,11 +107,16 @@ export default function FlightGuide() {
           }}
         >
           <RegencyStepItem
-            stepNumber={2}
+            icon={
+              <img
+                src={Carriage}
+                alt="Ship"
+                className="w-12 h-12 object-contain"
+              />
+            }
             title={t("flightGuide.step2Title")}
             description={t("flightGuide.step2Desc")}
             accent="sage"
-            isLast={true}
           >
             <div className="space-y-2">
               <RegencyButton

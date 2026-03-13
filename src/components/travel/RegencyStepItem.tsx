@@ -1,73 +1,73 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface RegencyStepItemProps {
-  stepNumber: number;
+  icon: React.ReactNode; // Replaced stepNumber
   title: string;
   description: string;
   accent: "rose" | "sage" | "gold";
   children?: React.ReactNode;
-  isLast?: boolean;
 }
 
 export default function RegencyStepItem({
-  stepNumber,
+  icon,
   title,
   description,
   accent,
   children,
 }: RegencyStepItemProps) {
   const colorMap = {
-    gold: "#c9a961",
-    rose: "#a67c7c",
-    sage: "#8a9b7f",
+    gold: "#AF944D",
+    rose: "#b98c8c",
+    sage: "#B0CCA8",
   };
-
-  const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five"];
 
   const accentColor = colorMap[accent];
 
   return (
-    <div
-      className="relative pl-6 pb-4"
-      style={{
-        borderLeft: `1.5px solid ${accentColor}30`,
-      }}
-    >
-      {/* Decorative circle marker */}
+    <div className="relative pl-8 group">
+      {/* Vertical Timeline Thread */}
       <div
-        className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full border-1.5"
-        style={{
-          borderColor: accentColor,
-          backgroundColor: "#faf5f0",
-        }}
+        className="absolute left-0 top-2 bottom-0 w-[1px] opacity-20"
+        style={{ backgroundColor: accentColor }}
       />
 
-      {/* Step label */}
-      <span
-        className="font-['Cinzel'] text-[9px] tracking-widest uppercase font-bold"
-        style={{ color: accentColor }}
-      >
-        Step {numberWords[stepNumber]}
-      </span>
+      <div className="flex flex-col gap-3">
+        {/* Icon & Title Row */}
+        <div className="flex items-center gap-4 -ml-11 relative z-10">
+          {/* Animated Icon Container */}
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-[#FAF5F0] border border-[#AF944D]/30 shadow-sm"
+          >
+            {icon}
+          </motion.div>
 
-      {/* Step title */}
-      <h5
-        className="font-['Pinyon_Script'] text-3xl mb-2"
-        style={{ color: "#1a2849" }}
-      >
-        {title}
-      </h5>
+          <h5
+            className="font-['Pinyon_Script'] text-4xl mt-2"
+            style={{ color: "#1a2849" }}
+          >
+            {title}
+          </h5>
+        </div>
 
-      {/* Step description */}
-      <p
-        className="font-['Cormorant_Garamond'] text-base italic leading-snug mb-4"
-        style={{ color: "#1a2849" }}
-      >
-        {description}
-      </p>
+        {/* Content Section */}
+        <div className="space-y-4">
+          <p
+            className="font-['Cormorant_Garamond'] text-lg italic leading-relaxed"
+            style={{ color: "#1a2849", opacity: 0.85 }}
+          >
+            {description}
+          </p>
 
-      {/* Children (buttons, etc.) */}
-      {children}
+          <div className="relative z-10">{children}</div>
+        </div>
+      </div>
     </div>
   );
 }
