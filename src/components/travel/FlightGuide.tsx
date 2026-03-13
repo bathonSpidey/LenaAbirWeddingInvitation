@@ -90,7 +90,6 @@ export default function FlightGuide() {
           </RegencyStepItem>
         </motion.div>
 
-        {/* STEP 2 */}
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 12 },
