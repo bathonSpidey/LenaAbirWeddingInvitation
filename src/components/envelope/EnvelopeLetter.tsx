@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import CardContent from "../CardContent";
+import CardContent from "../cardcontent/CardContent";
 import { EW, EH, CARD_W } from "./constants";
 import type { Phase } from "./constants";
 

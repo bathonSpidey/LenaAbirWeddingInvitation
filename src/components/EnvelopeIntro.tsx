@@ -3,7 +3,7 @@ import OurStory from "./ourstory/OurStory";
 import RegretsSection from "./RegretSection";
 import DiscoverAssam from "./discover/DiscoverAssam";
 import RSVPSection from "./RSVPSection";
-import TravelPortal from "./TravelPortal";
+import TravelPortal from "./travel/TravelPortal";
 import EnvelopeStage from "./envelope/EnvelopeStage";
 import Activities from "./Activities";
 import Expectations from "./Expectations";
