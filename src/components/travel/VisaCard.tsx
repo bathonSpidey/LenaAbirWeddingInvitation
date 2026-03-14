@@ -8,7 +8,7 @@ export default function VisaCard() {
   return (
     <div className="relative group bg-[#FAF9F6] border border-stone-200 p-10 rounded-sm shadow-sm flex flex-col justify-between h-full min-h-[350px] overflow-hidden">
       {/* THE ASSET WATERMARK */}
-      <div className="absolute -top-4 -right-4 w-32 h-32 opacity-[0.4] pointer-events-none transform -rotate-12 group-hover:rotate-0 group-hover:opacity-[0.1] transition-all duration-1000">
+      <div className="absolute -top-4 -right-4 w-32 h-32 opacity-[0.4] pointer-events-none transform rotate-18 group-hover:rotate-0 group-hover:opacity-[0.1] transition-all duration-1000">
         <img
           src={VisaStamp}
           alt="Visa Insignia"

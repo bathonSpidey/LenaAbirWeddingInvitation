@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 
@@ -43,40 +43,74 @@ export default function GuidedBookingCTA() {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.3 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
       viewport={{ once: true }}
-      className="mt-10 bg-white/80 border border-blue-100 rounded-sm shadow-sm p-8 md:p-12 text-center"
+      className="mt-16 bg-[#FCFBFA] border border-stone-200 rounded-sm shadow-sm p-10 md:p-16 text-center relative overflow-hidden"
     >
-      <p className="font-['Cinzel'] text-[10px] tracking-widest uppercase text-[#8B5E3C] font-bold mb-3">
+      {/* Decorative Accents */}
+      <div className="absolute top-0 left-0 w-20 h-20 border-t border-l border-stone-100 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-20 h-20 border-b border-r border-stone-100 pointer-events-none" />
+
+      {/* Floating Envelope Icon */}
+      <motion.div
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="flex justify-center mb-6"
+      >
+        {/* <div className="p-3 rounded-full border border-[#c9a961]/20">
+          <Mail className="w-5 h-5 text-[#c9a961] stroke-[1px]" />
+        </div> */}
+      </motion.div>
+
+      <h6 className="font-['Cinzel'] text-[10px] tracking-[0.4em] uppercase text-[#c9a961] font-bold mb-4">
         {t("travelPortal.needHand")}
-      </p>
-      <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 mb-6">
+      </h6>
+
+      <p className="font-['Cormorant_Garamond'] text-2xl italic text-[#1a2849] mb-10 max-w-lg mx-auto leading-relaxed">
         {t("travelPortal.guidedBooking")}
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input
-          type="email"
-          value={guestEmail}
-          onChange={(e) => {
-            setGuestEmail(e.target.value);
-            setSent(false);
-          }}
-          placeholder="your@email.com"
-          className="flex-1 border border-[#2D3E50]/30 rounded-sm px-4 py-3 font-['Cormorant_Garamond'] text-base italic text-stone-600 placeholder:text-stone-300 focus:outline-none focus:border-[#8B5E3C] transition-colors bg-white"
-        />
+
+      <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto items-center">
+        <div className="flex-1 w-full border-b border-stone-300 focus-within:border-[#c9a961] transition-all duration-500 pb-1">
+          <input
+            type="email"
+            value={guestEmail}
+            onChange={(e) => {
+              setGuestEmail(e.target.value);
+              setSent(false);
+            }}
+            placeholder="Your email address..."
+            className="w-full bg-transparent px-2 py-3 font-['Cormorant_Garamond'] text-lg italic text-stone-600 placeholder:text-stone-300 focus:outline-none"
+          />
+        </div>
+
         <motion.button
           disabled={!isValidEmail(guestEmail) || sending}
-          whileHover={
-            isValidEmail(guestEmail) && !sending
-              ? { backgroundColor: "#2D3E50", color: "#fff" }
-              : {}
-          }
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={handleReachOut}
-          className="border border-[#2D3E50] px-6 py-3 text-[9px] font-['Cinzel'] tracking-widest uppercase transition-all whitespace-nowrap disabled:opacity-30 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto px-8 py-3 text-[10px] font-['Cinzel'] tracking-[0.3em] uppercase transition-all whitespace-nowrap disabled:opacity-30 text-[#1a2849] font-bold border border-[#1a2849]/10 sm:border-none"
         >
-          {sending ? "Sending…" : sent ? "Sent ✓" : t("travelPortal.reachOut")}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={sending ? "sending" : sent ? "sent" : "idle"}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+            >
+              {sending
+                ? "Sending Correspondence..."
+                : sent
+                  ? "Letter Sent ✓"
+                  : t("travelPortal.reachOut")}
+            </motion.span>
+          </AnimatePresence>
         </motion.button>
       </div>
+
+      <p className="mt-8 font-['Cinzel'] text-[8px] tracking-[0.3em] text-stone-400 uppercase opacity-60">
+        Personal assistance for your grand tour
+      </p>
     </motion.div>
   );
 }

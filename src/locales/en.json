@@ -22,39 +22,39 @@
     "cantMakeIt": "I Can't Make It"
   },
   "expectations": {
-    "label": "A guide for our guests",
-    "heading": "What to Expect",
-    "subtitle": "Two families, two continents, one celebration. Here is everything you need to arrive prepared and leave unforgettable.",
+    "label": "A Guest’s Guide",
+    "heading": "The Experience",
+    "subtitle": "Essential details for our celebration across two cultures.",
     "items": [
       {
         "tag": "The Ceremony",
-        "title": "A Fusion of Two Worlds",
-        "desc": "The wedding ceremony will weave together Assamese and European traditions — expect sacred fire rituals alongside heartfelt vows spoken in two languages. You will witness a union as layered and beautiful as the cultures that shaped us."
+        "title": "A Royal Union",
+        "desc": "Assamese fire rituals meet European vows. A bilingual ceremony weaving two heritages into one story."
       },
       {
         "tag": "Dress Code",
         "title": "Festive & Vibrant",
-        "desc": "We invite you to dress in celebration. Traditional Indian attire is warmly welcomed — sarees, sherwanis, kurtas. Those preferring Western wear should opt for formal festive. Avoid white or black as primary colours. Think jewel tones, pastels, and gold."
+        "desc": "Indian traditional or Western formal. Jewel tones and gold are encouraged. Please avoid solid white or black."
       },
       {
-        "tag": "Food & Feasting",
-        "title": "A Feast for the Senses",
-        "desc": "A lavish spread of Assamese delicacies awaits — slow-cooked duck curry, mustard fish, bamboo-steamed rice, and tables lined with sweets from both cultures. Every dish tells a story; come hungry."
+        "tag": "Food & Drink",
+        "title": "The Assamese Feast",
+        "desc": "Slow-cooked duck, mustard fish, and tea-garden specialties. A fusion of local delicacies and global favorites."
       },
       {
         "tag": "Music & Dance",
-        "title": "Bihu Beneath the Stars",
-        "desc": "As evening deepens, live Bihu folk music will fill the courtyard. Expect performances, spontaneous dancing, and a DJ set that moves through continents — from Assamese beats to European favourites."
+        "title": "Rhythm of the Bihu",
+        "desc": "Traditional folk drums followed by a global DJ set. Bring your dancing shoes for a night beneath the stars."
       },
       {
-        "tag": "Weather & Setting",
-        "title": "December in Jorhat",
-        "desc": "Early December is Jorhat's most beautiful season — cool, golden days (18–24 °C) and clear evenings. The venue sits amid tea gardens and open skies. Bring a light shawl for after dark; the stars here are remarkable."
+        "tag": "The Climate",
+        "title": "Golden December",
+        "desc": "Warm, sunny days (22°C) followed by crisp, cool nights. A light shawl or jacket is recommended for the evening."
       },
       {
-        "tag": "People & Warmth",
-        "title": "Assamese Hospitality",
-        "desc": "Those who have visited Assam know: hospitality here is not a gesture, it is a way of life. Expect to be fed before you are hungry, welcomed before you knock, and sent home with more warmth than you arrived with."
+        "tag": "Hospitality",
+        "title": "Atithi Devo Bhava",
+        "desc": "Experience the legendary warmth of Assam. Expect open hearts, endless tea, and a home away from home."
       }
     ]
   },
