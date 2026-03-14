@@ -74,7 +74,7 @@ export default function CardContent({
               {/* Date row */}
               <div style={{ textAlign: "center", marginBottom: "0.3rem" }}>
                 <span className="detail-label">{t("card.saturday")}</span>
-                <span className="detail-main">6 December 2026</span>
+                <span className="detail-main">4 & 6 December 2026</span>
               </div>
 
               {/* Venue + Time side by side */}

@@ -23,7 +23,7 @@ export default function EnvelopeBack({ envelopeAnim }: EnvelopeBackProps) {
         className="absolute inset-0 rounded-md"
         style={{
           backgroundImage: `url(${EnvelopeTexture})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center",
           boxShadow:
             "0 20px 60px rgba(160,100,20,0.3), 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,240,180,0.25)",

@@ -37,7 +37,7 @@ export default function EnvelopeFlap({
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(160deg, rgba(226,197,112,0.95), rgba(186,143,56,0.95)),
+              linear-gradient(160deg, rgba(226,197,112,0.75), rgba(186,143,56,0.75)),
               url(${EnvelopeTexture})
             `,
             backgroundBlendMode: "multiply",
@@ -47,10 +47,12 @@ export default function EnvelopeFlap({
         />
 
         {/* Warm golden sheen */}
-        <div
+        {/* <div
           className="absolute inset-0 opacity-60"
-          style={{ background: "linear-gradient(160deg, #d8b848 0%, #c09030 100%)" }}
-        />
+          style={{
+            background: "linear-gradient(160deg, #d8b848 0%, #c09030 100%)",
+          }}
+        /> */}
       </motion.div>
     </motion.div>
   );

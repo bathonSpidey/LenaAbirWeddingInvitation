@@ -25,7 +25,7 @@ export default function EnvelopeFrontPocket({
       style={{
         zIndex: 30,
         backgroundImage: `
-          linear-gradient(160deg, rgba(226,197,112,0.95), rgba(186,143,56,0.95)),
+          linear-gradient(160deg, rgba(226,197,112,0.75), rgba(186,143,56,0.75)),
           url(${EnvelopeTexture})
         `,
         backgroundBlendMode: "multiply",
@@ -47,11 +47,17 @@ export default function EnvelopeFrontPocket({
           >
             <p
               className="tracking-[0.28em] uppercase text-xs"
-              style={{ fontFamily: "'Cinzel', serif", color: "rgba(60,35,5,0.65)" }}
+              style={{
+                fontFamily: "'Cinzel', serif",
+                color: "rgba(60,35,5,0.65)",
+              }}
             />
             <p
               className="italic text-sm"
-              style={{ fontFamily: "'Cormorant Garamond', serif", color: "rgba(60,35,5,0.38)" }}
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                color: "rgba(60,35,5,0.38)",
+              }}
             />
           </motion.div>
         )}

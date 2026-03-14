@@ -154,29 +154,31 @@ export const styles = `
   }
 
   .names {
-    opacity: 0;
-    animation: fadeUp 0.9s ease 0.8s forwards;
-    margin-bottom: 0.1rem;
-  }
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.8s forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.2rem 0 0.8rem; /* Increased vertical space around the name block */
+}
 
-  .name-primary {
-    font-family: 'Pinyon Script', cursive;
-    font-size: 2.6rem;
-    color: #2a3f5c;
-    line-height: 0.95;
-    display: block;
-  }
+.name-primary {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3.4rem; /* Slightly larger for drama */
+  color: #2a3f5c;
+  line-height: 0.8;
+  filter: drop-shadow(0.5px 0.5px 0px rgba(175,148,77,0.2)); /* Subtle gold "ink" depth */
+}
 
-  .name-ampersand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: #b98c8c;
-    font-style: italic;
-    font-weight: 300;
-    display: block;
-    line-height: 0.85;
-    margin: 0;
-  }
+.name-ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #AF944D; /* Changed from pinkish to Gold for a more "Royal" look */
+  font-style: italic;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
 
   .divider-ornament {
     display: flex;
@@ -234,14 +236,14 @@ export const styles = `
   }
 
   .detail-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.5rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #5B8DB8;
-    margin-bottom: 0.1rem;
-    display: block;
-  }
+  font-family: 'Cinzel', serif;
+  font-size: 0.45rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(42, 63, 92, 0.6); /* Navy/Slate instead of Blue */
+  margin-bottom: 0.2rem;
+  display: block;
+}
 
   .detail-main {
     font-family: 'Cormorant Garamond', serif;
@@ -321,6 +323,8 @@ export const styles = `
     transform-origin: center;
     width: 100%;
     opacity: 0;
+    margin-left: -3%;
+  margin-right: -3%;
     animation: fadeUp 0.8s ease 1.6s forwards;
   }
 
