@@ -205,5 +205,18 @@
   },
   "rsvp": {
     "travelGuide": "Travel Guide"
+  },
+  "assamPrep": {
+    "label": "The Traveller’s Toolkit",
+    "heading": "Essential Preparation",
+    "attireFront": "Breathable linens for the golden sun; a soft wrap for the river breeze.",
+    "attireNotesTitle": "The Wardrobe",
+    "attireNotesDesc": "• Pack: Cotton, Linen, Silk\n• Evening: A pashmina or light blazer\n• Footwear: Comfortable flats for garden walks",
+    "healthFront": "Tropical essentials to keep you refreshed in the lush greenery.",
+    "healthNotesTitle": "The Apothecary",
+    "healthNotesDesc": "• Shield: High SPF & Insect repellent\n• Hydrate: Carry a reusable bottle\n• Note: Personal meds are best brought from home",
+    "tempoFront": "Leave the rush behind. In Assam, we live by the rhythm of 'Lahe Lahe'.",
+    "tempoNotesTitle": "The Philosophy",
+    "tempoNotesDesc": "• Meaning: 'Slowly, slowly'\n• Rule: No tight schedules\n• Goal: Disconnect to reconnect with the river"
   }
 }

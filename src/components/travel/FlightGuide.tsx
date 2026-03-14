@@ -30,6 +30,7 @@ export default function FlightGuide() {
         viewport={{ once: true }}
         className="text-center mb-4"
       >
+        <div className="hidden lg:block absolute top-[45px] left-[25%] right-[25%] h-px border-t border-dashed border-[#c9a961]/40 z-0" />
         <h4
           className="font-['Cinzel'] text-[10px] font-bold tracking-[0.4em] uppercase"
           style={{ color: COLORS.gold }}
@@ -73,7 +74,11 @@ export default function FlightGuide() {
         >
           <RegencyStepItem
             icon={
-              <img src={Ship} alt="Ship" className="w-12 h-12 object-contain" />
+              <img
+                src={Ship}
+                alt="Ship"
+                className="w-10 h-10 object-contain brightness-95 contrast-110 sepia-[0.2] drop-shadow-sm"
+              />
             }
             title={t("flightGuide.step1Title")}
             description={t("flightGuide.step1Desc")}
@@ -109,7 +114,7 @@ export default function FlightGuide() {
               <img
                 src={Carriage}
                 alt="Ship"
-                className="w-12 h-12 object-contain"
+                className="w-10 h-10 object-contain brightness-95 contrast-110 sepia-[0.2] drop-shadow-sm"
               />
             }
             title={t("flightGuide.step2Title")}
