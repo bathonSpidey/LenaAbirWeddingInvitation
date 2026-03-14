@@ -128,6 +128,11 @@ export default function EnvelopeIntro() {
             />
           </div>
 
+          <Expectations
+            innerRef={expectationsRef as React.RefObject<HTMLDivElement>}
+            onBack={() => scrollTo(rsvpRef)}
+          />
+
           <div ref={discoverRef} className="snap-start">
             <DiscoverAssam
               onBack={() =>
@@ -139,11 +144,6 @@ export default function EnvelopeIntro() {
           <div ref={activitiesRef} className="snap-start">
             <Activities onBack={() => scrollTo(rsvpRef)} />
           </div>
-
-          <Expectations
-            innerRef={expectationsRef as React.RefObject<HTMLDivElement>}
-            onBack={() => scrollTo(rsvpRef)}
-          />
         </>
       )}
     </div>

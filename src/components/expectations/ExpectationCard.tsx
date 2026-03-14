@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react"; // Optional icons
 
@@ -20,6 +20,16 @@ export default function ExpectationCard({
   index,
 }: ExpectationCardProps) {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -52,8 +62,10 @@ export default function ExpectationCard({
           <div className="absolute inset-0 bg-[#4A90B8]/5 mix-blend-multiply pointer-events-none" />
 
           {/* Hover Overlay with Icon */}
-          <div className="absolute inset-0 bg-[#2A3F5C]/0 group-hover:bg-[#2A3F5C]/5 transition-colors duration-500 flex items-center justify-center">
-            <ZoomIn className="text-[#2A3F5C] opacity-0 group-hover:opacity-40 transition-opacity duration-500 w-6 h-6 stroke-[1px]" />
+          <div className="absolute inset-0 bg-[#1a2849]/0 group-hover:bg-[#1a2849]/5 transition-colors duration-500 flex items-center justify-center">
+            <div className="bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-sm">
+              <ZoomIn className="text-[#2A3F5C] w-4 h-4 stroke-[1.5px]" />
+            </div>
           </div>
         </div>
 
@@ -86,38 +98,35 @@ export default function ExpectationCard({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 z-[100] bg-[#1a2849]/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-[100] bg-[#1a2849]/98 backdrop-blur-lg flex items-center justify-center p-6 md:p-12 cursor-zoom-out"
           >
-            {/* Close Button */}
             <motion.button
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="absolute top-8 right-8 text-white/60 hover:text-white"
+              className="absolute top-10 right-10 text-white/40 hover:text-white transition-colors"
+              whileHover={{ rotate: 90 }}
             >
-              <X className="w-8 h-8 stroke-[1px]" />
+              <X className="w-10 h-10 stroke-[1px]" />
             </motion.button>
 
-            {/* Full Image */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center"
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative max-w-4xl w-full h-full flex flex-col items-center justify-center"
             >
               <img
                 src={img}
                 alt={title}
-                className="max-w-full max-h-[80vh] object-contain shadow-2xl border-4 border-white/5"
+                className="max-w-full max-h-[75vh] object-contain shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
               />
 
-              <div className="mt-8 text-center max-w-2xl">
-                <h4 className="font-['Cinzel'] text-[#c9a961] text-xs tracking-[0.4em] uppercase mb-2">
+              <div className="mt-10 text-center">
+                <h4 className="font-['Cinzel'] text-[#c9a961] text-[10px] tracking-[0.5em] uppercase mb-3">
                   {tag}
                 </h4>
-                <p className="font-['Cormorant_Garamond'] text-white text-2xl italic leading-relaxed">
+                <p className="font-['Pinyon_Script'] text-white text-4xl md:text-5xl drop-shadow-lg">
                   {title}
                 </p>
+                <div className="w-12 h-px bg-[#c9a961]/40 mx-auto mt-6" />
               </div>
             </motion.div>
           </motion.div>
