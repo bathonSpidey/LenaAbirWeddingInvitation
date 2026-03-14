@@ -7,6 +7,7 @@ import AssamPreparationSection from "./AssamPreperationSection";
 import StaysAndVisaGrid from "./StayAndVisaGrid";
 import GuidedBookingCTA from "./GuidedBookingCTA";
 import TravelPortalFooter from "./TravelFooter";
+import TypicalSchedule from "./TypicalSchedule";
 
 export default function TravelPortal({
   innerRef,
@@ -34,6 +35,7 @@ export default function TravelPortal({
         <TravelPortalHeader />
 
         <div className="space-y-24">
+          <TypicalSchedule />
           {/* SECTION 1: THE FLIGHT JOURNEY */}
           <FlightSection />
 

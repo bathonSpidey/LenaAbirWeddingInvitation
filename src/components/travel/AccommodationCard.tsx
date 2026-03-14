@@ -1,65 +1,84 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-interface AccommodationItem {
-  label: string;
-  sublabel: string;
-  url: string;
-}
-
 export default function AccommodationCard() {
   const { t } = useTranslation();
 
-  const accommodations: AccommodationItem[] = [
-    {
-      label: "Jorhat",
-      sublabel: t("flightGuide.jorhatSub"),
-      url: "https://www.booking.com/searchresults.en-gb.html?ss=Jorhat",
-    },
-    {
-      label: "Kaziranga",
-      sublabel: t("flightGuide.kazirangaSub"),
-      url: "https://www.booking.com/searchresults.en-gb.html?ss=Kaziranga",
-    },
-    {
-      label: "Guwahati",
-      sublabel: t("flightGuide.guwahatiSub"),
-      url: "https://www.booking.com/searchresults.en-gb.html?ss=Guwahati",
-    },
+  const destinations = [
+    { label: "Jorhat", sub: "Tea Estates", url: "https://..." },
+    { label: "Kaziranga", sub: "Wilderness", url: "https://..." },
+    { label: "Guwahati", sub: "The Gateway", url: "https://..." },
   ];
 
   return (
-    <div className="bg-white/80 border border-blue-100 p-8 rounded-sm shadow-sm">
-      <h6 className="font-['Cinzel'] text-[10px] tracking-widest text-[#8B5E3C] mb-2 uppercase font-bold">
-        {t("flightGuide.accomTitle")}
-      </h6>
-      <p className="font-['Cormorant_Garamond'] text-sm italic text-stone-400 mb-6">
-        {t("flightGuide.accomSub")}
-      </p>
-      <div className="space-y-3">
-        {accommodations.map((item, i) => (
-          <motion.button
+    <div className="bg-[#FAF9F6] border border-stone-200 p-10 rounded-sm shadow-sm relative flex flex-col h-full overflow-hidden">
+      {/* HEADER AREA */}
+      <div className="mb-6 text-center">
+        <h6 className="font-['Cinzel'] text-[10px] tracking-[0.5em] text-[#8B5E3C] uppercase font-bold mb-2">
+          {t("flightGuide.accomTitle")}
+        </h6>
+        <div className="flex justify-center items-center gap-4">
+          <div className="h-[0.5px] w-12 bg-stone-300" />
+          <p className="font-['Cormorant_Garamond'] text-base italic text-stone-500">
+            {t("flightGuide.accomSub")}
+          </p>
+          <div className="h-[0.5px] w-12 bg-stone-300" />
+        </div>
+      </div>
+
+      {/* SIDE-BY-SIDE BUTTONS */}
+      <div className="grid grid-cols-3">
+        {destinations.map((item, i) => (
+          <button
             key={item.label}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: 0.25 + i * 0.1 }}
-            viewport={{ once: true }}
             onClick={() => window.open(item.url, "_blank")}
-            className="w-full text-left flex justify-between items-center group cursor-pointer border-l-2 border-transparent hover:border-[#8B5E3C] pl-3 transition-all duration-300 py-2"
+            className={`flex flex-col items-center group transition-all px-1 ${
+              i !== destinations.length - 1 ? "border-r border-stone-200" : ""
+            }`}
           >
-            <div>
-              <p className="font-['Cinzel'] text-[11px] tracking-widest uppercase text-[#2D3E50] font-bold group-hover:text-[#8B5E3C] transition-colors duration-300">
-                {item.label}
-              </p>
-              <p className="font-['Cormorant_Garamond'] text-sm italic text-stone-400 group-hover:text-stone-500 transition-colors duration-300">
-                {item.sublabel}
-              </p>
-            </div>
-            <span className="font-['Cinzel'] text-[10px] text-stone-300 group-hover:text-[#8B5E3C] group-hover:translate-x-1 transition-all duration-300">
-              ↗
+            <span className="block font-['Cinzel'] text-[11px] tracking-[0.3em] uppercase text-[#1a2849] group-hover:text-[#c9a961] transition-colors mb-1">
+              {item.label}
             </span>
-          </motion.button>
+            <span className="block font-['Cormorant_Garamond'] text-[11px] italic text-stone-400 group-hover:text-stone-600 transition-colors">
+              {item.sub}
+            </span>
+            <div className="mt-4 w-1 h-1 rounded-full bg-transparent group-hover:bg-[#c9a961] transition-all duration-500 scale-0 group-hover:scale-100" />
+          </button>
         ))}
+      </div>
+
+      {/* THE CONCIERGE CALL-TO-ACTION */}
+      {/* Reduced pt-8 to pt-4 to pull the whole section up */}
+      <div className="pt-10  border-t border-stone-200 text-center">
+        {/* Reduced mb-6 to mb-2 to pull the description up toward the title */}
+        <div className="relative mb-2">
+          <p className="font-['Pinyon_Script'] text-4xl text-[#c9a961] relative z-10">
+            Arrangements
+          </p>
+          {/* Adjusted top-1/2 to top-[60%] to better center the line behind the script descenders */}
+          {/* <div className="absolute top-[60%] left-0 w-full h-[0.5px] bg-stone-200/60 -z-0" /> */}
+        </div>
+
+        {/* Reduced mb-8 to mb-5 to pull the button up */}
+        <p className="font-['Cormorant_Garamond'] text-sm text-stone-600 italic mb-5 max-w-[280px] mx-auto leading-relaxed">
+          If you would like to check out an agency which can help you with your
+          bookings and plans
+        </p>
+
+        <motion.button
+          whileHover={{ y: -2 }}
+          onClick={() =>
+            window.open("https://www.northeastnook.com/", "_blank")
+          }
+          className="w-full bg-[#1a2849] py-4 text-[10px] text-white font-['Cinzel'] tracking-[0.4em] uppercase relative shadow-lg shadow-blue-900/10 transition-shadow"
+        >
+          <div className="absolute inset-1 border border-white/10 pointer-events-none" />
+          Consult a Concierge
+        </motion.button>
+      </div>
+
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-[0.03] font-['Cinzel'] text-[40px] tracking-[1em] pointer-events-none">
+        ASSAM
       </div>
     </div>
   );
