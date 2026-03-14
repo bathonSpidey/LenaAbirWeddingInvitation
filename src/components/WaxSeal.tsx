@@ -29,12 +29,12 @@ const WaxSeal: React.FC<WaxSealProps> = ({ onClick }) => {
       />
 
       {/* 2. OPTIONAL: A very subtle 'interactive' glint */}
-      <motion.div
+      {/* <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileHover={{ x: 100, opacity: 0.2 }}
         transition={{ duration: 0.6 }}
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none"
-      />
+      /> */}
     </motion.button>
   );
 };

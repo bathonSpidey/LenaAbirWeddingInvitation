@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import OurStory from "./ourstory/OurStory";
-import RegretsSection from "./RegretSection";
+import RegretsSection from "./regret/RegretSection";
 import DiscoverAssam from "./discover/DiscoverAssam";
 import RSVPSection from "./RSVPSection";
 import TravelPortal from "./travel/TravelPortal";
@@ -82,7 +82,10 @@ export default function EnvelopeIntro() {
               containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
             }
             onOurStory={() => scrollTo(storyRef)}
-            onDiscover={() => scrollTo(discoverRef)}
+            onDiscover={() => scrollTo(travelRef)}
+          />
+          <TravelPortal
+            innerRef={travelRef as React.RefObject<HTMLDivElement>}
           />
 
           <div ref={storyRef} className="snap-start">

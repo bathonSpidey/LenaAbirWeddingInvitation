@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import CountdownStrip from "../BridgertonCountdown";
-import FlowerSlider from "../Slider";
+import FlowerSlider from "../envelope/Slider";
 import { styles } from "./styles";
 
 export default function CardContent({
@@ -47,9 +47,9 @@ export default function CardContent({
 
             {/* Names — Pinyon Script stacked */}
             <div className="names">
-              <span className="name-primary">Abir Bhattacharyya</span>
+              <span className="name-primary">Abir</span>
               <span className="name-ampersand">&</span>
-              <span className="name-primary">Lena Tuchtenhagen</span>
+              <span className="name-primary">Lena</span>
             </div>
 
             {/* Divider ornament */}
