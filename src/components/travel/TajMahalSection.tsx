@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import TajMahalKeepsake from "../../assets/TajMahal.png";
 import { NAVY_PRIMARY } from "./TravelConstants";
+import { useTranslation } from "react-i18next";
 
 export default function TajMahalSection() {
   const containerRef = useRef(null);
@@ -16,6 +17,7 @@ export default function TajMahalSection() {
 
   // Subtle zoom-out on image as it enters
   const imageScale = useTransform(scrollYProgress, [0, 0.4], [1.06, 1]);
+  const { t } = useTranslation();
 
   return (
     <section
@@ -35,7 +37,7 @@ export default function TajMahalSection() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-[1px] w-8 bg-[#B98C8C]" />
             <span className="font-['Cinzel'] text-[10px] tracking-[0.3em] uppercase text-[#B98C8C]">
-              A Romantic Detour
+              {t("detour.label")}
             </span>
           </div>
 
@@ -43,15 +45,12 @@ export default function TajMahalSection() {
           <h4
             className={`font-['Pinyon_Script'] text-4xl md:text-7xl ${NAVY_PRIMARY} mb-6 leading-none`}
           >
-            The Monument of Love
+            {t("detour.heading")}
           </h4>
 
           {/* Body copy — bumped to text-2xl for editorial feel */}
           <p className="font-['Cormorant_Garamond'] text-2xl italic text-stone-600 leading-relaxed max-w-md">
-            As your journey brings you through Delhi, we highly recommend a
-            visit to the Taj Mahal in Agra. It is a three-hour drive from the
-            capital — a fleeting moment to witness the world's most beautiful
-            tribute to love.
+            {t("detour.desc")}
           </p>
 
           {/* Decorative closing line — tied back to palette */}

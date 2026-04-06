@@ -133,7 +133,7 @@ function ScheduleCard({
   sealAsset: string;
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
-
+  const { t } = useTranslation();
   const styles = {
     relaxed: {
       bg: "bg-[#FDF6F6]",
@@ -201,11 +201,11 @@ function ScheduleCard({
 
           <div className="space-y-2">
             <p className="font-['Pinyon_Script'] text-2xl text-[#c9a961]">
-              Break the seal
+              {t("travelPortal.breakSeal")}
             </p>
             <div className="h-px w-8 bg-stone-100 mx-auto" />
             <span className="md:hidden font-['Cinzel'] text-[7px] text-stone-300 tracking-widest uppercase mt-2 block">
-              Tap to Reveal
+              {t("travelPortal.tapToReveal")}
             </span>
           </div>
         </div>
@@ -252,7 +252,7 @@ function ScheduleCard({
 
           <div className="mt-4 pt-4 border-t border-stone-100 text-center">
             <span className="font-['Cinzel'] text-[8px] tracking-[0.2em] text-stone-300 uppercase">
-              Close Letter
+              {t("travelPortal.closeLetter")}
             </span>
           </div>
         </div>

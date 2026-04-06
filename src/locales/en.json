@@ -314,7 +314,15 @@
     "footer": "We are here to help you every step of the way.",
     "needHand": "Need a hand?",
     "guidedBooking": "Want us to guide you? Send us your email and we'll call you right back with your booking.",
-    "reachOut": "Reach Out"
+    "reachOut": "Reach Out",
+    "closeLetter": "Close Letter",
+    "breakSeal": "Break the Seal",
+    "tapToReveal": "Tap to Reveal"
+  },
+  "detour": {
+    "label": "A Romantic Detour",
+    "heading": "The Monument of Love",
+    "desc": "As your journey brings you through Delhi, we highly recommend a visit to the TaMahal in Agra. It is a three-hour drive from the capital — a fleeting moment to witness the world's most beautiful tribute to love."
   },
   "flightGuide": {
     "heading": "The Journey to Assam",

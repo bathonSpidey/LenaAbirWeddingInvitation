@@ -219,7 +219,7 @@
         ]
       },
       "exploration": {
-        "title": "Die Route des Entdeckers",
+        "title": " Die Entdeckers Tour",
         "subtitle": "Kultur und Flussnebel",
         "days": [
           {
@@ -314,7 +314,15 @@
     "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da.",
     "needHand": "Brauchen Sie Hilfe?",
     "guidedBooking": "Möchten Sie Unterstützung? Senden Sie uns Ihre E-Mail und wir rufen Sie zur Buchung zurück.",
-    "reachOut": "Kontakt aufnehmen"
+    "reachOut": "Kontakt aufnehmen",
+    "closeLetter": "Brief schließen",
+    "breakSeal": "Siegel brechen",
+    "tapToReveal": "Zum Aufklappen drücken"
+  },
+  "detour": {
+    "label": "Ein romantischer Abstecher",
+    "heading": "Das Monument der Liebe",
+    "desc": "Da Ihre Reise Sie durch Delhi führt, empfehlen wir Ihnen wärmstens einen Besuch des Taj Mahal in Agra. Es ist eine dreistündige Fahrt von der Hauptstadt entfernt – ein kurzer Moment, um die schönste Liebeserklärung der Welt zu erleben."
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",
