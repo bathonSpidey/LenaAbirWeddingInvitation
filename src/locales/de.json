@@ -324,6 +324,29 @@
     "heading": "Das Monument der Liebe",
     "desc": "Da Ihre Reise Sie durch Delhi führt, empfehlen wir Ihnen wärmstens einen Besuch des Taj Mahal in Agra. Es ist eine dreistündige Fahrt von der Hauptstadt entfernt – ein kurzer Moment, um die schönste Liebeserklärung der Welt zu erleben."
   },
+  "preparations": {
+    "label": "Vor Ihrer Ankunft",
+    "heading": "Bereiten Sie sich auf Assam vor",
+    "openLetter": "Brief öffnen",
+    "notesFromRiver": "Notes from the River",
+    "items": [
+      {
+        "id": "attire",
+        "label": "Kleidung",
+        "frontDesc": "Leichte Leinenkleidung für den Tag, ein weicher Pashmina für die kühlen Abende am Fluss."
+      },
+      {
+        "id": "health",
+        "label": "Gesundheit",
+        "frontDesc": "Assam ist üppig; stellen Sie sicher, dass Sie Ihre tropischen Essentials und Insektenschutz dabei haben."
+      },
+      {
+        "id": "tempo",
+        "label": "Tempo",
+        "frontDesc": "Das Leben am Fluss verläuft gemächlich. Bereiten Sie sich darauf vor, abzuschalten und „Lahe Lahe“ zu genießen."
+      }
+    ]
+  },
   "flightGuide": {
     "heading": "Die Reise nach Assam",
     "step1Title": "Internationale Hubs",

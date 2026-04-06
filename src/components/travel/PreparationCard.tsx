@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ANTIQUE_GOLD } from "./TravelConstants";
 import RoyalSeal from "../../assets/SealElegant.png";
+import { useTranslation } from "react-i18next";
 
 interface PreparationCardProps {
   delay: number;
@@ -21,6 +22,7 @@ export default function PreparationCard({
   notesContent,
 }: PreparationCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -142,7 +144,7 @@ export default function PreparationCard({
 
             <div className="text-center pb-2">
               <span className="font-['Cinzel'] text-[7px] tracking-[0.4em] uppercase text-slate-300 group-hover:text-[#4A90E2] transition-colors">
-                Open Letter
+                {t("preparations.openLetter")}
               </span>
             </div>
           </div>
@@ -156,7 +158,7 @@ export default function PreparationCard({
                 style={{ backgroundColor: color }}
               />
               <h6 className="font-['Cinzel'] text-[8px] tracking-[0.4em] uppercase font-bold text-[#c9a961]">
-                Notes from the River
+                {t("preparations.notesFromRiver")}
               </h6>
             </div>
 

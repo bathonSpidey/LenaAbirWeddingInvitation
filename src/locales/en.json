@@ -324,6 +324,29 @@
     "heading": "The Monument of Love",
     "desc": "As your journey brings you through Delhi, we highly recommend a visit to the TaMahal in Agra. It is a three-hour drive from the capital — a fleeting moment to witness the world's most beautiful tribute to love."
   },
+  "preparations": {
+    "label": "Before You Arrive",
+    "heading": "Prepare for Assam",
+    "openLetter": "Open Letter",
+    "notesFromRiver": "Notes from the River",
+    "items": [
+      {
+        "id": "attire",
+        "label": "Attire",
+        "frontDesc": "Light linens for the day, a soft pashmina for the cool river evenings."
+      },
+      {
+        "id": "health",
+        "label": "Health",
+        "frontDesc": "Assam is lush; ensure you have your tropical essentials and bug repellent."
+      },
+      {
+        "id": "tempo",
+        "label": "Tempo",
+        "frontDesc": "Life by the river moves slowly. Prepare to disconnect and embrace 'Lahe Lahe'."
+      }
+    ]
+  },
   "flightGuide": {
     "heading": "The Journey to Assam",
     "step1Title": "International Hubs",
