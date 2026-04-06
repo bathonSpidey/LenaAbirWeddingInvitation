@@ -13,12 +13,8 @@ import AssamTexture from "../../assets/assam-texture.jpeg";
 import { AssameseLaceBorder } from "./AssameseLaceBorder";
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
-  const [showActivities, setShowActivities] = useState(false);
   const { t } = useTranslation();
 
-  if (showActivities) {
-    return <Activities onBack={() => setShowActivities(false)} />;
-  }
 
   return (
     <motion.div
@@ -170,7 +166,6 @@ export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
       <div className="mt-20 text-center">
         <AssameseLaceBorder>
           <motion.button
-            onClick={() => setShowActivities(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-4 px-12 py-5 bg-[#C0392B] text-[#FDF8F0] rounded-full shadow-[0_10px_30px_rgba(192,57,43,0.35)] hover:bg-[#A93226] transition-colors cursor-pointer group"

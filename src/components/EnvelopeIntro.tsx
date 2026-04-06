@@ -103,6 +103,9 @@ export default function EnvelopeIntro() {
               }
             />
           </div>
+          <div ref={activitiesRef} className="snap-start">
+            <Activities onBack={() => scrollTo(discoverRef)} />
+          </div>
         </>
       )}
 
@@ -136,13 +139,13 @@ export default function EnvelopeIntro() {
             onBack={() => scrollTo(rsvpRef)}
           />
 
-          <div ref={discoverRef} className="snap-start">
+          {/* <div ref={discoverRef} className="snap-start">
             <DiscoverAssam
               onBack={() =>
                 containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
               }
             />
-          </div>
+          </div> */}
 
           <div ref={activitiesRef} className="snap-start">
             <Activities onBack={() => scrollTo(rsvpRef)} />

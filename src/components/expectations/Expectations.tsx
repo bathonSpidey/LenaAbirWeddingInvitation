@@ -32,7 +32,6 @@ export default function Expectations({ innerRef, onBack }: ExpectationsProps) {
         <ExpectationsHeader
           label={t("expectations.label")}
           heading={t("expectations.heading")}
-          subtitle={t("expectations.subtitle")}
         />
         <ExpectationsGrid items={items} />
 

@@ -41,7 +41,7 @@
       {
         "tag": "Food & Drink",
         "title": "The Assamese Feast",
-        "desc": "Slow-cooked duck, mustard fish, and tea-garden specialties. A fusion of local delicacies and global favorites."
+        "desc": "Starters, Dinner and Dessert for the first day and Lunch, Dinner and Dessert for the second day. A fusion of local delicacies and global classics. Both vegetarian and non-vegetarian options available."
       },
       {
         "tag": "Music & Dance",
@@ -141,7 +141,7 @@
     "experience": "The Experience",
     "quote": "\"Lush green tea gardens, and fresh river breezes. A place where time slows down, and every moment feels like a sip of serenity.\"",
     "wish": "We truly wish you could be there with us",
-    "exploreActivities": "EXPLORE ACTIVITIES"
+    "exploreActivities": "SCROLL DOWN TO EXPLORE ACTIVITIES"
   },
   "regrets": {
     "heading": "We will miss you",
@@ -329,6 +329,9 @@
     "heading": "Prepare for Assam",
     "openLetter": "Open Letter",
     "notesFromRiver": "Notes from the River",
+    "prepareHeading": "Provisions & Preparations",
+    "openLedger": "Open Interactive Ledger",
+    "downloadPdf": "Download Printable PDF",
     "items": [
       {
         "id": "attire",
@@ -347,31 +350,47 @@
       }
     ],
     "checklist": {
-    "visa": [
-      "Check Passport Validity (6 months min)",
-      "Apply for Indian E-Visa",
-      "Print copy of E-Visa",
-      "Vaccination Certificates"
-    ],
-    "health": [
-      "Insect Repellent (Odomos)",
-      "Personal Prescriptions",
-      "Tropical Sunscreen",
-      "Anti-histamines"
-    ],
-    "clothing": [
-      "Muga Silk / Linen Attire",
-      "Evening Pashmina",
-      "Comfortable Walking Shoes",
-      "Swimwear for River Resorts"
-    ],
-    "safety": [
-      "Universal Power Adapter",
-      "Emergency Contact List",
-      "Travel Insurance Copy",
-      "Offline Maps of Jorhat"
-    ]
-  }
+      "visa": [
+        "Check Passport Validity (6 months min)",
+        "Apply for Indian E-Visa",
+        "Print copy of E-Visa",
+        "Vaccination Certificates"
+      ],
+      "health": [
+        "Insect Repellent (Odomos)",
+        "Personal Prescriptions",
+        "Tropical Sunscreen",
+        "Anti-histamines"
+      ],
+      "clothing": [
+        "Muga Silk / Linen Attire",
+        "Evening Pashmina",
+        "Comfortable Walking Shoes",
+        "Swimwear for River Resorts"
+      ],
+      "safety": [
+        "Universal Power Adapter",
+        "Emergency Contact List",
+        "Travel Insurance Copy",
+        "Offline Maps of Jorhat"
+      ]
+    }
+  },
+  "visa": {
+    "heading": "Formal Requirement",
+    "subHeading": "The e-Visa",
+    "desc": "For our esteemed international guests, an official entry permit is required for your voyage to India.",
+    "pre": "Apply",
+    "time": "4 weeks",
+    "recommend": "prior",
+    "reminder": "A courtesy reminder from your hosts"
+  },
+  "arrangements": {
+    "heading": "Arrangements",
+    "desc": "If you would like to check out an agency which can help you with your bookings and plans",
+    "callForConcierge": "If you would like to check out an agency which can help you with your bookings and plans",
+    "alert": "We are working on finding a good concierge for you. Meanwhile if you have any questions or want to get in touch with us, please reach out to us directly below.",
+    "button": "Consult a Concierge"
   },
   "flightGuide": {
     "heading": "The Journey to Assam",

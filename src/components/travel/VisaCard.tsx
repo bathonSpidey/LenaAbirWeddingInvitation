@@ -20,12 +20,12 @@ export default function VisaCard() {
         {/* REGENCY STATIONERY HEADER */}
         <div className="text-center mb-8">
           <h6 className="font-['Cinzel'] text-[9px] tracking-[0.5em] text-stone-400 uppercase font-bold mb-2">
-            Formal Requirement
+            {t("visa.heading")}
           </h6>
           <div className="flex justify-center items-center gap-3">
             <div className="h-px w-8 bg-stone-200" />
             <span className="font-['Pinyon_Script'] text-3xl text-[#c9a961]">
-              The e-Visa
+              {t("visa.subHeading")}
             </span>
             <div className="h-px w-8 bg-stone-200" />
           </div>
@@ -33,14 +33,14 @@ export default function VisaCard() {
 
         <div className="space-y-6 text-center">
           <p className="font-['Cormorant_Garamond'] text-2xl italic text-[#1a2849] leading-snug">
-            "For our esteemed international guests, an official entry permit is
-            required for your voyage to India."
+            {t("visa.desc")}
           </p>
 
           <div className="inline-block border-y border-stone-200 py-2 px-6">
             <p className="font-['Cinzel'] text-[10px] tracking-widest text-stone-400 uppercase">
-              Apply <span className="text-[#c9a961] font-bold">4 Weeks</span>{" "}
-              Prior
+              {t("visa.pre")}{" "}
+              <span className="text-[#c9a961] font-bold">{t("visa.time")}</span>{" "}
+              {t("visa.recommend")}
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function VisaCard() {
         </motion.button>
 
         <p className="text-center mt-4 font-['Cormorant_Garamond'] text-[11px] italic text-stone-400">
-          A courtesy reminder from your hosts
+          {t("visa.reminder")}
         </p>
       </div>
     </div>

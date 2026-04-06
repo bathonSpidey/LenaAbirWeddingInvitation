@@ -56,7 +56,7 @@ export default function DownloadableChecklist() {
         <h3
           className={`font-['Cormorant_Garamond'] text-3xl italic ${NAVY_PRIMARY} mb-6`}
         >
-          Provisions & Preparations
+          {t("preparations.prepareHeading")}
         </h3>
 
         <div className="flex flex-wrap justify-center gap-4">
@@ -65,7 +65,7 @@ export default function DownloadableChecklist() {
             onClick={() => setIsModalOpen(true)}
             className="px-8 py-3 bg-[#AF944D] text-white font-['Cinzel'] text-[10px] tracking-[0.2em] uppercase shadow-md"
           >
-            Open Interactive Ledger
+            {t("preparations.openLedger")}
           </motion.button>
 
           <motion.button
@@ -73,7 +73,7 @@ export default function DownloadableChecklist() {
             onClick={handlePrint}
             className="px-8 py-3 border border-[#2A3F5C] text-[#2A3F5C] font-['Cinzel'] text-[10px] tracking-[0.2em] uppercase"
           >
-            Download Printable PDF
+            {t("preparations.downloadPdf")}
           </motion.button>
         </div>
 

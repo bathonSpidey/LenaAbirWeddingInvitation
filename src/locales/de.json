@@ -41,7 +41,7 @@
       {
         "tag": "Speisen & Trank",
         "title": "Das assamesische Festmahl",
-        "desc": "Langsam gegarte Ente, Fisch in Senfsauce und Spezialitäten aus den Teegärten. Eine Fusion aus lokalen Delikatessen und globalen Klassikern."
+        "desc": "Vorspeisen, Hauptgericht und Dessert am ersten Tag sowie Mittagessen, Hauptgericht und Dessert am zweiten Tag. Eine Mischung aus lokalen Köstlichkeiten und internationalen Klassikern. Es stehen sowohl vegetarische als auch nicht-vegetarische Gerichte zur Auswahl."
       },
       {
         "tag": "Musik & Tanz",
@@ -141,7 +141,7 @@
     "experience": "Das Erlebnis",
     "quote": "\"Grüne Teegärten und frische Flussbrisen. Ein Ort, an dem die Zeit stillsteht und jeder Moment sich wie ein Schluck Gelassenheit anfühlt.\"",
     "wish": "Wir wünschten, Sie könnten bei uns sein",
-    "exploreActivities": "AKTIVITÄTEN ENTDECKEN"
+    "exploreActivities": "SCROLLEN SIE NACH UNTEN ZUM AKTIVITÄTEN"
   },
   "regrets": {
     "heading": "Wir werden Sie vermissen",
@@ -329,6 +329,9 @@
     "heading": "Bereiten Sie sich auf Assam vor",
     "openLetter": "Brief öffnen",
     "notesFromRiver": "Notes from the River",
+    "prepareHeading": "Vorkehrungen & Vorbereitungen",
+    "openLedger": "Interaktives Verzeichnis öffnen",
+    "downloadPdf": "Druckbare PDF herunterladen",
     "items": [
       {
         "id": "attire",
@@ -372,6 +375,22 @@
         "Offline-Karten von Jorhat"
       ]
     }
+  },
+  "visa": {
+    "heading": "Formale Voraussetzung",
+    "subHeading": "Das E-Visum",
+    "desc": "Für unsere geschätzten internationalen Gäste ist eine offizielle Einreisegenehmigung für Ihre Reise nach Indien erforderlich.",
+    "pre": "Antragen",
+    "time": "4 Wochen",
+    "recommend": "im Voraus",
+    "reminder": "Eine freundliche Erinnerung Ihrer Gastgeber"
+  },
+  "arrangements": {
+    "heading": "Arrangements",
+    "desc": "Wenn Sie eine Agentur in Betracht ziehen möchten, die Sie bei Ihren Buchungen und Planungen unterstützen kann",
+    "callForConcierge": "Wenn Sie sich nach einer Agentur umsehen möchten, die Ihnen bei Ihren Buchungen und Planungen helfen kann",
+    "button": "Einen Concierge konsultieren",
+    "alert": "Der Concierge-Service ist derzeit nicht verfügbar. Bitte kontaktieren Sie uns direkt für Unterstützung."
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",

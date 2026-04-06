@@ -53,7 +53,7 @@ export default function AccommodationCard() {
         {/* Reduced mb-6 to mb-2 to pull the description up toward the title */}
         <div className="relative mb-2">
           <p className="font-['Pinyon_Script'] text-4xl text-[#c9a961] relative z-10">
-            Arrangements
+            {t("arrangements.heading")}
           </p>
           {/* Adjusted top-1/2 to top-[60%] to better center the line behind the script descenders */}
           {/* <div className="absolute top-[60%] left-0 w-full h-[0.5px] bg-stone-200/60 -z-0" /> */}
@@ -61,21 +61,16 @@ export default function AccommodationCard() {
 
         {/* Reduced mb-8 to mb-5 to pull the button up */}
         <p className="font-['Cormorant_Garamond'] text-sm text-stone-600 italic mb-5 max-w-[280px] mx-auto leading-relaxed">
-          If you would like to check out an agency which can help you with your
-          bookings and plans
+          {t("arrangements.callForConcierge")}
         </p>
 
         <motion.button
           whileHover={{ y: -2 }}
-          onClick={() =>
-            alert(
-              "We are searching for a good travel agency that you can avail for a customizable experience",
-            )
-          }
+          onClick={() => alert(t("arrangements.conciergeAlert"))}
           className="w-full bg-[#1a2849] py-4 text-[10px] text-white font-['Cinzel'] tracking-[0.4em] uppercase relative shadow-lg shadow-blue-900/10 transition-shadow"
         >
           <div className="absolute inset-1 border border-white/10 pointer-events-none" />
-          Consult a Concierge
+          {t("arrangements.button")}
         </motion.button>
       </div>
 
