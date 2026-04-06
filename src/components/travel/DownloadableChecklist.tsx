@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAVY_PRIMARY } from "./TravelConstants";
-import { CHECKLIST_DATA } from "./ChecklistData";
+import { useTranslation } from "react-i18next";
 
 export default function DownloadableChecklist() {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+
+  const checklistData = t("preparations.checklist", {
+    returnObjects: true,
+  }) as Record<string, string[]>;
 
   useEffect(() => {
     const saved = localStorage.getItem("assam-checklist");
@@ -18,49 +23,31 @@ export default function DownloadableChecklist() {
     localStorage.setItem("assam-checklist", JSON.stringify(newState));
   };
 
-  const handlePrint = () => {
-    // If the modal is closed, open it briefly to trigger the print,
-    // or just trigger print if you want to print the current state.
-    window.print();
-  };
+  const handlePrint = () => window.print();
+
+  // Capitalise the key for display: "visa" → "Visa"
+  const formatCategory = (key: string) =>
+    key.charAt(0).toUpperCase() + key.slice(1);
 
   return (
     <>
       <style>{`
-        /* 1. Standard Web Styles */
         .ledger-scrollbar::-webkit-scrollbar { width: 3px; }
         .ledger-scrollbar::-webkit-scrollbar-track { background: #FDFBF7; }
         .ledger-scrollbar::-webkit-scrollbar-thumb { background: #AF944D; border-radius: 10px; }
 
-        /* 2. PRINT LOGIC - This is the magic part */
         @media print {
-          /* Hide everything else on the site */
           body * { visibility: hidden; }
-          
-          /* Show only the modal content */
           #print-area, #print-area * { visibility: visible; }
-          
           #print-area {
             position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: auto;
+            left: 0; top: 0;
+            width: 100%; height: auto;
             background: white !important;
             display: block !important;
           }
-
-          /* Remove scrollbars and fixed heights for the PDF */
-          .flex-1.overflow-y-auto {
-            overflow: visible !important;
-            height: auto !important;
-            max-height: none !important;
-          }
-
-          /* Hide the 'X' button and the Backdrop in the PDF */
+          .flex-1.overflow-y-auto { overflow: visible !important; height: auto !important; max-height: none !important; }
           .no-print { display: none !important; }
-
-          /* Ensure colors actually show up in the PDF */
           * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
       `}</style>
@@ -93,7 +80,6 @@ export default function DownloadableChecklist() {
         <AnimatePresence>
           {isModalOpen && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
-              {/* Backdrop - Hidden in Print */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -102,7 +88,6 @@ export default function DownloadableChecklist() {
                 className="absolute inset-0 bg-[#2A3F5C]/40 backdrop-blur-md no-print"
               />
 
-              {/* Scroll Content - This becomes the PDF */}
               <motion.div
                 id="print-area"
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -133,10 +118,10 @@ export default function DownloadableChecklist() {
 
                 {/* Scrollable Body */}
                 <div className="flex-1 overflow-y-auto p-8 pt-4 ledger-scrollbar">
-                  {Object.entries(CHECKLIST_DATA).map(([category, items]) => (
-                    <div key={category} className="mb-10">
+                  {Object.entries(checklistData).map(([categoryKey, items]) => (
+                    <div key={categoryKey} className="mb-10">
                       <h4 className="font-['Cinzel'] text-[11px] tracking-[0.3em] text-[#AF944D] border-b border-[#AF944D]/10 pb-2 mb-4 uppercase font-bold">
-                        {category}
+                        {formatCategory(categoryKey)}
                       </h4>
                       <div className="grid gap-3">
                         {items.map((item) => (
@@ -146,7 +131,11 @@ export default function DownloadableChecklist() {
                             className="flex items-center gap-4 cursor-pointer"
                           >
                             <div
-                              className={`w-5 h-5 border border-[#AF944D] flex items-center justify-center transition-colors ${checkedItems[item] ? "bg-[#AF944D]" : "bg-transparent"}`}
+                              className={`w-5 h-5 border border-[#AF944D] flex items-center justify-center transition-colors ${
+                                checkedItems[item]
+                                  ? "bg-[#AF944D]"
+                                  : "bg-transparent"
+                              }`}
                             >
                               {checkedItems[item] && (
                                 <span className="text-white text-[10px]">
@@ -155,7 +144,11 @@ export default function DownloadableChecklist() {
                               )}
                             </div>
                             <span
-                              className={`font-['Cormorant_Garamond'] text-lg ${checkedItems[item] ? "text-stone-400 line-through italic" : "text-[#2A3F5C]"}`}
+                              className={`font-['Cormorant_Garamond'] text-lg ${
+                                checkedItems[item]
+                                  ? "text-stone-400 line-through italic"
+                                  : "text-[#2A3F5C]"
+                              }`}
                             >
                               {item}
                             </span>

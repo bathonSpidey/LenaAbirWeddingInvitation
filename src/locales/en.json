@@ -345,7 +345,33 @@
         "label": "Tempo",
         "frontDesc": "Life by the river moves slowly. Prepare to disconnect and embrace 'Lahe Lahe'."
       }
+    ],
+    "checklist": {
+    "visa": [
+      "Check Passport Validity (6 months min)",
+      "Apply for Indian E-Visa",
+      "Print copy of E-Visa",
+      "Vaccination Certificates"
+    ],
+    "health": [
+      "Insect Repellent (Odomos)",
+      "Personal Prescriptions",
+      "Tropical Sunscreen",
+      "Anti-histamines"
+    ],
+    "clothing": [
+      "Muga Silk / Linen Attire",
+      "Evening Pashmina",
+      "Comfortable Walking Shoes",
+      "Swimwear for River Resorts"
+    ],
+    "safety": [
+      "Universal Power Adapter",
+      "Emergency Contact List",
+      "Travel Insurance Copy",
+      "Offline Maps of Jorhat"
     ]
+  }
   },
   "flightGuide": {
     "heading": "The Journey to Assam",

@@ -345,7 +345,33 @@
         "label": "Tempo",
         "frontDesc": "Das Leben am Fluss verläuft gemächlich. Bereiten Sie sich darauf vor, abzuschalten und „Lahe Lahe“ zu genießen."
       }
-    ]
+    ],
+    "checklist": {
+      "visa": [
+        "Gültigkeit des Reisepasses prüfen (mind. 6 Monate)",
+        "Indisches E-Visum beantragen",
+        "Ausdruck des E-Visums mitführen",
+        "Impfzertifikate"
+      ],
+      "health": [
+        "Insektenschutzmittel (Odomos)",
+        "Persönliche Medikamente",
+        "Sonnenschutz für tropisches Klima",
+        "Antihistaminika"
+      ],
+      "clothing": [
+        "Kleidung aus Muga-Seide / Leinen",
+        "Pashmina für den Abend",
+        "Bequeme Laufschuhe",
+        "Badebekleidung für Flussresorts"
+      ],
+      "safety": [
+        "Universeller Reiseadapter",
+        "Liste mit Notfallkontakten",
+        "Kopie der Reiseversicherung",
+        "Offline-Karten von Jorhat"
+      ]
+    }
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",
