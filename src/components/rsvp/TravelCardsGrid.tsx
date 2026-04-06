@@ -34,7 +34,7 @@ export default function TravelCardsGrid({
         variant="champagne"
         icon={TeaIcon} // Placeholder for your upcoming custom Tea Leaf icon
         title={t("travelCards.activitiesTitle")}
-        body={TRAVEL_DATA[country].activities}
+        body={t("travelCards.teaTasting")}
         buttonLabel={t("travelCards.discoverAssam")}
         onButtonClick={onDiscoverAssam}
       />
