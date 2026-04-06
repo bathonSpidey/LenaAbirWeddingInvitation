@@ -166,7 +166,7 @@ const WaxSeal = ({ flag }: { flag: string }) => (
       lineHeight: 1,
     }}
   >
-    {flag.slice(0, 2) /* first emoji only */}
+    {flag /* first emoji only */}
   </div>
 );
 
