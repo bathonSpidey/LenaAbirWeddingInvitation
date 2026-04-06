@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import InfoCard from "./InfoCard";
-import { type CountryKey, TRAVEL_DATA } from "./types";
+import { type CountryKey } from "./types";
 import TeaIcon from "../../assets/TeaIcon.png";
 import Map from "../../assets/Map.png";
 
@@ -11,7 +11,6 @@ interface TravelCardsGridProps {
 }
 
 export default function TravelCardsGrid({
-  country,
   onOpenGuide,
   onDiscoverAssam,
 }: TravelCardsGridProps) {
