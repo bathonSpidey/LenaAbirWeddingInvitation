@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { WeddingPlans, type Plan } from "./PlanData";
 
@@ -6,8 +6,10 @@ import { WeddingPlans, type Plan } from "./PlanData";
 import SealOne from "../../assets/VisaStamp.png";
 import SealTwo from "../../assets/RhinoStamp.png";
 import SealThree from "../../assets/BihuStamp.png";
+import { useTranslation } from "react-i18next";
 
 export default function TypicalSchedule() {
+  const { t } = useTranslation();
   return (
     <section className="py-16 md:py-24 px-4 bg-[#FAF9F6] overflow-hidden">
       <style
@@ -59,12 +61,12 @@ export default function TypicalSchedule() {
           whileInView={{ opacity: 1, y: 0 }}
           className="font-['Pinyon_Script'] text-5xl md:text-6xl text-[#1a2849] mb-4"
         >
-          Proposed Itineraries
+          {t("travelPortal.itinerary")}
         </motion.h4>
         <div className="flex justify-center items-center gap-6">
           <div className="h-px w-8 md:w-12 bg-stone-200" />
           <p className="font-['Cinzel'] text-[10px] md:text-[11px] tracking-[0.3em] text-stone-400 uppercase">
-            Curated for your pleasure
+            {t("travelPortal.itinerarySubheading")}
           </p>
           <div className="h-px w-8 md:w-12 bg-stone-200" />
         </div>

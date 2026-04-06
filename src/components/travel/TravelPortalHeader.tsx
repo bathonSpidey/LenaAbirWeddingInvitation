@@ -15,7 +15,7 @@ export default function TravelPortalHeader() {
       <h2
         className={`font-['Pinyon_Script'] text-8xl md:text-9xl ${NAVY_PRIMARY} mb-6`}
       >
-        The Grand Tour
+        {t("travelPortal.intro")}
       </h2>
       <div className="flex items-center justify-center gap-4 mb-6">
         <div className="h-px w-12 bg-[#AF944D]/40" />

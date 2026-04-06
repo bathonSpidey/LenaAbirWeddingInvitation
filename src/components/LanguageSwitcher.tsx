@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 
 const LANGS = [
   { code: "en", label: "EN", title: "English" },
@@ -8,7 +9,10 @@ const LANGS = [
 
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
-  const current = i18n.language;
+  const navigate = useNavigate();
+  const { lang } = useParams();
+
+  const current = lang ?? i18n.language;
 
   return (
     <div
@@ -19,7 +23,7 @@ export default function LanguageSwitcher() {
         <button
           key={code}
           title={title}
-          onClick={() => i18n.changeLanguage(code)}
+          onClick={() => navigate(`/${code}`)}
           className={`text-[9px] tracking-widest px-2 py-1 rounded-full transition-colors cursor-pointer ${
             current === code
               ? "bg-amber-500/80 text-white"

@@ -174,8 +174,143 @@
   },
   "travelPortal": {
     "label": "Your Guide",
+    "intro": "The Grand Tour",
     "heading": "Travel Concierge",
     "subheading": "Assam Arrival & Stay Guide",
+    "itinerary": "Proposed Itineraries",
+    "itinerarySubheading": "Curated journeys for every type of explorer.",
+    "plans": {
+      "relaxed": {
+        "title": "The Leisurely Tour",
+        "subtitle": "For the serene traveler",
+        "days": [
+          {
+            "date": "30 Nov",
+            "activity": "Arrival in Delhi"
+          },
+          {
+            "date": "01 Dec",
+            "activity": "Rest & Boutique Sightseeing"
+          },
+          {
+            "date": "02 Dec",
+            "activity": "Private Car to the Taj Mahal"
+          },
+          {
+            "date": "03 Dec",
+            "activity": "Flight to Jorhat"
+          },
+          {
+            "date": "04 Dec",
+            "activity": "5PM: Mehendi & Shoori"
+          },
+          {
+            "date": "05 Dec",
+            "activity": "Local Silk Shopping & Tea Rest"
+          },
+          {
+            "date": "06 Dec",
+            "activity": "2PM: Reception & Rituals"
+          },
+          {
+            "date": "07 Dec",
+            "activity": "Departure for Delhi"
+          }
+        ]
+      },
+      "exploration": {
+        "title": "The Explorer's Route",
+        "subtitle": "Culture and River Mist",
+        "days": [
+          {
+            "date": "29 Nov",
+            "activity": "Arrival in Delhi"
+          },
+          {
+            "date": "30 Nov",
+            "activity": "Taj Mahal Day Trip"
+          },
+          {
+            "date": "01 Dec",
+            "activity": "Flight To Guwahati"
+          },
+          {
+            "date": "02 Dec",
+            "activity": "Elephant and Jeep Safari"
+          },
+          {
+            "date": "03 Dec",
+            "activity": "Arrival to Jorhat"
+          },
+          {
+            "date": "04 Dec",
+            "activity": "5PM: Mehendi & Shoori"
+          },
+          {
+            "date": "05 Dec",
+            "activity": "Tea Rest & Local Exploration"
+          },
+          {
+            "date": "06 Dec",
+            "activity": "2PM: Reception & Rituals"
+          },
+          {
+            "date": "07 Dec",
+            "activity": "Rest and local exploration"
+          },
+          {
+            "date": "08 Dec",
+            "activity": "Hollock Gibbon Trip"
+          },
+          {
+            "date": "09 Dec",
+            "activity": "Return to Jorhat and preparation for departure"
+          },
+          {
+            "date": "10 Dec",
+            "activity": "Flight to Delhi and International Departure"
+          }
+        ]
+      },
+      "intense": {
+        "title": "The Grand Expedition",
+        "subtitle": "The full Assamese experience",
+        "days": [
+          {
+            "date": "03 Dec",
+            "activity": "Delhi Arrival & Night Flight to Jorhat"
+          },
+          {
+            "date": "04 Dec",
+            "activity": "5PM: Mehendi & Shoori"
+          },
+          {
+            "date": "05 Dec",
+            "activity": "Early Majuli Trip & Mask Making"
+          },
+          {
+            "date": "06 Dec",
+            "activity": "2PM: Reception & Rituals"
+          },
+          {
+            "date": "07 Dec",
+            "activity": "Kaziranga Dawn Safari"
+          },
+          {
+            "date": "08 Dec",
+            "activity": "Guwahati City Tour & Dinner Cruise"
+          },
+          {
+            "date": "09 Dec",
+            "activity": "Kamakhya Temple & Flight to Delhi"
+          },
+          {
+            "date": "10 Dec",
+            "activity": "International Departure"
+          }
+        ]
+      }
+    },
     "footer": "We are here to help you every step of the way.",
     "needHand": "Need a hand?",
     "guidedBooking": "Want us to guide you? Send us your email and we'll call you right back with your booking.",

@@ -173,12 +173,147 @@
     "navigateMehendi": "In Navigation öffnen"
   },
   "travelPortal": {
-    "label": "Ihr Guide",
+    "label": "Ihr Ratgeber",
+    "intro": "Die Große Tour",
     "heading": "Reise-Concierge",
-    "subheading": "Assam Ankunfts- & Hotelguide",
-    "footer": "Wir unterstützen Sie bei jedem Schritt Ihrer Reise.",
+    "subheading": "Ankunfts- & Aufenthaltsführer Assam",
+    "itinerary": "Reisevorschläge",
+    "itinerarySubheading": "Kuratierte Reisen für jede Art von Entdecker.",
+    "plans": {
+      "relaxed": {
+        "title": "Die entspannte Tour",
+        "subtitle": "Für den gelassenen Reisenden",
+        "days": [
+          {
+            "date": "30. Nov",
+            "activity": "Ankunft in Delhi"
+          },
+          {
+            "date": "01. Dez",
+            "activity": "Erholung & Boutique-Sightseeing"
+          },
+          {
+            "date": "02. Dez",
+            "activity": "Privatwagen zum Taj Mahal"
+          },
+          {
+            "date": "03. Dez",
+            "activity": "Flug nach Jorhat"
+          },
+          {
+            "date": "04. Dez",
+            "activity": "17:00 Uhr: Mehendi & Shoori"
+          },
+          {
+            "date": "05. Dez",
+            "activity": "Seideneinkäufe & Teepause"
+          },
+          {
+            "date": "06. Dez",
+            "activity": "14:00 Uhr: Empfang & Rituale"
+          },
+          {
+            "date": "07. Dez",
+            "activity": "Abreise nach Delhi"
+          }
+        ]
+      },
+      "exploration": {
+        "title": "Die Route des Entdeckers",
+        "subtitle": "Kultur und Flussnebel",
+        "days": [
+          {
+            "date": "29. Nov",
+            "activity": "Ankunft in Delhi"
+          },
+          {
+            "date": "30. Nov",
+            "activity": "Tagesausflug zum Taj Mahal"
+          },
+          {
+            "date": "01. Dez",
+            "activity": "Flug nach Guwahati"
+          },
+          {
+            "date": "02. Dez",
+            "activity": "Elefanten- und Jeep-Safari"
+          },
+          {
+            "date": "03. Dez",
+            "activity": "Ankunft in Jorhat"
+          },
+          {
+            "date": "04. Dez",
+            "activity": "17:00 Uhr: Mehendi & Shoori"
+          },
+          {
+            "date": "05. Dez",
+            "activity": "Teepause & lokale Erkundung"
+          },
+          {
+            "date": "06. Dez",
+            "activity": "14:00 Uhr: Empfang & Rituale"
+          },
+          {
+            "date": "07. Dez",
+            "activity": "Erholung & lokale Erkundung"
+          },
+          {
+            "date": "08. Dez",
+            "activity": "Hoolock-Gibbon Ausflug"
+          },
+          {
+            "date": "09. Dez",
+            "activity": "Rückkehr nach Jorhat & Reisevorbereitung"
+          },
+          {
+            "date": "10. Dez",
+            "activity": "Flug nach Delhi & internationale Heimreise"
+          }
+        ]
+      },
+      "intense": {
+        "title": "Die große Expedition",
+        "subtitle": "Das volle assamesische Erlebnis",
+        "days": [
+          {
+            "date": "03. Dez",
+            "activity": "Ankunft Delhi & Nachtflug nach Jorhat"
+          },
+          {
+            "date": "04. Dez",
+            "activity": "17:00 Uhr: Mehendi & Shoori"
+          },
+          {
+            "date": "05. Dez",
+            "activity": "Majuli-Ausflug & Maskenherstellung"
+          },
+          {
+            "date": "06. Dez",
+            "activity": "14:00 Uhr: Empfang & Rituale"
+          },
+          {
+            "date": "07. Dez",
+            "activity": "Kaziranga Safari bei Sonnenaufgang"
+          },
+          {
+            "date": "08. Dez",
+            "activity": "Guwahati Stadtführung & Dinner-Cruise"
+          },
+          {
+            "date": "09. Dez",
+            "activity": "Kamakhya-Tempel & Flug nach Delhi"
+          },
+          {
+            "date": "10. Dez",
+            "activity": "Internationale Heimreise"
+          }
+        ]
+      }
+    },
+    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da.",
     "needHand": "Brauchen Sie Hilfe?",
-    "guidedBooking": "Möchten Sie Unterstützung? Senden Sie uns Ihre E-Mail und wir melden uns bezüglich Ihrer Buchung.",
+    "guidedBooking": "Möchten Sie Unterstützung? Senden Sie uns Ihre E-Mail und wir rufen Sie zur Buchung zurück.",
     "reachOut": "Kontakt aufnehmen"
   },
   "flightGuide": {
