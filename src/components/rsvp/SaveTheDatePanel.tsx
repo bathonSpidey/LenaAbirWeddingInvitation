@@ -65,7 +65,7 @@ interface SaveTheDatePanelProps {
 export default function SaveTheDatePanel({
   country,
   onCountryChange,
-  onWhatToExpect,
+  // onWhatToExpect,
 }: SaveTheDatePanelProps) {
   const daysUntil = useDaysUntil(WEDDING_DATE);
   const { t } = useTranslation();
@@ -197,7 +197,6 @@ export default function SaveTheDatePanel({
       </div>
 
       <motion.button
-        onClick={onWhatToExpect}
         whileHover={{
           scale: 1.01,
           backgroundColor: "#F9F6EE",

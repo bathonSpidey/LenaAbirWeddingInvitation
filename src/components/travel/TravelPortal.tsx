@@ -36,8 +36,6 @@ export default function TravelPortal({
 
         <div className="space-y-24">
           <TypicalSchedule />
-          {/* SECTION 1: THE FLIGHT JOURNEY */}
-          <FlightSection />
 
           {/* SECTION 2: THE TAJ MAHAL RECOMMENDATION */}
           <TajMahalSection />
@@ -46,6 +44,8 @@ export default function TravelPortal({
           <AssamPreparationSection />
 
           {/* STAYS & VISA GRID */}
+          {/* SECTION 1: THE FLIGHT JOURNEY */}
+          <FlightSection />
           <StaysAndVisaGrid />
         </div>
 
