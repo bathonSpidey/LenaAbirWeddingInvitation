@@ -151,13 +151,15 @@
     "heading": "Save the Date",
     "daysToGo": "{{count}} days to go",
     "addToCalendar": "Add to Calendar",
-    "googleCalendar": "Google Calendar",
-    "appleOutlook": "Apple / Outlook",
+    "googleCalendar": "4th Dec Mehendi Google Calendar",
+    "appleOutlook": " 4th Dec Mehendi for Apple Devices",
     "whatToExpect": "What to Expect",
     "travelingFrom": "Traveling from",
     "germany": "Germany",
     "india": "India",
-    "otherInternational": "Other International"
+    "otherInternational": "Other International",
+    "weddingCalendar": "6th Dec Wedding Calendar Link",
+    "appleWedding": "6th Dec Wedding for Apple Devices"
   },
   "venue": {
     "label": "The Venue",
