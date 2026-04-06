@@ -42,9 +42,10 @@ export const WeddingPlans: Plan[] = [
       { date: "04 Dec", activity: "5PM: Mehendi & Shoori" },
       { date: "05 Dec", activity: "Tea Rest & Local Exploration" },
       { date: "06 Dec", activity: "2PM: Reception & Rituals" },
-      { date: "07 Dec", activity: "Majuli and Tea" },
-      { date: "08 Dec", activity: "Travel to Guwahati" },
-      { date: "09 Dec", activity: "Umananda Temple & Souvenirs" },
+      { date: "07 Dec", activity: "Rest and local exploration" },
+      { date: "08 Dec", activity: "Hollock Gibbon Trip" },
+      { date: "09 Dec", activity: "Return to Jorhat and preparation for departure" },
+      { date: "10 Dec", activity: "Flight to Delhi and International Departure" },
     ],
   },
   {

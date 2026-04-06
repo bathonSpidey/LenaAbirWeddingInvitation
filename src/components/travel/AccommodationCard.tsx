@@ -68,7 +68,9 @@ export default function AccommodationCard() {
         <motion.button
           whileHover={{ y: -2 }}
           onClick={() =>
-            window.open("https://www.northeastnook.com/", "_blank")
+            alert(
+              "We are searching for a good travel agency that you can avail for a customizable experience",
+            )
           }
           className="w-full bg-[#1a2849] py-4 text-[10px] text-white font-['Cinzel'] tracking-[0.4em] uppercase relative shadow-lg shadow-blue-900/10 transition-shadow"
         >
