@@ -14,97 +14,99 @@
     "honor": "Wir bitten um die Ehre Ihrer Anwesenheit",
     "celebration": "bei der Feier ihrer Hochzeit",
     "reception": "Hochzeitsempfang",
-    "saturday": "SAMSTAG",
     "venue": "ORT",
-    "time": "UHRZEIT",
-    "dateWords": "Zweitausendundsechsundzwanzig",
+    "date": "DATUM",
+    "time": "UHRZEIT IST",
+    "dateWords": "Zweitausendsechsundzwanzig",
     "rsvp": "RSVP & Reiseführer",
-    "cantMakeIt": "Ich kann leider nicht kommen"
+    "cantMakeIt": "Ich kann leider nicht kommen",
+    "slider": "Schieben Sie den Vogel",
+    "footer": "Bei jedem Spaziergang mit der Natur erhält mann mehr, als er sucht."
   },
   "expectations": {
     "label": "Ein Leitfaden für unsere Gäste",
-    "heading": "Was Sie erwartet",
-    "subtitle": "Zwei Familien, zwei Kontinente, eine Feier. Hier ist alles, was Sie brauchen, um vorbereitet anzukommen und unvergesslich abzureisen.",
+    "heading": "Das Erlebnis",
+    "subtitle": "Wichtige Details für unsere Feier zwischen zwei Kulturen.",
     "items": [
       {
         "tag": "Die Zeremonie",
-        "title": "Eine Verschmelzung zweier Welten",
-        "desc": "Die Hochzeitszeremonie verbindet assamesische und europäische Traditionen — erwarten Sie heilige Feuerrituale neben herzlichen Gelübden in zwei Sprachen. Sie werden eine Verbindung erleben, die so vielschichtig und schön ist wie die Kulturen, die uns geprägt haben."
+        "title": "Eine königliche Verbindung",
+        "desc": "Assamesische Feuerrituale treffen auf europäische Eheversprechen. Eine bilinguale Zeremonie, die zwei Heimaten zu einer Geschichte verwebt."
       },
       {
         "tag": "Dresscode",
         "title": "Festlich & Farbenfroh",
-        "desc": "Wir laden Sie ein, sich festlich zu kleiden. Traditionelle indische Kleidung ist herzlich willkommen — Sarees, Sherwanis, Kurtas. Wer westliche Kleidung bevorzugt, sollte formell-festlich wählen. Vermeiden Sie Weiß oder Schwarz als Hauptfarbe. Denken Sie an Schmucktöne, Pastellfarben und Gold."
+        "desc": "Traditionell indisch oder westlich-formal. Juwentöne und Gold sind willkommen. Bitte vermeiden Sie rein weißes oder schwarzes Outfit."
       },
       {
-        "tag": "Speisen & Feiern",
-        "title": "Ein Fest für die Sinne",
-        "desc": "Ein üppiges Angebot assamesischer Spezialitäten erwartet Sie — langsam gekochtes Entengulasch, Senfkarpfen, im Bambus gedämpfter Reis und Tische voller Süßigkeiten aus beiden Kulturen. Jedes Gericht erzählt eine Geschichte; kommen Sie hungrig."
+        "tag": "Speisen & Trank",
+        "title": "Das assamesische Festmahl",
+        "desc": "Langsam gegarte Ente, Fisch in Senfsauce und Spezialitäten aus den Teegärten. Eine Fusion aus lokalen Delikatessen und globalen Klassikern."
       },
       {
         "tag": "Musik & Tanz",
-        "title": "Bihu unter den Sternen",
-        "desc": "Mit dem Einbruch des Abends erfüllt live Bihu-Volksmusik den Innenhof. Erwarten Sie Aufführungen, spontanen Tanz und ein DJ-Set, das durch Kontinente führt — von assamesischen Rhythmen bis zu europäischen Favoriten."
+        "title": "Rhythmus des Bihu",
+        "desc": "Traditionelle Trommeln gefolgt von einem globalen DJ-Set. Bringen Sie Ihre Tanzschuhe für eine Nacht unter den Sternen mit."
       },
       {
-        "tag": "Wetter & Umgebung",
-        "title": "Dezember in Jorhat",
-        "desc": "Anfang Dezember ist Jorhats schönste Jahreszeit — kühle, goldene Tage (18–24 °C) und klare Abende. Das Veranstaltungsgelände liegt inmitten von Teegärten und offenem Himmel. Bringen Sie einen leichten Schal für nach Einbruch der Dunkelheit; die Sterne hier sind bemerkenswert."
+        "tag": "Das Klima",
+        "title": "Goldener Dezember",
+        "desc": "Warme, sonnige Tage (22°C) gefolgt von herrlich kühlen Nächten. Ein leichter Schal oder ein Sakko wird für den Abend empfohlen."
       },
       {
-        "tag": "Menschen & Herzlichkeit",
-        "title": "Assamesische Gastfreundschaft",
-        "desc": "Wer Assam besucht hat, weiß: Gastfreundschaft ist hier keine Geste, sondern eine Lebensweise. Erwarten Sie, bewirtet zu werden, bevor Sie hungrig sind, willkommen geheißen zu werden, bevor Sie klopfen, und nach Hause mit mehr Wärme zu gehen, als Sie mitgebracht haben."
+        "tag": "Gastfreundschaft",
+        "title": "Atithi Devo Bhava",
+        "desc": "Erleben Sie die legendäre Herzlichkeit Assams. Erwarten Sie offene Arme, endlosen Tee und ein zweites Zuhause in der Ferne."
       }
     ]
   },
   "activities": {
     "label": "Während Ihres Aufenthalts",
-    "heading": "Erlebnisse entdecken",
-    "subtitle": "Assam belohnt den neugierigen Reisenden. Hier sind unsere Lieblingsbeschäftigungen — Erlebnisse, die wir gerne mit Ihnen über die Hochzeit hinaus teilen möchten.",
-    "noteLabel": "Eine Notiz von uns",
-    "noteQuote": "\"Jorhat ist unser Zuhause — und wir hoffen, dass es auch ein kleiner Teil Ihres wird. Nehmen Sie sich Zeit. Essen Sie gut. Beobachten Sie den Fluss.\"",
-    "footerLabel": "Wir können es kaum erwarten, mit Ihnen zu erkunden",
+    "heading": "Dinge zum Erleben",
+    "subtitle": "Assam belohnt den neugierigen Reisenden. Hier sind unsere Favoriten — Erlebnisse, die wir gerne mit Ihnen teilen möchten.",
+    "noteLabel": "Eine persönliche Notiz",
+    "noteQuote": "\"Jorhat ist unser Zuhause — und wir hoffen, dass es auch ein kleiner Teil Ihres wird. Lassen Sie sich Zeit. Essen Sie gut. Beobachten Sie den Fluss.\"",
+    "footerLabel": "Wir können es kaum erwarten, mit Ihnen auf Entdeckungsreise zu gehen",
     "items": [
       {
         "tag": "Natur & Wildtiere",
         "title": "Kaziranga bei Sonnenaufgang",
-        "desc": "Bei Sonnenaufgang teilt sich der Nebel und gibt den Blick auf Panzernashörner frei, die neben dem Brahmaputra grasen. Unternehmen Sie eine Jeep- oder Elefantensafari durch das zum UNESCO-Welterbe gehörende Kaziranga — Heimat von mehr Nashörnern als irgendwo sonst auf der Erde."
+        "desc": "Im Morgengrauen teilt sich der Nebel und gibt den Blick auf Panzernashörner am Brahmaputra frei. Erleben Sie eine Safari im UNESCO-Welterbe Kaziranga."
       },
       {
         "tag": "Fluss & Inseln",
-        "title": "Majuli-Insel",
-        "desc": "Die weltgrößte Flussinsel und Wiege der Vaishnavitischen Kultur. Erkunden Sie alte Satras (Klöster), beobachten Sie Maskenhandwerker und radeln Sie durch Reisfelder, während der Brahmaputra Sie umgibt. Am besten per kurzer Fähre von Jorhat erreichbar."
+        "title": "Die Insel Majuli",
+        "desc": "Die größte Flussinsel der Welt und Wiege der Vaishnavite-Kultur. Erkunden Sie antike Klöster und radeln Sie durch Reisfelder."
       },
       {
         "tag": "Kultur & Erbe",
-        "title": "Ahom-Kulturerbe-Wege",
-        "desc": "Wandeln Sie auf den Spuren des imposanten Rang-Ghar-Pavillons und des Kareng-Ghar-Palastes in Sibasagar — 600 Jahre alte Monumente des Ahom-Königreichs, das Assam fast sechs Jahrhunderte regierte."
+        "title": "Ahom Heritage Trails",
+        "desc": "Wandeln Sie zwischen dem Rang Ghar und Kareng Ghar in Sibasagar — 600 Jahre alte Monumente des Ahom-Königreichs."
       },
       {
         "tag": "Essen & Märkte",
-        "title": "Jorhat Kulinarische Tour",
-        "desc": "Folgen Sie den Aromen durch Jorhats Märkte: frisch geräucherte Ente mit Senf, im Bambus gedämpfter Klebreis und der unverwechselbare Geschmack von Khar. Machen Sie Halt bei einem einheimischen Haushalt für ein vollständiges assamesisches Thali."
+        "title": "Jorhat Kulinarik-Pfad",
+        "desc": "Folgen Sie den Aromen: geräucherte Ente, im Bambus gedämpfter Reis und der Geschmack von Khar. Ein assamesisches Thali ist reine Zeremonie."
       },
       {
         "tag": "Flussleben",
-        "title": "Brahmaputra-Flusskreuzfahrt",
-        "desc": "Gleiten Sie entlang eines der mächtigsten Flüsse Asiens, während goldenes Abendlicht das Wasser bernsteinfarben färbt. Halten Sie an Sandbänken, wo seltene Ganges-Flussdelfine auftauchen, und beobachten Sie Fischer beim Auswerfen ihrer Netze."
+        "title": "Brahmaputra Flusskreuzfahrt",
+        "desc": "Gleiten Sie über einen der mächtigsten Flüsse Asiens, während seltene Ganges-Delfine neben dem Boot auftauchen."
       },
       {
-        "tag": "Regenwald & Wildtiere",
-        "title": "Dehing-Patkai-Regenwald",
-        "desc": "Wagen Sie sich ostwärts in einen der letzten überlebenden Tieflandregenwälder Indiens. Lauschen Sie dem seltenen Hoolock-Gibbon, dessen Rufe durch ein Kronendach mit Nebelpardern und Nashornvögeln hallen."
+        "tag": "Regenwald",
+        "title": "Dehing Patkai Regenwald",
+        "desc": "Wagen Sie sich in einen der letzten Tieflandregenwälder Indiens. Lauschen Sie den Rufen der seltenen Hoolock-Gibbons."
       },
       {
-        "tag": "Kunsthandwerk & Textil",
+        "tag": "Handwerk & Textil",
         "title": "Muga-Seidenweberei",
-        "desc": "Reisen Sie nach Sualkuchi — Assams Seidendorf — und beobachten Sie, wie Handwerker goldene Muga-Kokons in die weltweit einzige von Natur aus goldene Seide verwandeln."
+        "desc": "Besuchen Sie Sualkuchi, um zu sehen, wie aus Kokons die weltweit einzige natürlich goldene Seide gewebt wird."
       },
       {
         "tag": "Wild & Selten",
-        "title": "Dibru-Saikhowa Wildpferde",
-        "desc": "Eines der seltensten Naturschauspiele Asiens: wild lebende Pferde, die frei über die Überschwemmungsebenen des Dibru-Saikhowa-Nationalparks streifen — seit den indo-burmanischen Grenzkriegen ungezähmt."
+        "title": "Die Wildpferde von Dibru-Saikhowa",
+        "desc": "Ein seltener Anblick: Wildpferde, die seit den Grenzkriegen ungezähmt durch die Überflutungsebenen streifen."
       }
     ]
   },
@@ -112,98 +114,116 @@
     "heading": "Unsere Reise",
     "milestones": [
       {
-        "title": "Die erste Begegnung",
-        "desc": "Ein geplantes Treffen in einem Sushi-Restaurant in Osnabrück gefolgt von einem spontanen Ausflug in die üppigen grünen Berge von Oberstdorf, wo wir entdeckten, dass die besten Abenteuer die sind, die man nicht plant."
+        "title": "Unser Anfang",
+        "desc": "Es begann mit einem Abendessen in Osnabrück und endete mit einer spontanen Flucht in die Alpen von Oberstdorf — ein Beweis, dass die schönsten Wege ungeplant sind."
       },
       {
-        "title": "Der Sprung ins Unbekannte",
-        "desc": "Nach einem Jahr voller Abenteuer, Lachen und der Erkenntnis, dass 'Zuhause' ein Mensch ist, kein Ort."
+        "title": "Über Grenzen & Berge",
+        "desc": "Ein Jahr voller Lachen und Entdeckungen, das uns zur Erkenntnis führte: 'Zuhause' ist kein Ort mehr, sondern ein Mensch."
       },
       {
-        "title": "Der Heiratsantrag",
-        "desc": "Im Nebel des Rheinfalls an einem warmen Nachmittag stellte er die Frage, und sie sagte Ja."
+        "title": "Ein Versprechen am Wasser",
+        "desc": "Im tosenden Nebel des Rheinfalls an einem sonnigen Nachmittag wurde eine einfache Frage gestellt, und ein gemeinsames Leben begann mit einem 'Ja'."
       },
       {
-        "title": "Die Hochzeit",
-        "desc": "Ein privater Ausflug nach Dänemark; nur wir und die Standesbeamten, um unser stilles 'Ja' zu bezeugen. Dann ostwärts — nach Assam, wo zwei Welten gemeinsam feiern werden."
+        "title": "Zwei Welten, ein Herz",
+        "desc": "Ein privates Versprechen unter dänischem Himmel. Nun blicken wir nach Osten — in das Herz von Assam — wo zwei Kulturen und Familien endlich als Einheit feiern."
       }
     ]
   },
   "discoverAssam": {
-    "heading": "Ein Land blauer Hügel",
-    "intro": "Jenseits der Hochzeitsglocken liegt ein Tor zum mystischen Osten. Von den rollenden smaragdgrünen Teeplantagen Jorhats bis zu den uralten Rhythmen des Brahmaputra laden wir Sie ein, die Welt durch unsere Augen zu sehen.",
+    "heading": "Land der blauen Hügel",
+    "intro": "Hinter den Hochzeitsglocken liegt das Tor zum mystischen Osten. Von smaragdgrünen Teegärten bis zum Rhythmus des Brahmaputra — sehen Sie die Welt durch unsere Augen.",
     "feature1Title": "Das Erbe",
-    "feature1Desc": "Muga-Seide, gewoben mit Geschichten von Generationen.",
+    "feature1Desc": "Muga-Seide, gewoben aus den Geschichten ganzer Generationen.",
     "feature2Title": "Die Wildnis",
-    "feature2Desc": "Eine Morgensafari in Kaziranga, Heimat des Nashorns.",
+    "feature2Desc": "Eine Safari im Morgengrauen in Kaziranga, der Heimat der Nashörner.",
     "experience": "Das Erlebnis",
-    "quote": "\"Üppige grüne Teegärten und frische Flussbriesen. Ein Ort, an dem die Zeit langsamer wird und jeder Moment sich anfühlt wie ein Schluck Gelassenheit.\"",
-    "wish": "Wir wünschten so sehr, Sie könnten bei uns sein",
+    "quote": "\"Grüne Teegärten und frische Flussbrisen. Ein Ort, an dem die Zeit stillsteht und jeder Moment sich wie ein Schluck Gelassenheit anfühlt.\"",
+    "wish": "Wir wünschten, Sie könnten bei uns sein",
     "exploreActivities": "AKTIVITÄTEN ENTDECKEN"
   },
   "regrets": {
     "heading": "Wir werden Sie vermissen",
-    "quote": "\"Eine Feier ist nur so strahlend wie die Menschen, die sie teilen. Obwohl Sie nicht persönlich bei uns sein können, tragen wir Ihre Liebe in unseren Herzen.\"",
-    "knowStory": "Unsere Geschichte kennenlernen",
-    "seeWhatMissing": "Sehen Sie, was Sie verpassen werden"
+    "quote": "\"Eine Feier strahlt nur durch die Menschen, die sie teilen. Auch wenn Sie nicht persönlich bei uns sein können, tragen wir Sie im Herzen.\"",
+    "knowStory": "Unsere Geschichte",
+    "seeWhatMissing": "Was Sie verpassen werden"
   },
   "saveTheDate": {
-    "heading": "Termin vormerken",
+    "heading": "Save the Date",
     "daysToGo": "Noch {{count}} Tage",
     "addToCalendar": "Zum Kalender hinzufügen",
-    "googleCalendar": "Google Kalender",
-    "appleOutlook": "Apple / Outlook",
-    "whatToExpect": "Was Sie erwartet",
-    "travelingFrom": "Reise von",
+    "googleCalendar": "4. Dez Mehendi Google Kalender",
+    "appleOutlook": "4. Dez Mehendi für Apple/Outlook",
+    "whatToExpect": "Scrollen Sie nach unten für Details",
+    "travelingFrom": "Anreise aus",
     "germany": "Deutschland",
     "india": "Indien",
-    "otherInternational": "Anderes internationales Land"
+    "otherInternational": "International",
+    "weddingCalendar": "6. Dez Hochzeit Kalender-Link",
+    "appleWedding": "6. Dez Hochzeit für Apple Geräte"
   },
   "venue": {
-    "label": "Der Veranstaltungsort",
+    "label": "Der Ort",
     "name": "The Royal Park",
-    "desc": "Unser Veranstaltungsort liegt entlang des historischen Highway 37 und ist ein Tor zu Jorhats lebendiger Kultur und den friedvollen Landschaften Ober-Assams.",
-    "navigate": "In Navigation öffnen"
+    "desc": "Der Empfang beginnt um 14:00 Uhr. Kommen Sie, wann Sie möchten. Eine kleine Zeremonie findet von 20:00 bis 22:00 Uhr statt.",
+    "navigate": "In Navigation öffnen",
+    "mehendi": "D Royal Palm",
+    "descMehendi": "Hier feiern die Braut und alle, die ein Henna-Tattoo möchten. Es gibt Musik, Essen und Tanz. Beginn um 17:00 Uhr.",
+    "navigateMehendi": "In Navigation öffnen"
   },
   "travelPortal": {
-    "label": "Ihr Ratgeber",
-    "heading": "Reisekoncierge",
-    "subheading": "Ankunfts- & Aufenthaltsführer Assam",
-    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da.",
+    "label": "Ihr Guide",
+    "heading": "Reise-Concierge",
+    "subheading": "Assam Ankunfts- & Hotelguide",
+    "footer": "Wir unterstützen Sie bei jedem Schritt Ihrer Reise.",
     "needHand": "Brauchen Sie Hilfe?",
-    "guidedBooking": "Möchten Sie, dass wir Sie führen? Senden Sie uns Ihre E-Mail und wir rufen Sie zurück, um Ihre Buchung zu besprechen.",
-    "reachOut": "Kontaktieren Sie uns"
+    "guidedBooking": "Möchten Sie Unterstützung? Senden Sie uns Ihre E-Mail und wir melden uns bezüglich Ihrer Buchung.",
+    "reachOut": "Kontakt aufnehmen"
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",
-    "step1Title": "01. Internationale Drehkreuze",
-    "step1Desc": "Sichern Sie Ihre Reise nach Delhi (DEL) oder Kalkutta (CCU).",
-    "searchFlights": "Internationale Flüge suchen ↗",
-    "step2Title": "02. Der letzte Abschnitt",
-    "step2Desc": "Buchen Sie Ihre letzte Verbindung nach Jorhat (JRH).",
+    "step1Title": "Internationale Hubs",
+    "step1Desc": "Fliegen Sie zunächst nach Delhi (DEL) oder Kalkutta (CCU).",
+    "searchFlights": "Flüge suchen ↗",
+    "step2Title": "Der letzte Sprung",
+    "step2Desc": "Buchen Sie Ihren Anschlussflug nach Jorhat (JRH).",
     "delhiToJorhat": "Delhi nach Jorhat",
     "kolkataToJorhat": "Kalkutta nach Jorhat",
     "entryTitle": "Einreisebestimmungen",
-    "entryDesc": "Für unsere deutschen und internationalen Gäste ist ein e-Visum für die Einreise nach Indien erforderlich.",
-    "entryRecommend": "Wir empfehlen, mindestens 4 Wochen vor der Reise zu beantragen.",
-    "eVisaPortal": "Offizielles e-Visum-Portal",
+    "entryDesc": "Für Gäste aus Deutschland und dem Ausland ist ein e-Visum für Indien erforderlich.",
+    "entryRecommend": "Wir empfehlen den Antrag mindestens 4 Wochen vor Abreise.",
+    "eVisaPortal": "Offizielles e-Visum Portal",
     "accomTitle": "Unterkünfte",
-    "accomSub": "Kuratierte Suchen auf Booking.com",
-    "jorhatSub": "Hochzeitsstandort & Umgebung",
-    "kazirangaSub": "Dschungellodges & Safariunterkünfte",
-    "guwahatiSub": "Eingangsstadt, nahe dem Flughafen"
+    "accomSub": "Kuratierte Suche auf Booking.com",
+    "jorhatSub": "Nähe zum Hochzeitsort",
+    "kazirangaSub": "Dschungel-Lodges & Safari-Stays",
+    "guwahatiSub": "Gateway City, nähe Flughafen"
   },
   "travelCards": {
-    "journeyTitle": "Reise planen?",
-    "journeyBody": "Wir haben einen vollständigen Leitfaden für unsere internationalen Gäste zusammengestellt — mit Flügen aus Deutschland, lokalen Unterkünften und Visaanforderungen.",
+    "journeyTitle": "Planen Sie Ihre Reise?",
+    "journeyBody": "Wir haben einen Guide für internationale Gäste erstellt — inklusive Flügen aus Deutschland, Visa und Unterkünften.",
     "openTravelGuide": "Reiseführer öffnen",
-    "activitiesTitle": "Must-Do-Aktivitäten",
-    "discoverAssam": "Assam entdecken"
+    "activitiesTitle": "Must-Do Aktivitäten",
+    "discoverAssam": "Aktivitäten"
   },
   "navFooter": {
     "ourStory": "Unsere Geschichte"
   },
   "rsvp": {
     "travelGuide": "Reiseführer"
+  },
+  "assamPrep": {
+    "label": "Traveller’s Toolkit",
+    "heading": "Wichtige Vorbereitung",
+    "attireFront": "Atmungsaktives Leinen für die Sonne; ein weicher Schal für die Brise am Fluss.",
+    "attireNotesTitle": "Die Garderobe",
+    "attireNotesDesc": "• Packen: Baumwolle, Leinen, Seide\n• Abend: Pashmina oder leichter Blazer\n• Schuhe: Bequeme flache Schuhe für den Garten",
+    "healthFront": "Tropen-Essentials für die üppige Natur.",
+    "healthNotesTitle": "Die Apotheke",
+    "healthNotesDesc": "• Schutz: Hoher LSF & Insektenschutz\n• Hydrieren: Trinkflasche mitnehmen\n• Hinweis: Persönliche Medikamente am besten von zu Hause mitbringen",
+    "tempoFront": "Lassen Sie die Eile hinter sich. In Assam leben wir nach dem Rhythmus von 'Lahe Lahe'.",
+    "tempoNotesTitle": "Die Philosophie",
+    "tempoNotesDesc": "• Bedeutung: 'Langsam, langsam'\n• Regel: Keine engen Zeitpläne\n• Ziel: Abschalten und mit dem Fluss eins werden"
   }
 }

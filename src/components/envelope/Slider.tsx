@@ -9,12 +9,14 @@ import { useState } from "react";
 import Dove from "../../assets/dove.png";
 import Land from "../../assets/handLand.png";
 import Thanks from "../../assets/Thanks.png";
+import { useTranslation } from "react-i18next";
 
 const KNOB_SIZE = 48;
 const PADDING = 4;
 
 export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
   const [completed, setCompleted] = useState(false);
+
   const [sliding, setSliding] = useState(false);
   const [trackWidth, setTrackWidth] = useState(0);
   const x = useMotionValue(0);
@@ -22,6 +24,7 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
 
   const maxDrag = Math.max(0, trackWidth - KNOB_SIZE - PADDING * 2);
   const centerX = Math.max(0, (trackWidth - KNOB_SIZE) / 2 - PADDING);
+  const { t } = useTranslation();
 
   // S-curve y offset only active while dragging (not sliding to center)
   const yCurve = useTransform(
@@ -131,7 +134,7 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
         }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
-        Slide the Messenger
+        {t("card.slider")}
       </motion.p>
 
       {/* 3. The Target Hand */}
@@ -168,9 +171,7 @@ export default function RoyalRSVPSlider({ onRSVP }: { onRSVP: () => void }) {
         }}
         animate={!completed ? { y: [0, -2, 0] } : {}}
         transition={
-          !completed
-            ? { repeat: Infinity, duration: 3, ease: "easeInOut" }
-            : {}
+          !completed ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : {}
         }
       >
         <AnimatePresence mode="wait">

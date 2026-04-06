@@ -11,15 +11,17 @@
     "seconds": "Seconds"
   },
   "card": {
-    "honor": "The Honor of your presence is requested",
+    "honor": "request the honour of your presence by",
     "celebration": "at the celebration of their",
     "reception": "Wedding Reception",
-    "saturday": "SATURDAY",
+    "date": "DATE",
     "venue": "VENUE",
-    "time": "TIME",
+    "time": "TIME IST",
     "dateWords": "Two Thousand Twenty Six",
     "rsvp": "RSVP & Travel Guide",
-    "cantMakeIt": "I Can't Make It"
+    "cantMakeIt": "I Can't Make It",
+    "slider":  "Slide the Messenger",
+    "footer": "In every walk with nature, one receives far more than he seeks."
   },
   "expectations": {
     "label": "A Guest’s Guide",

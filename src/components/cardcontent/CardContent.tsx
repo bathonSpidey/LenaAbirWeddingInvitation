@@ -41,9 +41,7 @@ export default function CardContent({
             </div>
 
             {/* Together text */}
-            <p className="together-text">
-              request the honour of your presence at the marriage of
-            </p>
+            <p className="together-text">{t("card.honor")}</p>
 
             {/* Names — Pinyon Script stacked */}
             <div className="names">
@@ -73,7 +71,7 @@ export default function CardContent({
             <div className="details-grid">
               {/* Date row */}
               <div style={{ textAlign: "center", marginBottom: "0.3rem" }}>
-                <span className="detail-label">{t("card.saturday")}</span>
+                <span className="detail-label">{t("card.date")}</span>
                 <span className="detail-main">4 & 6 December 2026</span>
               </div>
 
@@ -141,10 +139,7 @@ export default function CardContent({
                 <span>✦</span>
                 <span>✿</span>
               </div>
-              <p className="footer-text">
-                "In every walk with nature, one receives far more than he
-                seeks."
-              </p>
+              <p className="footer-text">{t("card.footer")}</p>
             </div>
           </div>
         </div>
