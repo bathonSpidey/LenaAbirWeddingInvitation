@@ -162,8 +162,11 @@
   "venue": {
     "label": "The Venue",
     "name": "The Royal Park",
-    "desc": "Located along the historic Highway 37, our venue sits as a gateway to Jorhat's vibrant culture and the serene landscapes of Upper Assam.",
-    "navigate": "Open in Navigation"
+    "desc": "The reception will start from 2PM you can come at any time you like and stay as long as you want. It will last till 10PM. A small ceremony will take place from 8PM and last till 10PM  ",
+    "navigate": "Open in Navigation",
+    "mehendi": "D Royal Palm",
+    "descMehendi": "This is where the bride and everyone who wants a Henna Tattoo will be. There will be a small function with music, food and dance. It will start at 5PM and last till 10PM",
+    "navigateMehendi": "Open in Navigation"
   },
   "travelPortal": {
     "label": "Your Guide",
