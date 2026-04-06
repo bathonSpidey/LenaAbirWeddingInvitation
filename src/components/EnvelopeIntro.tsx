@@ -26,6 +26,7 @@ export default function EnvelopeIntro() {
     null,
   ) as React.RefObject<HTMLDivElement>;
   const storyRef = useRef<HTMLDivElement>(null);
+  const envelopeRef = useRef<HTMLDivElement>(null);
   const discoverRef = useRef<HTMLDivElement>(null);
   const rsvpRef = useRef<HTMLDivElement>(null);
   const travelRef = useRef<HTMLDivElement>(null);
@@ -65,6 +66,7 @@ export default function EnvelopeIntro() {
       {/* ── Section 1: Envelope scene ── */}
       <EnvelopeStage
         phase={phase}
+        innerRef={envelopeRef}
         flapZIndex={flapZIndex}
         envelopeAnim={envelopeAnim}
         letterAnim={letterAnim}
@@ -106,6 +108,10 @@ export default function EnvelopeIntro() {
           <div ref={activitiesRef} className="snap-start">
             <Activities onBack={() => scrollTo(discoverRef)} />
           </div>
+          <Expectations
+            innerRef={expectationsRef as React.RefObject<HTMLDivElement>}
+            onBack={() => scrollTo(envelopeRef)}
+          />
         </>
       )}
 

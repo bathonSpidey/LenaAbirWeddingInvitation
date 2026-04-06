@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import Activities from "../Activities";
 import FeatureCard from "./FeaturedCard";
 import { WARM_WHITE, ASSAM_QUOTE } from "./Constants";
 
@@ -14,7 +12,6 @@ import { AssameseLaceBorder } from "./AssameseLaceBorder";
 
 export default function DiscoverAssam({ onBack }: { onBack: () => void }) {
   const { t } = useTranslation();
-
 
   return (
     <motion.div

@@ -11,6 +11,7 @@ import RoyalBackground from "../../assets/royalBackground.png";
 
 interface EnvelopeStageProps {
   phase: Phase;
+  innerRef: React.RefObject<HTMLDivElement>;
   flapZIndex: number;
   envelopeAnim: ReturnType<typeof useAnimation>;
   letterAnim: ReturnType<typeof useAnimation>;
@@ -25,6 +26,7 @@ interface EnvelopeStageProps {
  */
 export default function EnvelopeStage({
   phase,
+  innerRef,
   flapZIndex,
   envelopeAnim,
   letterAnim,
@@ -34,6 +36,7 @@ export default function EnvelopeStage({
 }: EnvelopeStageProps) {
   return (
     <div
+      ref={innerRef}
       className="min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden"
       style={{
         // The single image background
