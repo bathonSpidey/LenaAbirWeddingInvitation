@@ -1,15 +1,49 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WeddingPlans, type Plan } from "./PlanData";
+import { useTranslation } from "react-i18next";
 
-// Importing the same asset under different names as requested
 import SealOne from "../../assets/VisaStamp.png";
 import SealTwo from "../../assets/RhinoStamp.png";
 import SealThree from "../../assets/BihuStamp.png";
-import { useTranslation } from "react-i18next";
+
+export interface ScheduleDay {
+  date: string;
+  activity: string;
+}
+
+export interface Plan {
+  id: string;
+  title: string;
+  subtitle: string;
+  color: string;
+  days: ScheduleDay[];
+}
+
+const PLAN_COLORS: Record<string, string> = {
+  relaxed: "#B98C8C",
+  exploration: "#c9a961",
+  intense: "#1a2849",
+};
+
+function useWeddingPlans(): Plan[] {
+  const { t } = useTranslation();
+  const ids = ["relaxed", "exploration", "intense"] as const;
+
+  return ids.map((id) => ({
+    id,
+    title: t(`travelPortal.plans.${id}.title`),
+    subtitle: t(`travelPortal.plans.${id}.subtitle`),
+    color: PLAN_COLORS[id],
+    days: t(`travelPortal.plans.${id}.days`, {
+      returnObjects: true,
+    }) as ScheduleDay[],
+  }));
+}
 
 export default function TypicalSchedule() {
   const { t } = useTranslation();
+  const weddingPlans = useWeddingPlans();
+
   return (
     <section className="py-16 md:py-24 px-4 bg-[#FAF9F6] overflow-hidden">
       <style
@@ -32,7 +66,7 @@ export default function TypicalSchedule() {
           border-radius: 2px;
         }
         .face-back { transform: rotateY(180deg); }
-        
+
         .custom-scroll::-webkit-scrollbar { width: 3px; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #c9a961; }
 
@@ -73,7 +107,7 @@ export default function TypicalSchedule() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
-        {WeddingPlans.map((plan, index) => {
+        {weddingPlans.map((plan, index) => {
           const seals = [SealOne, SealTwo, SealThree];
           return (
             <ScheduleCard
@@ -116,7 +150,7 @@ function ScheduleCard({
       accent: "text-[#1a2849]",
       hover: "group-hover:shadow-[#1a2849]/10",
     },
-  }[plan.id] || { bg: "bg-white", accent: "text-[#c9a961]", hover: "" };
+  }[plan.id] ?? { bg: "bg-white", accent: "text-[#c9a961]", hover: "" };
 
   return (
     <motion.div
@@ -152,7 +186,7 @@ function ScheduleCard({
             <AnimatePresence>
               {!isFlipped && (
                 <motion.div className="relative">
-                  {/* The Pulsing Ring (Mobile Only) */}
+                  {/* Pulsing Ring (Mobile Only) */}
                   <div className="absolute inset-0 rounded-full border-2 border-[#c9a961]/40 tap-hint-ring md:hidden" />
 
                   <img
