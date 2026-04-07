@@ -4,7 +4,6 @@ import TeaIcon from "../../assets/TeaIcon.png";
 import Map from "../../assets/Map.png";
 
 interface TravelCardsGridProps {
-  country: CountryKey;
   onOpenGuide: () => void;
   onDiscoverAssam: () => void;
 }

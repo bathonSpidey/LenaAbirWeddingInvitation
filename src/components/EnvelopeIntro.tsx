@@ -66,7 +66,7 @@ export default function EnvelopeIntro() {
       {/* ── Section 1: Envelope scene ── */}
       <EnvelopeStage
         phase={phase}
-        innerRef={envelopeRef}
+        innerRef={envelopeRef as React.RefObject<HTMLDivElement>}
         flapZIndex={flapZIndex}
         envelopeAnim={envelopeAnim}
         letterAnim={letterAnim}

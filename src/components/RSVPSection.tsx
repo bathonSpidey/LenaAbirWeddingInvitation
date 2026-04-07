@@ -61,7 +61,6 @@ export default function RSVPSection({
             {/* THE TRAVEL GRID */}
             <div className="mb-0 pb-0">
               <TravelCardsGrid
-                country={country}
                 onOpenGuide={onNavigateToTravel}
                 onDiscoverAssam={onDiscoverActivities}
               />
