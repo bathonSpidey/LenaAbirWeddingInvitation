@@ -34,23 +34,32 @@ export default function EnvelopeStage({
   onDecline,
   onRSVP,
 }: EnvelopeStageProps) {
+  // Scale the fixed-pixel envelope down on narrow screens so it never clips
+  const envScale =
+    typeof window !== "undefined" ? Math.min(1, (window.innerWidth * 0.94) / EW) : 1;
+
   return (
     <div
       ref={innerRef}
       className="min-h-screen w-full flex items-center justify-center relative snap-start overflow-hidden"
       style={{
-        // The single image background
         backgroundImage: `url(${RoyalBackground})`,
-        // critical CSS for responsiveness
-        backgroundSize: "cover", // Ensures it covers the screen without stretching
-        backgroundPosition: "center", // Keeps the fused crest central
-        backgroundRepeat: "no-repeat", // Prevents visible tiling on large screens
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      {/* <RoyalBackgroundShapes /> */}
-
       {/* Envelope layers container */}
-      <div className="relative" style={{ width: EW, height: EH, zIndex: 10 }}>
+      <div
+        className="relative"
+        style={{
+          width: EW,
+          height: EH,
+          zIndex: 10,
+          transform: `scale(${envScale})`,
+          transformOrigin: "center center",
+        }}
+      >
         {/* Layer 1 — envelope back (z-10) */}
         <EnvelopeBack envelopeAnim={envelopeAnim} />
 

@@ -46,7 +46,7 @@ export const styles = `
     background: rgba(253, 250, 245, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1.1rem 1.8rem 0.9rem;
+    padding: 1.1rem clamp(1rem, 4vw, 1.8rem) 0.9rem;
     position: relative;
     overflow: hidden;
   }
@@ -106,7 +106,7 @@ export const styles = `
 
   .eyebrow {
     font-family: 'Cinzel', serif;
-    font-size: 0.52rem;
+    font-size: 0.65rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: #5B8DB8;
@@ -215,7 +215,7 @@ export const styles = `
 
   .reception-text {
     font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
+    font-size: 0.68rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #AF944D;
@@ -237,10 +237,10 @@ export const styles = `
 
   .detail-label {
   font-family: 'Cinzel', serif;
-  font-size: 0.45rem;
-  letter-spacing: 0.3em;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(42, 63, 92, 0.6); /* Navy/Slate instead of Blue */
+  color: rgba(42, 63, 92, 0.6);
   margin-bottom: 0.2rem;
   display: block;
 }
@@ -302,29 +302,29 @@ export const styles = `
   /* ── Decline button ── */
   .decline-btn {
     font-family: 'Cinzel', serif;
-    font-size: 0.52rem;
+    font-size: 0.62rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: rgba(91,141,184,0.65);
     border: 0.5px solid rgba(91,141,184,0.28);
     background: transparent;
-    padding: 0.3rem 1.4rem;
+    padding: 0.55rem 1.6rem;
+    min-height: 44px;
     border-radius: 999px;
     cursor: pointer;
-    margin-top: 0.35rem;
+    margin-top: 0.4rem;
     transition: transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .decline-btn:hover { transform: scale(1.02); }
 
   /* ── Countdown slot ── */
   .countdown-slot {
     margin-top: 0.4rem;
-    transform: scale(0.88);
-    transform-origin: center;
     width: 100%;
     opacity: 0;
-    margin-left: -3%;
-  margin-right: -3%;
     animation: fadeUp 0.8s ease 1.6s forwards;
   }
 

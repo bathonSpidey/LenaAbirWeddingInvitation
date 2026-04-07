@@ -49,6 +49,11 @@ export function useEnvelopeAnimation() {
   const handleSeal = async () => {
     if (phase !== "idle") return;
 
+    // Compute viewport-relative offsets at the moment of interaction
+    const vh = window.innerHeight;
+    const riseY = -(vh * 0.62);
+    const settleY = -(vh * 0.16);
+
     setPhase("opening");
 
     // Fade music in from silence
@@ -72,7 +77,7 @@ export function useEnvelopeAnimation() {
     setPhase("risen");
 
     await letterAnim.start({
-      y: -450,
+      y: riseY,
       transition: { duration: 0.85, ease: [0.23, 1, 0.32, 1] },
     });
 
@@ -102,7 +107,7 @@ export function useEnvelopeAnimation() {
       transition: { duration: 0.8, ease: "easeOut" },
     });
     await letterAnim.start({
-      y: -120, // adjust until centred comfortably on screen
+      y: settleY,
       transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
     });
   };

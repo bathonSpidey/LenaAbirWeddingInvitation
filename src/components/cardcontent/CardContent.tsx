@@ -41,7 +41,7 @@ export default function CardContent({
             </div>
 
             {/* Together text */}
-            <p className="together-text">{t("card.honor")}</p>
+            <p className="together-text">{t("card.celebration")}</p>
 
             {/* Names — Pinyon Script stacked */}
             <div className="names">
