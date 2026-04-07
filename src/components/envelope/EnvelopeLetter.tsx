@@ -33,7 +33,7 @@ export default function EnvelopeLetter({
     <div
       className="absolute inset-0"
       style={{
-        zIndex: 20,
+        zIndex: 30,
         clipPath,
         transition: "clip-path 0.4s ease-in-out",
       }}
@@ -44,7 +44,7 @@ export default function EnvelopeLetter({
         style={{
           width: CARD_W,
           left: (EW - CARD_W) / 2,
-          top: 15, // slightly below the flap so it hides safely before rising
+          top: 55, // slightly below the flap so it hides safely before rising
         }}
         initial={{ y: 0, rotateX: 12, scale: 0.94 }}
       >
