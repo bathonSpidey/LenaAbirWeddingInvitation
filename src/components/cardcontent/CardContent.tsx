@@ -64,7 +64,7 @@ export default function CardContent({
             </div>
 
             {/* Celebration + Reception */}
-            <p className="celebration-text">{t("card.celebration")}</p>
+            <p className="celebration-text">{t("card.subCelebration")}</p>
             <p className="reception-text">{t("card.reception")}</p>
 
             {/* Details block */}

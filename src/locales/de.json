@@ -11,8 +11,9 @@
     "seconds": "Sekunden"
   },
   "card": {
-    "honor": "Wir bitten um die Ehre Ihrer Anwesenheit",
-    "celebration": "bei der Feier ihrer Hochzeit",
+    "honor": "Es wäre uns eine Ehre, dich als Gast begrüßen zu dürfen",
+    "celebration": "bei der Feier unserer Hochzeit",
+    "subCelebration": "zwischen zwei Kulturen, zwei Familien und zwei Herzen",
     "reception": "Hochzeitsempfang",
     "venue": "ORT",
     "date": "DATUM",
@@ -20,8 +21,8 @@
     "dateWords": "Zweitausendsechsundzwanzig",
     "rsvp": "RSVP & Reiseführer",
     "cantMakeIt": "Ich kann leider nicht kommen",
-    "slider": "Schieben Sie den Vogel",
-    "footer": "Bei jedem Spaziergang mit der Natur erhält mann mehr, als er sucht."
+    "slider": "Nach rechts swipen",
+    "footer": "Forever is composed of nows. - Emily Dickinson"
   },
   "expectations": {
     "label": "Ein Leitfaden für unsere Gäste",
@@ -36,7 +37,7 @@
       {
         "tag": "Dresscode",
         "title": "Festlich & Farbenfroh",
-        "desc": "Traditionell indisch oder westlich-formal. Juwentöne und Gold sind willkommen. Bitte vermeiden Sie rein weißes oder schwarzes Outfit."
+        "desc": "Traditionell indisch oder westlich-formal. Juwentöne und Gold sind willkommen. Bitte vermeide ein rein weißes oder schwarzes Outfit."
       },
       {
         "tag": "Speisen & Trank",
@@ -46,7 +47,7 @@
       {
         "tag": "Musik & Tanz",
         "title": "Rhythmus des Bihu",
-        "desc": "Traditionelle Trommeln gefolgt von einem globalen DJ-Set. Bringen Sie Ihre Tanzschuhe für eine Nacht unter den Sternen mit."
+        "desc": "Während des Mehendis: Traditionelle Trommeln gefolgt von indischer und assamesischer Musik. Bringe Deine Tanzschuhe für eine Nacht unter den Sternen mit."
       },
       {
         "tag": "Das Klima",
@@ -56,52 +57,52 @@
       {
         "tag": "Gastfreundschaft",
         "title": "Atithi Devo Bhava",
-        "desc": "Erleben Sie die legendäre Herzlichkeit Assams. Erwarten Sie offene Arme, endlosen Tee und ein zweites Zuhause in der Ferne."
+        "desc": "Erlebe die legendäre Herzlichkeit Assams. Dich ewarten offene Arme, endloser Tee und ein einzigartiges Erlebnis in der Ferne."
       }
     ]
   },
   "activities": {
-    "label": "Während Ihres Aufenthalts",
+    "label": "Während Deines Aufenthalts",
     "heading": "Dinge zum Erleben",
-    "subtitle": "Assam belohnt den neugierigen Reisenden. Hier sind unsere Favoriten — Erlebnisse, die wir gerne mit Ihnen teilen möchten.",
+    "subtitle": "Assam belohnt den neugierigen Reisenden. Hier sind unsere Favoriten — Erlebnisse, die wir Euch ans Herz legen möchten.",
     "noteLabel": "Eine persönliche Notiz",
-    "noteQuote": "\"Jorhat ist unser Zuhause — und wir hoffen, dass es auch ein kleiner Teil Ihres wird. Lassen Sie sich Zeit. Essen Sie gut. Beobachten Sie den Fluss.\"",
-    "footerLabel": "Wir können es kaum erwarten, mit Ihnen auf Entdeckungsreise zu gehen",
+    "noteQuote": "\"Jorhat ist für uns ein Ort voller Vertrautheit — und wir hoffen, dass ein kleiner Teil auch Eingang in Dein Herz finden wird. Lass Dir Zeit. Genieße die Kulinarik. Beobachte den Fluss.\"",
+    "footerLabel": "Wir können es kaum erwarten, im Anschluss von Euren Erlebnissen zu hören",
     "items": [
       {
         "tag": "Natur & Wildtiere",
         "title": "Kaziranga bei Sonnenaufgang",
-        "desc": "Im Morgengrauen teilt sich der Nebel und gibt den Blick auf Panzernashörner am Brahmaputra frei. Erleben Sie eine Safari im UNESCO-Welterbe Kaziranga."
+        "desc": "Im Morgengrauen teilt sich der Nebel und gibt den Blick auf Panzernashörner am Brahmaputra frei. Erlebe eine Safari im UNESCO-Welterbe Kaziranga."
       },
       {
         "tag": "Fluss & Inseln",
         "title": "Die Insel Majuli",
-        "desc": "Die größte Flussinsel der Welt und Wiege der Vaishnavite-Kultur. Erkunden Sie antike Klöster und radeln Sie durch Reisfelder."
+        "desc": "Die größte Flussinsel der Welt und Wiege der Vaishnavite-Kultur. Erkunde antike Klöster und fahre mit dem Fahrrad durch Reisfelder."
       },
       {
         "tag": "Kultur & Erbe",
         "title": "Ahom Heritage Trails",
-        "desc": "Wandeln Sie zwischen dem Rang Ghar und Kareng Ghar in Sibasagar — 600 Jahre alte Monumente des Ahom-Königreichs."
+        "desc": "Wandele zwischen dem Rang Ghar und Kareng Ghar in Sibasagar — 600 Jahre alte Monumente des Ahom-Königreichs."
       },
       {
         "tag": "Essen & Märkte",
         "title": "Jorhat Kulinarik-Pfad",
-        "desc": "Folgen Sie den Aromen: geräucherte Ente, im Bambus gedämpfter Reis und der Geschmack von Khar. Ein assamesisches Thali ist reine Zeremonie."
+        "desc": "Folge den Aromen: geräucherte Ente, im Bambus gedämpfter Reis und der Geschmack von Khar. Ein assamesisches Thali ist reine Zeremonie."
       },
       {
         "tag": "Flussleben",
         "title": "Brahmaputra Flusskreuzfahrt",
-        "desc": "Gleiten Sie über einen der mächtigsten Flüsse Asiens, während seltene Ganges-Delfine neben dem Boot auftauchen."
+        "desc": "Gleite über einen der mächtigsten Flüsse Asiens, während seltene Ganges-Delfine neben dem Boot auftauchen."
       },
       {
         "tag": "Regenwald",
         "title": "Dehing Patkai Regenwald",
-        "desc": "Wagen Sie sich in einen der letzten Tieflandregenwälder Indiens. Lauschen Sie den Rufen der seltenen Hoolock-Gibbons."
+        "desc": "Wage Dich in einen der letzten Tieflandregenwälder Indiens. Lausche den Rufen der seltenen Hoolock-Gibbons."
       },
       {
         "tag": "Handwerk & Textil",
         "title": "Muga-Seidenweberei",
-        "desc": "Besuchen Sie Sualkuchi, um zu sehen, wie aus Kokons die weltweit einzige natürlich goldene Seide gewebt wird."
+        "desc": "Besuche Sualkuchi, um zu sehen, wie aus Kokons die weltweit einzige natürlich goldene Seide gewebt wird."
       },
       {
         "tag": "Wild & Selten",
@@ -115,7 +116,7 @@
     "milestones": [
       {
         "title": "Unser Anfang",
-        "desc": "Es begann mit einem Abendessen in Osnabrück und endete mit einer spontanen Flucht in die Alpen von Oberstdorf — ein Beweis, dass die schönsten Wege ungeplant sind."
+        "desc": "Es begann mit einem Abendessen in Osnabrück und endete mit einer spontanen Wanderung in den Alpen von Oberstdorf — ein Beweis, dass die schönsten Wege ungeplant sind."
       },
       {
         "title": "Über Grenzen & Berge",
@@ -123,7 +124,7 @@
       },
       {
         "title": "Ein Versprechen am Wasser",
-        "desc": "Im tosenden Nebel des Rheinfalls an einem sonnigen Nachmittag wurde eine einfache Frage gestellt, und ein gemeinsames Leben begann mit einem 'Ja'."
+        "desc": "Im tosenden Nebel des Rheinfalls an einem sonnigen Nachmittag wurde eine einfache Frage gestellt, woraufhin ein gemeinsames Leben mit einem 'Ja' beginnen sollte."
       },
       {
         "title": "Zwei Welten, ein Herz",
@@ -133,7 +134,7 @@
   },
   "discoverAssam": {
     "heading": "Land der blauen Hügel",
-    "intro": "Hinter den Hochzeitsglocken liegt das Tor zum mystischen Osten. Von smaragdgrünen Teegärten bis zum Rhythmus des Brahmaputra — sehen Sie die Welt durch unsere Augen.",
+    "intro": "Hinter den Hochzeitsglocken liegt das Tor zum mystischen Osten. Von smaragdgrünen Teegärten bis zum Rhythmus des Brahmaputra — sieh die Welt durch die Augen der Natur.",
     "feature1Title": "Das Erbe",
     "feature1Desc": "Muga-Seide, gewoben aus den Geschichten ganzer Generationen.",
     "feature2Title": "Die Wildnis",
@@ -141,13 +142,13 @@
     "experience": "Das Erlebnis",
     "quote": "\"Grüne Teegärten und frische Flussbrisen. Ein Ort, an dem die Zeit stillsteht und jeder Moment sich wie ein Schluck Gelassenheit anfühlt.\"",
     "wish": "Wir wünschten, Sie könnten bei uns sein",
-    "exploreActivities": "SCROLLEN SIE NACH UNTEN ZUM AKTIVITÄTEN"
+    "exploreActivities": "SCROLL NACH UNTEN ZU DEN AKTIVITÄTEN"
   },
   "regrets": {
-    "heading": "Wir werden Sie vermissen",
-    "quote": "\"Eine Feier strahlt nur durch die Menschen, die sie teilen. Auch wenn Sie nicht persönlich bei uns sein können, tragen wir Sie im Herzen.\"",
+    "heading": "Wir werden Dich vermissen",
+    "quote": "\"Eine Feier strahlt nur durch die Menschen, die sie teilen. Wir bedauern sehr, dass Du nicht persönlich erscheinen kannst.\"",
     "knowStory": "Unsere Geschichte",
-    "seeWhatMissing": "Was Sie verpassen werden"
+    "seeWhatMissing": "Was Du verpassen wirst"
   },
   "saveTheDate": {
     "heading": "Save the Date",
@@ -155,7 +156,7 @@
     "addToCalendar": "Zum Kalender hinzufügen",
     "googleCalendar": "4. Dez Mehendi Google Kalender",
     "appleOutlook": "4. Dez Mehendi für Apple/Outlook",
-    "whatToExpect": "Scrollen Sie nach unten für Details",
+    "whatToExpect": "Scroll nach unten für Details",
     "travelingFrom": "Anreise aus",
     "germany": "Deutschland",
     "india": "Indien",
@@ -166,7 +167,7 @@
   "venue": {
     "label": "Der Ort",
     "name": "The Royal Park",
-    "desc": "Der Empfang beginnt um 14:00 Uhr. Kommen Sie, wann Sie möchten. Eine kleine Zeremonie findet von 20:00 bis 22:00 Uhr statt.",
+    "desc": "Der Empfang beginnt um 14:00 Uhr. Komme, wann immer Du möchtest. Eine kleine Zeremonie findet von 20:00 bis 22:00 Uhr statt.",
     "navigate": "In Navigation öffnen",
     "mehendi": "D Royal Palm",
     "descMehendi": "Hier feiern die Braut und alle, die ein Henna-Tattoo möchten. Es gibt Musik, Essen und Tanz. Beginn um 17:00 Uhr.",
@@ -311,9 +312,9 @@
         ]
       }
     },
-    "footer": "Wir sind auf jedem Schritt Ihrer Reise für Sie da.",
-    "needHand": "Brauchen Sie Hilfe?",
-    "guidedBooking": "Möchten Sie Unterstützung? Senden Sie uns Ihre E-Mail und wir rufen Sie zur Buchung zurück.",
+    "footer": "Wir sind auf jedem Schritt Deiner Reise für Dich da.",
+    "needHand": "Brauchst Du Hilfe?",
+    "guidedBooking": "Möchtest Du Unterstützung? Sende uns Deine E-Mail-Adresse und wir melden uns bei Dir.",
     "reachOut": "Kontakt aufnehmen",
     "closeLetter": "Brief schließen",
     "breakSeal": "Siegel brechen",
@@ -322,11 +323,11 @@
   "detour": {
     "label": "Ein romantischer Abstecher",
     "heading": "Das Monument der Liebe",
-    "desc": "Da Ihre Reise Sie durch Delhi führt, empfehlen wir Ihnen wärmstens einen Besuch des Taj Mahal in Agra. Es ist eine dreistündige Fahrt von der Hauptstadt entfernt – ein kurzer Moment, um die schönste Liebeserklärung der Welt zu erleben."
+    "desc": "Da Deine Reise Dich durch Delhi führt, empfehlen wir Dir wärmstens einen Besuch des Taj Mahal in Agra. Es ist eine dreistündige Fahrt von der Hauptstadt entfernt – ein kurzer Moment, um die schönste Liebeserklärung der Welt zu erleben."
   },
   "preparations": {
-    "label": "Vor Ihrer Ankunft",
-    "heading": "Bereiten Sie sich auf Assam vor",
+    "label": "Vor Deiner Ankunft",
+    "heading": "Bereite Dich auf Assam vor",
     "openLetter": "Brief öffnen",
     "notesFromRiver": "Notes from the River",
     "prepareHeading": "Vorkehrungen & Vorbereitungen",
@@ -341,12 +342,12 @@
       {
         "id": "health",
         "label": "Gesundheit",
-        "frontDesc": "Assam ist üppig; stellen Sie sicher, dass Sie Ihre tropischen Essentials und Insektenschutz dabei haben."
+        "frontDesc": "Assam ist üppig; stelle sicher, dass Du Deine tropischen Essentials und Insektenschutz dabei hast."
       },
       {
         "id": "tempo",
         "label": "Tempo",
-        "frontDesc": "Das Leben am Fluss verläuft gemächlich. Bereiten Sie sich darauf vor, abzuschalten und „Lahe Lahe“ zu genießen."
+        "frontDesc": "Das Leben am Fluss verläuft gemächlich. Bereite Dich darauf vor, abzuschalten und „Lahe Lahe“ zu genießen."
       }
     ],
     "checklist": {
@@ -379,26 +380,26 @@
   "visa": {
     "heading": "Formale Voraussetzung",
     "subHeading": "Das E-Visum",
-    "desc": "Für unsere geschätzten internationalen Gäste ist eine offizielle Einreisegenehmigung für Ihre Reise nach Indien erforderlich.",
+    "desc": "Für unsere geschätzten internationalen Gäste ist eine offizielle Einreisegenehmigung für die Reise nach Indien erforderlich.",
     "pre": "Antragen",
     "time": "4 Wochen",
     "recommend": "im Voraus",
-    "reminder": "Eine freundliche Erinnerung Ihrer Gastgeber"
+    "reminder": "Eine freundliche Erinnerung Eurer Gastgeber"
   },
   "arrangements": {
     "heading": "Arrangements",
-    "desc": "Wenn Sie eine Agentur in Betracht ziehen möchten, die Sie bei Ihren Buchungen und Planungen unterstützen kann",
-    "callForConcierge": "Wenn Sie sich nach einer Agentur umsehen möchten, die Ihnen bei Ihren Buchungen und Planungen helfen kann",
+    "desc": "Wenn Du eine Agentur in Betracht ziehen möchtest, die Dich bei Deinen Buchungen und Planungen unterstützen kann",
+    "callForConcierge": "Wenn Du Dich nach einer Agentur umsehen möchtest, die Dir bei Deinen Buchungen und Planungen helfen kann",
     "button": "Einen Concierge konsultieren",
-    "alert": "Der Concierge-Service ist derzeit nicht verfügbar. Bitte kontaktieren Sie uns direkt für Unterstützung."
+    "alert": "Der Concierge-Service ist derzeit nicht verfügbar. Bitte kontaktiere uns direkt für Unterstützung."
   },
   "flightGuide": {
     "heading": "Die Reise nach Assam",
     "step1Title": "Internationale Hubs",
-    "step1Desc": "Fliegen Sie zunächst nach Delhi (DEL) oder Kalkutta (CCU).",
+    "step1Desc": "Flieg zunächst nach Delhi (DEL) oder Kalkutta (CCU).",
     "searchFlights": "Flüge suchen ↗",
     "step2Title": "Der letzte Sprung",
-    "step2Desc": "Buchen Sie Ihren Anschlussflug nach Jorhat (JRH).",
+    "step2Desc": "Buche Deinen Anschlussflug nach Jorhat (JRH).",
     "delhiToJorhat": "Delhi nach Jorhat",
     "kolkataToJorhat": "Kalkutta nach Jorhat",
     "entryTitle": "Einreisebestimmungen",
@@ -412,7 +413,7 @@
     "guwahatiSub": "Gateway City, nähe Flughafen"
   },
   "travelCards": {
-    "journeyTitle": "Planen Sie Ihre Reise?",
+    "journeyTitle": "Planst Du Deine Reise?",
     "journeyBody": "Wir haben einen Guide für internationale Gäste erstellt — inklusive Flügen aus Deutschland, Visa und Unterkünften.",
     "openTravelGuide": "Reiseführer öffnen",
     "activitiesTitle": "Must-Do Aktivitäten",

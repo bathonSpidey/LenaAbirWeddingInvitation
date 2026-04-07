@@ -11,17 +11,18 @@
     "seconds": "Seconds"
   },
   "card": {
-    "honor": "request the honour of your presence by",
-    "celebration": "at the celebration of their",
+    "honor": "request the pleasure of your company",
+    "celebration": "as they celebrate their union",
+    "subCelebration": "A blend of Assamese traditions and European elegance",
     "reception": "Wedding Reception",
-    "date": "DATE",
-    "venue": "VENUE",
-    "time": "TIME IST",
-    "dateWords": "Two Thousand Twenty Six",
-    "rsvp": "RSVP & Travel Guide",
-    "cantMakeIt": "I Can't Make It",
-    "slider": "Slide the Messenger",
-    "footer": "In every walk with nature, one receives far more than he seeks."
+    "date": "Date",
+    "venue": "Venue",
+    "time": "Time (IST)",
+    "dateWords": "Two Thousand and Twenty-Six",
+    "rsvp": "RSVP & Travel Details",
+    "cantMakeIt": "Regretfully Decline",
+    "slider": "Slide to Open Invitation",
+    "footer": "In every step we take together, we discover more than we ever dreamed."
   },
   "expectations": {
     "label": "A Guest’s Guide",
