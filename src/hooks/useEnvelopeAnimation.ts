@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import confetti from "canvas-confetti";
 import BridgertonMusic from "../assets/Brigerton.mp3";
@@ -7,6 +7,7 @@ import type { Phase } from "../components/envelope/constants";
 // Module-level singleton so the Audio object is created only once.
 const music = new Audio(BridgertonMusic);
 music.volume = 0.6;
+music.loop = true;
 
 /**
  * Encapsulates all envelope opening animation state and sequencing.
@@ -15,6 +16,32 @@ music.volume = 0.6;
 export function useEnvelopeAnimation() {
   const [phase, setPhase] = useState<Phase>("idle");
   const [flapZIndex, setFlapZIndex] = useState(40);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Keep isPlaying in sync with the audio element
+  useEffect(() => {
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+    music.addEventListener("play", onPlay);
+    music.addEventListener("pause", onPause);
+    return () => {
+      music.removeEventListener("play", onPlay);
+      music.removeEventListener("pause", onPause);
+    };
+  }, []);
+
+  const togglePlay = () => {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  };
+
+  const replay = () => {
+    music.currentTime = 0;
+    music.play();
+  };
 
   const envelopeAnim = useAnimation();
   const letterAnim = useAnimation();
@@ -80,5 +107,5 @@ export function useEnvelopeAnimation() {
     });
   };
 
-  return { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal };
+  return { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal, isPlaying, togglePlay, replay };
 }

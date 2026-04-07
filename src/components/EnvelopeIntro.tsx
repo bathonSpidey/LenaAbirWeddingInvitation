@@ -8,12 +8,11 @@ import EnvelopeStage from "./envelope/EnvelopeStage";
 import Activities from "./Activities";
 import Expectations from "./expectations/Expectations";
 import { useEnvelopeAnimation } from "../hooks/useEnvelopeAnimation";
+import MusicControls from "./MusicControls";
 
-// ── Add this to your index.html <head>:
-// <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"/>
 
 export default function EnvelopeIntro() {
-  const { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal } =
+  const { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal, isPlaying, togglePlay, replay } =
     useEnvelopeAnimation();
 
   // ── Section visibility ──────────────────────────────────
@@ -63,6 +62,9 @@ export default function EnvelopeIntro() {
       className="h-screen w-full overflow-y-auto snap-y snap-proximity bg-[#f5ead4]"
       style={{ scrollBehavior: "smooth", overscrollBehavior: "contain" }}
     >
+      {phase !== "idle" && (
+        <MusicControls isPlaying={isPlaying} onToggle={togglePlay} onReplay={replay} />
+      )}
       {/* ── Section 1: Envelope scene ── */}
       <EnvelopeStage
         phase={phase}

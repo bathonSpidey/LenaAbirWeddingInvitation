@@ -9,15 +9,15 @@ const SUPPORTED_LANGUAGES = ["en", "de", "as"];
 function AppContent() {
   const { lang } = useParams<{ lang: string }>();
 
-  if (!SUPPORTED_LANGUAGES.includes(lang!)) {
-    return <Navigate to="/en" replace />;
-  }
-
   useEffect(() => {
     if (lang && i18n.language !== lang) {
       i18n.changeLanguage(lang);
     }
   }, [lang]);
+
+  if (!SUPPORTED_LANGUAGES.includes(lang!)) {
+    return <Navigate to="/en" replace />;
+  }
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#faf7f2]">
