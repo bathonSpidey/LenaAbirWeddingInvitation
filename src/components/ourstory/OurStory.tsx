@@ -16,7 +16,7 @@ const MILESTONE_META = [
   { year: "2024", location: "Oberstdorf", flag: "🇩🇪", image: FirstEncounter },
   { year: "2024", location: "Baden-Baden", flag: "🇩🇪", image: LeapOfFaith },
   { year: "2025", location: "Rheinfall", flag: "🇨🇭", image: Proposal },
-  { year: "2026", location: "Denmark → Jorhat", flag: "🇩🇰🇮🇳" },
+  { year: "2026", location: "🇩🇰 Denmark → 🇮🇳 Jorhat", flag: "" },
 ] as const;
 
 // ─── component ────────────────────────────────────────────────────────────────
