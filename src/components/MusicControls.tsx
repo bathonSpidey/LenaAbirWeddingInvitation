@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface MusicControlsProps {
@@ -13,6 +13,35 @@ export default function MusicControls({
   onReplay,
 }: MusicControlsProps) {
   const [expanded, setExpanded] = useState(false);
+
+  // Use a ref to remember if music was playing when the user left the tab
+  const wasPlayingBeforeHide = useRef(false);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // User left the tab
+        if (isPlaying) {
+          wasPlayingBeforeHide.current = true;
+          onToggle(); // Pause
+        } else {
+          wasPlayingBeforeHide.current = false;
+        }
+      } else {
+        // User returned to the tab
+        if (wasPlayingBeforeHide.current && !isPlaying) {
+          onToggle(); // Resume
+          wasPlayingBeforeHide.current = false;
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying, onToggle]);
 
   return (
     <motion.div
@@ -41,11 +70,11 @@ export default function MusicControls({
                   duration: 100,
                   ease: "linear",
                 }}
-                className="inline-block text-[10px] uppercase tracking-wider text-[#8B6914]/70 font-medium"
+                className="inline-block text-[10px] uppercase tracking-wider text-[#8B6914]/70 font-medium whitespace-nowrap"
               >
                 360" – Written by Charlotte Aitchison, Alexander Guy Cook, et
                 al. Arranged for Cello Obligato and String Quartet by Peter
-                Gregson. Performed by Peter Gregson.Used for personal
+                Gregson. Performed by Peter Gregson. Used for personal
                 celebration purposes
               </motion.span>
             </div>
