@@ -324,6 +324,8 @@ export const styles = `
   .countdown-slot {
     margin-top: 0.4rem;
     width: 100%;
+    display: flex;
+    justify-content: center;
     opacity: 0;
     animation: fadeUp 0.8s ease 1.6s forwards;
   }
@@ -341,17 +343,20 @@ export const styles = `
 
   .footer-petal-row {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.5rem;
     color: #b98c8c;
-    font-size: 0.65rem;
-    opacity: 0.6;
+    font-size: 0.85rem;
+    opacity: 0.7;
   }
 
   .footer-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.6rem;
+    font-size: 0.92rem;
     font-style: italic;
-    color: rgba(42,63,92,0.38);
-    letter-spacing: 0.1em;
+    color: rgba(42,63,92,0.5);
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 0.5rem;
   }
 `;

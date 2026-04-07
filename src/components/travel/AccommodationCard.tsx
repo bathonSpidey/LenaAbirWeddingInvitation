@@ -66,7 +66,7 @@ export default function AccommodationCard() {
 
         <motion.button
           whileHover={{ y: -2 }}
-          onClick={() => alert(t("arrangements.conciergeAlert"))}
+          onClick={() => alert(t("arrangements.alert"))}
           className="w-full bg-[#1a2849] py-4 text-[10px] text-white font-['Cinzel'] tracking-[0.4em] uppercase relative shadow-lg shadow-blue-900/10 transition-shadow"
         >
           <div className="absolute inset-1 border border-white/10 pointer-events-none" />
