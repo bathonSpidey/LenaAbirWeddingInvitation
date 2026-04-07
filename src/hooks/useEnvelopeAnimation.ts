@@ -69,46 +69,51 @@ export function useEnvelopeAnimation() {
       }
     }, 200);
 
-    // Allow the flap to start rotating before the letter rises
-    await new Promise((r) => setTimeout(r, 900));
+    // Wait for the flap to fully open (flap animation is 1.1 s)
+    await new Promise((r) => setTimeout(r, 950));
 
     // Drop the flap behind the letter so the letter can pass through
     setFlapZIndex(15);
     setPhase("risen");
 
+    // Rise, de-tilt, and grow simultaneously for a fluid single motion
     await letterAnim.start({
       y: riseY,
-      transition: { duration: 0.85, ease: [0.23, 1, 0.32, 1] },
+      rotateX: 0,
+      scale: 1.02,
+      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
     });
 
+    // Confetti burst as the letter peaks
     confetti({
-      particleCount: 90,
-      spread: 80,
-      origin: { y: 0.6 },
+      particleCount: 110,
+      spread: 90,
+      origin: { y: 0.55 },
       scalar: 0.9,
-      ticks: 220,
-      colors: ["#C9A84C", "#E8D5A0", "#ffffff"],
+      ticks: 260,
+      colors: ["#C9A84C", "#E8D5A0", "#ffffff", "#f8e7c0"],
     });
 
-    await new Promise((r) => setTimeout(r, 500));
+    // Short pause then fade the envelope out
+    await new Promise((r) => setTimeout(r, 280));
 
-    // Fade the envelope shell out
     envelopeAnim.start({
       opacity: 0,
-      y: 50,
-      transition: { duration: 0.6, ease: "easeIn" },
+      y: 60,
+      transition: { duration: 0.65, ease: [0.4, 0, 1, 1] },
     });
 
-    // Settle the letter into its final centred position without a flicker
+    // Settle the letter with spring physics — natural bounce into place
     setPhase("card");
     await letterAnim.start({
-      rotateX: 0,
-      scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    });
-    await letterAnim.start({
       y: settleY,
-      transition: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 180,
+        damping: 20,
+        mass: 1.1,
+      },
     });
   };
 

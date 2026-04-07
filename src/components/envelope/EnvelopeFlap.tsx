@@ -29,8 +29,8 @@ export default function EnvelopeFlap({
       <motion.div
         className="w-full h-full"
         style={{ transformOrigin: "top center", clipPath: FLAP_CLIP }}
-        animate={{ rotateX: phase !== "idle" ? 185 : 0 }}
-        transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+        animate={{ rotateX: phase !== "idle" ? 182 : 0 }}
+        transition={{ duration: 1.1, ease: [0.25, 1, 0.5, 1] }}
       >
         {/* Textured surface */}
         <div

@@ -26,7 +26,7 @@ export default function EnvelopeLetter({
     phase === "idle"
       ? `inset(${EH * 0.6}px 0px 0px 0px)`
       : phase === "card"
-        ? "inset(-500px -500px -500px -500px)" // expanded — no edges clipped
+        ? "none" // remove clip entirely — no CSS tween that could contract from above
         : "inset(-1000px 0px 0px 0px)"; // rising — only sides clamped
 
   return (
@@ -46,7 +46,7 @@ export default function EnvelopeLetter({
           left: (EW - CARD_W) / 2,
           top: 15, // slightly below the flap so it hides safely before rising
         }}
-        initial={{ y: 0, rotateX: 8, scale: 0.96 }}
+        initial={{ y: 0, rotateX: 12, scale: 0.94 }}
       >
         <div
           className="rounded-lg"
