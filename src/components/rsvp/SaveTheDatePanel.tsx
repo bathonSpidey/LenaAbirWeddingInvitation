@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { useCountry } from "../../hooks/useCountry";
 import CountdownStrip from "../BridgertonCountdown";
 import RSVPTexture from "../../assets/RSVPTexture.png";
 import CalendarButton from "./CalendarButton";
@@ -69,6 +70,8 @@ export default function SaveTheDatePanel({
 }: SaveTheDatePanelProps) {
   const daysUntil = useDaysUntil(WEDDING_DATE);
   const { t } = useTranslation();
+  const { country: userCountry } = useCountry();
+  const isIndia = userCountry === "DE"; // TESTING: change back to "IN" for production
 
   return (
     <aside className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center relative overflow-hidden">
@@ -130,43 +133,47 @@ export default function SaveTheDatePanel({
           {t("saveTheDate.addToCalendar")}
         </p>
 
-        {/* Event 1: Mehendi */}
-        <div className="mb-1">
-          <p
-            className="font-['Cinzel'] text-[8px] tracking-[0.35em] uppercase mb-2 font-bold"
-            style={{ color: "#B98C8C" }}
-          >
-            4 Dec · Mehendi
-          </p>
-          <div className="flex flex-col gap-2">
-            <CalendarButton
-              iconUrl={GoogleIcon}
-              label={t("saveTheDate.googleCalendar")}
-              onClick={() =>
-                window.open(
-                  "https://calendar.app.google/9r9cuMYnGhJBwYry6",
-                  "_blank",
-                )
-              }
-            />
-            <CalendarButton
-              iconUrl={Quill}
-              label={t("saveTheDate.appleOutlook")}
-              onClick={downloadMehendiICS}
-            />
+        {/* Event 1: Mehendi — hidden for Indian guests */}
+        {!isIndia && (
+          <div className="mb-1">
+            <p
+              className="font-['Cinzel'] text-[8px] tracking-[0.35em] uppercase mb-2 font-bold"
+              style={{ color: "#B98C8C" }}
+            >
+              4 Dec · Mehendi
+            </p>
+            <div className="flex flex-col gap-2">
+              <CalendarButton
+                iconUrl={GoogleIcon}
+                label={t("saveTheDate.googleCalendar")}
+                onClick={() =>
+                  window.open(
+                    "https://calendar.app.google/9r9cuMYnGhJBwYry6",
+                    "_blank",
+                  )
+                }
+              />
+              <CalendarButton
+                iconUrl={Quill}
+                label={t("saveTheDate.appleOutlook")}
+                onClick={downloadMehendiICS}
+              />
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Thin ornamental divider */}
-        <div className="relative my-3 flex items-center justify-center">
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/25 to-transparent" />
-          <span
-            className="absolute text-[8px]"
-            style={{ color: "#C9A84C", opacity: 0.5 }}
-          >
-            ✦
-          </span>
-        </div>
+        {/* Thin ornamental divider — hidden for Indian guests */}
+        {!isIndia && (
+          <div className="relative my-3 flex items-center justify-center">
+            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/25 to-transparent" />
+            <span
+              className="absolute text-[8px]"
+              style={{ color: "#C9A84C", opacity: 0.5 }}
+            >
+              ✦
+            </span>
+          </div>
+        )}
 
         {/* Event 2: Reception */}
         <div>

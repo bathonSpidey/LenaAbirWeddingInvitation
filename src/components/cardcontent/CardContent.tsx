@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useCountry } from "../../hooks/useCountry";
 import CountdownStrip from "../BridgertonCountdown";
 import FlowerSlider from "../envelope/Slider";
 import { styles } from "./styles";
@@ -12,6 +13,8 @@ export default function CardContent({
   onRSVP: () => void;
 }) {
   const { t } = useTranslation();
+  const { country } = useCountry();
+  const isIndia = country === "DE"; // TESTING: change back to "IN" for production
   const [sliderKey, setSliderKey] = useState(0);
 
   return (
@@ -72,7 +75,9 @@ export default function CardContent({
               {/* Date row */}
               <div style={{ textAlign: "center", marginBottom: "0.3rem" }}>
                 <span className="detail-label">{t("card.date")}</span>
-                <span className="detail-main">4 & 6 December 2026</span>
+                <span className="detail-main">
+                  {isIndia ? "6 December 2026" : "4 & 6 December 2026"}
+                </span>
               </div>
 
               {/* Venue + Time side by side */}
@@ -84,7 +89,9 @@ export default function CardContent({
                 <div className="venue-time-divider" />
                 <div style={{ textAlign: "center", paddingLeft: "0.5rem" }}>
                   <span className="detail-label">{t("card.time")}</span>
-                  <span className="detail-main">5:00 PM</span>
+                  <span className="detail-main">
+                    {isIndia ? "2:00 PM" : "5:00 PM"}
+                  </span>
                 </div>
               </div>
             </div>

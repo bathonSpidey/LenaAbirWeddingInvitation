@@ -8,12 +8,15 @@ import EnvelopeStage from "./envelope/EnvelopeStage";
 import Activities from "./Activities";
 import Expectations from "./expectations/Expectations";
 import { useEnvelopeAnimation } from "../hooks/useEnvelopeAnimation";
+import { useCountry } from "../hooks/useCountry";
 import MusicControls from "./MusicControls";
 
 
 export default function EnvelopeIntro() {
   const { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal, isPlaying, togglePlay, replay } =
     useEnvelopeAnimation();
+  const { country } = useCountry();
+  const isIndia = country === "DE";
 
   // ── Section visibility ──────────────────────────────────
   const [showRegrets, setShowRegrets] = useState(false);
@@ -88,9 +91,11 @@ export default function EnvelopeIntro() {
             onOurStory={() => scrollTo(storyRef)}
             onDiscover={() => scrollTo(travelRef)}
           />
-          <TravelPortal
-            innerRef={travelRef as React.RefObject<HTMLDivElement>}
-          />
+          {!isIndia && (
+            <TravelPortal
+              innerRef={travelRef as React.RefObject<HTMLDivElement>}
+            />
+          )}
 
           <div ref={storyRef} className="snap-start">
             <OurStory
@@ -130,9 +135,11 @@ export default function EnvelopeIntro() {
               onWhatToExpect={() => scrollTo(expectationsRef)}
             />
           </div>
-          <TravelPortal
-            innerRef={travelRef as React.RefObject<HTMLDivElement>}
-          />
+          {!isIndia && (
+            <TravelPortal
+              innerRef={travelRef as React.RefObject<HTMLDivElement>}
+            />
+          )}
 
           <div ref={storyRef} className="snap-start">
             <OurStory
@@ -142,10 +149,12 @@ export default function EnvelopeIntro() {
             />
           </div>
 
-          <Expectations
-            innerRef={expectationsRef as React.RefObject<HTMLDivElement>}
-            onBack={() => scrollTo(rsvpRef)}
-          />
+          {!isIndia && (
+            <Expectations
+              innerRef={expectationsRef as React.RefObject<HTMLDivElement>}
+              onBack={() => scrollTo(rsvpRef)}
+            />
+          )}
 
           {/* <div ref={discoverRef} className="snap-start">
             <DiscoverAssam
@@ -155,9 +164,11 @@ export default function EnvelopeIntro() {
             />
           </div> */}
 
-          <div ref={activitiesRef} className="snap-start">
-            <Activities onBack={() => scrollTo(rsvpRef)} />
-          </div>
+          {!isIndia && (
+            <div ref={activitiesRef} className="snap-start">
+              <Activities onBack={() => scrollTo(rsvpRef)} />
+            </div>
+          )}
         </>
       )}
     </div>
