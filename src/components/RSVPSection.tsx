@@ -7,6 +7,7 @@ import { S } from "./rsvp/styles";
 import TravelCardsGrid from "./rsvp/TravelCardsGrid";
 import type { CountryKey } from "./rsvp/types";
 import VenueSection from "./rsvp/VenueSection";
+import { useCountry } from "../hooks/useCountry";
 
 // ─── Root Component ────────────────────────────────────────────────────────────
 
@@ -28,6 +29,8 @@ export default function RSVPSection({
 }: RSVPSectionProps) {
   const [country, setCountry] = useState<CountryKey>("Germany");
   const { t } = useTranslation();
+  const { country: userCountry, loading } = useCountry();
+  const isIndia = !loading && userCountry === "IN";
 
   return (
     <div
@@ -52,19 +55,24 @@ export default function RSVPSection({
             className="relative z-10 flex flex-col" // Added flex-col to control stacking
           >
             {/* CHANGE 3: Tightened the label spacing */}
-            <p
-              className={`${S.sectionLabel} mt-4 mb-2 text-center opacity-80 font-bold relative z-10`}
-            >
-              {t("rsvp.travelGuide")}
-            </p>
+            {!isIndia && (
+              <div>
+                <p
+                  className={`${S.sectionLabel} mt-4 mb-2 text-center opacity-80 font-bold relative z-10`}
+                >
+                  {t("rsvp.travelGuide")}
+                </p>
 
-            {/* THE TRAVEL GRID */}
-            <div className="mb-0 pb-0">
-              <TravelCardsGrid
-                onOpenGuide={onNavigateToTravel}
-                onDiscoverAssam={onDiscoverActivities}
-              />
-            </div>
+                {/* THE TRAVEL GRID */}
+
+                <div className="mb-0 pb-0">
+                  <TravelCardsGrid
+                    onOpenGuide={onNavigateToTravel}
+                    onDiscoverAssam={onDiscoverActivities}
+                  />
+                </div>
+              </div>
+            )}
 
             {/* THE VENUE SECTION: Now snuggled right up to the grid */}
             <div className="-mt-8 md:-mt-12">

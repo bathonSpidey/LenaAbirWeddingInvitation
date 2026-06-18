@@ -1,11 +1,14 @@
 import { useTranslation } from "react-i18next";
 import Elephant from "../../assets/elephant.png";
 import Mehendi from "../../assets/Mehendi.png";
+import { useCountry } from "../../hooks/useCountry";
 
 const ELEPHANT_ICON = Elephant;
 const MEHENDI_IMAGE = Mehendi;
 export default function VenueSection() {
   const { t } = useTranslation();
+  const { country: userCountry, loading } = useCountry();
+  const isIndia = !loading && userCountry === "IN";
 
   return (
     <section
@@ -23,50 +26,52 @@ export default function VenueSection() {
 
       <div className="grid md:grid-cols-2 gap-6 items-center max-w-6xl mx-auto px-6 relative z-10">
         {/* LEFT SIDE: Letterhead & Elephant Stamp */}
-        <div className="flex flex-col space-y-4">
-          {" "}
-          {/* Reduced space-y from 6 to 4 */}
-          <div>
-            <h2 className="font-['Pinyon_Script'] text-5xl md:text-6xl text-[#AF944D] drop-shadow-sm mb-1">
-              {t("venue.mehendi")}
-            </h2>
-            <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-tight">
-              {t("venue.descMehendi")}
-            </p>
-          </div>
-          <div
-            /* COMPACT: Reduced p-6 to p-4 */
-            className="p-4 border border-[#B98C8C]/20 bg-white/60 backdrop-blur-md relative overflow-hidden shadow-inner flex gap-4"
-            style={{
-              boxShadow: "inset 0 2px 8px rgba(185, 140, 140, 0.1)",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.04'/%3E%3C/svg%3E")`,
-            }}
-          >
-            <div className="hidden sm:block flex-shrink-0">
-              {/* SHRUNK: Elephant container w-20 to w-16 */}
-              <div className="w-16 h-16 border border-[#B98C8C]/20 p-1 rounded-full flex items-center justify-center bg-[#FDFBF7] shadow-sm relative">
-                <img
-                  src={MEHENDI_IMAGE}
-                  alt="Mehendi Function"
-                  className="w-12 h-12 object-contain drop-shadow-md"
-                />
-              </div>
+        {!isIndia && (
+          <div className="flex flex-col space-y-4">
+            {" "}
+            {/* Reduced space-y from 6 to 4 */}
+            <div>
+              <h2 className="font-['Pinyon_Script'] text-5xl md:text-6xl text-[#AF944D] drop-shadow-sm mb-1">
+                {t("venue.mehendi")}
+              </h2>
+              <p className="font-['Cormorant_Garamond'] text-xl italic text-stone-600 leading-tight">
+                {t("venue.descMehendi")}
+              </p>
             </div>
+            <div
+              /* COMPACT: Reduced p-6 to p-4 */
+              className="p-4 border border-[#B98C8C]/20 bg-white/60 backdrop-blur-md relative overflow-hidden shadow-inner flex gap-4"
+              style={{
+                boxShadow: "inset 0 2px 8px rgba(185, 140, 140, 0.1)",
+                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.04'/%3E%3C/svg%3E")`,
+              }}
+            >
+              <div className="hidden sm:block flex-shrink-0">
+                {/* SHRUNK: Elephant container w-20 to w-16 */}
+                <div className="w-16 h-16 border border-[#B98C8C]/20 p-1 rounded-full flex items-center justify-center bg-[#FDFBF7] shadow-sm relative">
+                  <img
+                    src={MEHENDI_IMAGE}
+                    alt="Mehendi Function"
+                    className="w-12 h-12 object-contain drop-shadow-md"
+                  />
+                </div>
+              </div>
 
-            <address className="not-italic font-['Cinzel'] text-[10px] tracking-[0.2em] text-[#A67C7C] leading-[2] uppercase flex-grow">
-              <span className="block border-b border-[#B98C8C]/20 pb-0.5 mb-1 text-[#B98C8C] font-bold">
-                Address for Mehendi On the 4th
-              </span>
-              Chari Ali, Madhubon
-              <br />
-              <span className="text-stone-400">Choladhora, Jorhat</span>
-              <br />
-              <span className="text-[#B98C8C] font-bold">
-                Assam 785001, India
-              </span>
-            </address>
+              <address className="not-italic font-['Cinzel'] text-[10px] tracking-[0.2em] text-[#A67C7C] leading-[2] uppercase flex-grow">
+                <span className="block border-b border-[#B98C8C]/20 pb-0.5 mb-1 text-[#B98C8C] font-bold">
+                  Address for Mehendi On the 4th
+                </span>
+                Chari Ali, Madhubon
+                <br />
+                <span className="text-stone-400">Choladhora, Jorhat</span>
+                <br />
+                <span className="text-[#B98C8C] font-bold">
+                  Assam 785001, India
+                </span>
+              </address>
+            </div>
           </div>
-        </div>
+        )}
         {/* RIGHT SIDE: Wedding Reception */}
         <div className="flex flex-col space-y-4">
           {" "}

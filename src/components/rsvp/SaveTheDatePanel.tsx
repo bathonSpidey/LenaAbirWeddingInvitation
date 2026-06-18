@@ -72,6 +72,7 @@ export default function SaveTheDatePanel({
   const { t } = useTranslation();
   const { country: userCountry, loading } = useCountry();
   const isIndia = !loading && userCountry === "IN";
+  console.log("User country:", userCountry, "isIndia:", isIndia);
 
   return (
     <aside className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center relative overflow-hidden">
@@ -163,7 +164,7 @@ export default function SaveTheDatePanel({
         )}
 
         {/* Thin ornamental divider — hidden for Indian guests */}
-        {!isIndia && (
+        {
           <div className="relative my-3 flex items-center justify-center">
             <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#C9A84C]/25 to-transparent" />
             <span
@@ -173,7 +174,7 @@ export default function SaveTheDatePanel({
               ✦
             </span>
           </div>
-        )}
+        }
 
         {/* Event 2: Reception */}
         <div>
@@ -203,14 +204,15 @@ export default function SaveTheDatePanel({
         </div>
       </div>
 
-      <motion.button
-        whileHover={{
-          scale: 1.01,
-          backgroundColor: "#F9F6EE",
-          borderColor: "#D4AF37",
-        }}
-        whileTap={{ scale: 0.98 }}
-        className="
+      {!isIndia && (
+        <motion.button
+          whileHover={{
+            scale: 1.01,
+            backgroundColor: "#F9F6EE",
+            borderColor: "#D4AF37",
+          }}
+          whileTap={{ scale: 0.98 }}
+          className="
     w-full py-4 px-4 mb-6
     text-[11px] font-['Cinzel'] tracking-[0.35em] uppercase 
     cursor-pointer transition-all duration-300 relative group
@@ -219,25 +221,26 @@ export default function SaveTheDatePanel({
     shadow-[0_8px_20px_rgba(201,168,76,0.15),inset_0_1px_0px_rgba(255,255,255,0.8)]
     overflow-hidden
   "
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='silk'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23silk)' opacity='0.03'/%3E%3C/svg%3E")`,
-          backgroundBlendMode: "overlay",
-        }}
-      >
-        <span
-          className="relative z-10 font-bold"
           style={{
-            color: "#8B6E2A",
-            textShadow: "0.5px 0.5px 0px rgba(255,255,255,0.8)",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='silk'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23silk)' opacity='0.03'/%3E%3C/svg%3E")`,
+            backgroundBlendMode: "overlay",
           }}
         >
-          {t("saveTheDate.whatToExpect")}
-        </span>
-        <div className="absolute inset-[5px] border border-[#C9A84C]/20 pointer-events-none opacity-30 group-hover:opacity-50 transition-opacity" />
-        <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#C9A84C]/40" />
-        <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#C9A84C]/40" />
-        <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1500ms] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
-      </motion.button>
+          <span
+            className="relative z-10 font-bold"
+            style={{
+              color: "#8B6E2A",
+              textShadow: "0.5px 0.5px 0px rgba(255,255,255,0.8)",
+            }}
+          >
+            {t("saveTheDate.whatToExpect")}
+          </span>
+          <div className="absolute inset-[5px] border border-[#C9A84C]/20 pointer-events-none opacity-30 group-hover:opacity-50 transition-opacity" />
+          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-[#C9A84C]/40" />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[#C9A84C]/40" />
+          <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1500ms] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+        </motion.button>
+      )}
 
       <div className="space-y-3">
         <label className="block font-['Cinzel'] text-[9px] tracking-widest text-stone-500 uppercase">
