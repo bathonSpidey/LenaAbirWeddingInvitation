@@ -11,12 +11,19 @@ import { useEnvelopeAnimation } from "../hooks/useEnvelopeAnimation";
 import { useCountry } from "../hooks/useCountry";
 import MusicControls from "./MusicControls";
 
-
 export default function EnvelopeIntro() {
-  const { phase, flapZIndex, envelopeAnim, letterAnim, handleSeal, isPlaying, togglePlay, replay } =
-    useEnvelopeAnimation();
+  const {
+    phase,
+    flapZIndex,
+    envelopeAnim,
+    letterAnim,
+    handleSeal,
+    isPlaying,
+    togglePlay,
+    replay,
+  } = useEnvelopeAnimation();
   const { country } = useCountry();
-  const isIndia = country === "DE";
+  const isIndia = country === "IN";
 
   // ── Section visibility ──────────────────────────────────
   const [showRegrets, setShowRegrets] = useState(false);
@@ -66,7 +73,11 @@ export default function EnvelopeIntro() {
       style={{ scrollBehavior: "smooth", overscrollBehavior: "contain" }}
     >
       {phase !== "idle" && (
-        <MusicControls isPlaying={isPlaying} onToggle={togglePlay} onReplay={replay} />
+        <MusicControls
+          isPlaying={isPlaying}
+          onToggle={togglePlay}
+          onReplay={replay}
+        />
       )}
       {/* ── Section 1: Envelope scene ── */}
       <EnvelopeStage
