@@ -9,6 +9,7 @@ import Story from "../../assets/ourstory.jpg";
 import FirstEncounter from "../../assets/firstencounter.jpg";
 import LeapOfFaith from "../../assets/leapoffaith.jpg";
 import Proposal from "../../assets/proposal.jpg";
+import Wedding from "../../assets/wedding.png";
 
 // ─── milestone static config ──────────────────────────────────────────────────
 // year, location, flag live here alongside translated title/desc from i18n
@@ -16,7 +17,12 @@ const MILESTONE_META = [
   { year: "2024", location: "Oberstdorf", flag: "🇩🇪", image: FirstEncounter },
   { year: "2024", location: "Baden-Baden", flag: "🇩🇪", image: LeapOfFaith },
   { year: "2025", location: "Rheinfall", flag: "🇨🇭", image: Proposal },
-  { year: "2026", location: "🇩🇰 Denmark → 🇮🇳 Jorhat", flag: "" },
+  {
+    year: "2026",
+    location: "🇩🇰 Denmark → 🇮🇳 Jorhat",
+    flag: "",
+    image: Wedding,
+  },
 ] as const;
 
 // ─── component ────────────────────────────────────────────────────────────────
