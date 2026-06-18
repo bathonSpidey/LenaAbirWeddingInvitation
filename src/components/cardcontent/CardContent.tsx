@@ -14,7 +14,7 @@ export default function CardContent({
 }) {
   const { t } = useTranslation();
   const { country } = useCountry();
-  const isIndia = country === "DE"; // TESTING: change back to "IN" for production
+  const isIndia = country === "IN"; // TESTING: change back to "IN" for production
   const [sliderKey, setSliderKey] = useState(0);
 
   return (

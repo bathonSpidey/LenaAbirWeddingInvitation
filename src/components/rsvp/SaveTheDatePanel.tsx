@@ -71,7 +71,7 @@ export default function SaveTheDatePanel({
   const daysUntil = useDaysUntil(WEDDING_DATE);
   const { t } = useTranslation();
   const { country: userCountry } = useCountry();
-  const isIndia = userCountry === "DE"; // TESTING: change back to "IN" for production
+  const isIndia = userCountry === "IN"; // TESTING: change back to "IN" for production
 
   return (
     <aside className="w-full md:w-1/3 p-12 border-r border-stone-200 flex flex-col justify-center relative overflow-hidden">
