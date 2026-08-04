@@ -5,7 +5,7 @@ export const downloadICS = () => {
     "VERSION:2.0",
     "PRODID:-//Abir & Lena Wedding//EN",
     "BEGIN:VEVENT",
-    "DTSTART:20261206T073000Z",
+    "DTSTART:20261206T083000Z",
     "DTEND:20261206T163000Z",
     "SUMMARY:Wedding Reception: Abir & Lena",
     "DESCRIPTION:Celebrating the marriage of Abir and Lena at Royal Park.",
