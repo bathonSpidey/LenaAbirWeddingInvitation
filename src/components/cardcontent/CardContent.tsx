@@ -84,7 +84,7 @@ export default function CardContent({
               <div className="venue-time-grid">
                 <div style={{ textAlign: "center", paddingRight: "0.5rem" }}>
                   <span className="detail-label">{t("card.venue")}</span>
-                  <span className="detail-main">Jorhat</span>
+                  <span className="detail-main">Royal Park Jorhat</span>
                 </div>
                 <div className="venue-time-divider" />
                 <div style={{ textAlign: "center", paddingLeft: "0.5rem" }}>
