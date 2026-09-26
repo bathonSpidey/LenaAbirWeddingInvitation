@@ -190,7 +190,7 @@ export default function SaveTheDatePanel({
               label={t("saveTheDate.weddingCalendar")}
               onClick={() =>
                 window.open(
-                  "https://calendar.app.google/A2MAYbKQoP4xxuKy7",
+                  "https://calendar.app.google/odfkBCRRwn7VJAXK7",
                   "_blank",
                 )
               }
